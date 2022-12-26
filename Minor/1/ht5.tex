@@ -1,0 +1,182 @@
+\documentclass{article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[a4paper, left=10mm, right=10mm, top=12mm, bottom=15mm]{geometry}
+\usepackage{mathtools,amssymb}
+\usepackage{ulem}
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+
+
+\linespread{1.4}
+
+\newenvironment{task}{\begin{center}\fontsize{14}{14}\selectfont\bf}{\rm\fontsize{12}{12}\selectfont\end{center}}
+
+\newcommand{\impl}{\quad\Leftrightarrow\quad}
+\newcommand{\rimpl}{\quad\Rightarrow\quad}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+\begin{document}
+	\begin{center}
+		Токмаков Александр, ФКН, группа БПМИ165 \\
+		Домашнее задание 5
+	\end{center}
+	
+	\begin{task} 
+		№1
+	\end{task}
+	\begin{center}
+		$e \in (2.71828,  	2.71829), \quad e' = \frac{p}{q}, \quad p, q \in \N, \quad q \leq 10$\\
+	\end{center}
+	Подберём такие $p$ и $q$, чтобы отклонение было минимальным: 
+	\begin{center}
+		$e = \frac{2718285}{10^{6}} \pm \frac{5}{10^{6}}$ \\
+		$\frac{2718285}{10^{6}} \pm \frac{5}{10^{6}} - \frac{p}{q} = \alpha, \quad |\alpha| \rightarrow \min$ \\
+		$\frac{2718285q - 10^{6}p \pm 5q}{10^{6}q}= \alpha, \quad |\alpha| \rightarrow \min$ \\
+	\end{center}
+	Будем перебирать $p$ в промежутке $[\lfloor2.7q\rfloor, \lceil2.8q\rceil]$ т.к. остальные $p$ дадут заведомо плохие приближения:
+	\begin{center}
+		\setlength{\tabcolsep}{2pt}\begin{tabular}{clcl}
+			$q = 1, \quad p = 2 \quad 	 $ & $ 
+			|\alpha| = \frac{718285 \pm 5}{1000000}$ & $ \approx $ & $ 0.71835 \pm 0.00005 $\\
+			$q = 1, \quad p = 3 \quad 	 $ & $ 
+			|\alpha| = \frac{281715 \pm 5}{1000000}$ & $ \approx $ & $ 0.28175 \pm 0.00005 $\\
+			$q = 2, \quad p = 5 \quad 	 $ & $ 
+			|\alpha| = \frac{436570 \pm 10}{2000000}$ & $ \approx $ & $ 0.21835 \pm 0.00005 $\\
+			$q = 2, \quad p = 6 \quad 	 $ & $ 
+			|\alpha| = \frac{563430 \pm 10}{2000000}$ & $ \approx $ & $ 0.28175 \pm 0.00005 $\\
+			$q = 3, \quad p = 8 \quad 	 $ & $ 
+			|\alpha| = \frac{154855 \pm 15}{3000000}$ & $ \approx $ & $ 0.05165 \pm 0.00005 $\\
+			$q = 3, \quad p = 9 \quad 	 $ & $ 
+			|\alpha| = \frac{845145 \pm 15}{3000000}$ & $ \approx $ & $ 0.28175 \pm 0.00005 $\\
+			$q = 4, \quad p = 10 \quad 	 $ & $ 
+			|\alpha| = \frac{873140 \pm 20}{4000000}$ & $ \approx $ & $ 0.21835 \pm 0.00005 $\\
+			$q = 4, \quad p = 11 \quad 	 $ & $ 
+			|\alpha| = \frac{126860 \pm 20}{4000000}$ & $ \approx $ & $ 0.03175 \pm 0.00005 $\\
+			$q = 4, \quad p = 12 \quad 	 $ & $ 
+			|\alpha| = \frac{1126860 \pm 20}{4000000}$ & $ \approx $ & $ 0.28175 \pm 0.00005 $\\
+			$q = 5, \quad p = 13 \quad 	 $ & $ 
+			|\alpha| = \frac{591425 \pm 25}{5000000}$ & $ \approx $ & $ 0.11835 \pm 0.00005 $\\
+			$q = 5, \quad p = 14 \quad 	 $ & $ 
+			|\alpha| = \frac{408575 \pm 25}{5000000}$ & $ \approx $ & $ 0.08175 \pm 0.00005 $\\
+			$q = 6, \quad p = 16 \quad 	 $ & $ 
+			|\alpha| = \frac{309710 \pm 30}{6000000}$ & $ \approx $ & $ 0.05165 \pm 0.00005 $\\
+			$q = 6, \quad p = 17 \quad 	 $ & $ 
+			|\alpha| = \frac{690290 \pm 30}{6000000}$ & $ \approx $ & $ 0.11505 \pm 0.00005 $\\
+			$q = 7, \quad p = 18 \quad 	 $ & $ 
+			|\alpha| = \frac{1027995 \pm 35}{7000000}$ & $ \approx $ & $ 0.14695 \pm 0.00005 $\\
+			$q = 7, \quad p = 19 \quad 	 $ & $ 
+			|\alpha| = \frac{27995 \pm 35}{7000000}$ & $ \approx $ & $ 0.00405 \pm 0.00005 $\\
+			$q = 7, \quad p = 20 \quad 	 $ & $ 
+			|\alpha| = \frac{972005 \pm 35}{7000000}$ & $ \approx $ & $ 0.13895 \pm 0.00005 $\\
+			$q = 8, \quad p = 21 \quad 	 $ & $ 
+			|\alpha| = \frac{746280 \pm 40}{8000000}$ & $ \approx $ & $ 0.09335 \pm 0.00005 $\\
+			$q = 8, \quad p = 22 \quad 	 $ & $ 
+			|\alpha| = \frac{253720 \pm 40}{8000000}$ & $ \approx $ & $ 0.03175 \pm 0.00005 $\\
+			$q = 8, \quad p = 23 \quad 	 $ & $ 
+			|\alpha| = \frac{1253720 \pm 40}{8000000}$ & $ \approx $ & $ 0.15675 \pm 0.00005 $\\
+			$q = 9, \quad p = 24 \quad 	 $ & $ 
+			|\alpha| = \frac{464565 \pm 45}{9000000}$ & $ \approx $ & $ 0.05165 \pm 0.00005 $\\
+			$q = 9, \quad p = 25 \quad 	 $ & $ 
+			|\alpha| = \frac{535435 \pm 45}{9000000}$ & $ \approx $ & $ 0.05955 \pm 0.00005 $\\
+			$q = 9, \quad p = 26 \quad 	 $ & $ 
+			|\alpha| = \frac{1535435 \pm 45}{9000000}$ & $ \approx $ & $ 0.17065 \pm 0.00005 $\\
+			$q = 10, \quad p = 27 \quad 	 $ & $ 
+			|\alpha| = \frac{182850 \pm 50}{10000000}$ & $ \approx $ & $ 0.01835 \pm 0.00005 $\\
+			$q = 10, \quad p = 28 \quad 	 $ & $ 
+			|\alpha| = \frac{817150 \pm 50}{10000000}$ & $ \approx $ & $ 0.08175 \pm 0.00005 $\\
+			
+		\end{tabular}
+	\end{center}
+	Как оказалось, точности в 4 знака после запятой вполне достаточно, чтобы увидеть, что дробь $\frac{19}{7}$ является лучшим приближением числа $e$, со знаменателем не больше 10.
+	
+	\begin{task} 
+		№2
+	\end{task}
+	Представим $\frac{55}{34}$ в виде цепной дроби: 
+	\begin{center}
+		\fontsize{14}{14}\selectfont
+		$\frac{55}{34} = 1 + \frac{21}{34} = 1 +  \frac{1}{\frac{34}{21}} = 1 +  \frac{1}{1 + \frac{13}{21}} = 
+		1 +  \frac{1}{1 + \frac{1}{\frac{21}{13}}}  = 1 +  \frac{1}{1 + \frac{1}{1 + \frac{8}{13}}} 
+		= 1 +  \frac{1}{1 + \frac{1}{1 + \frac{1}{\frac{13}{8}}}} =$ \\
+		$= 1 +  \frac{1}{1 + \frac{1}{1 + \frac{1}{1 + \frac{5}{8}}}} 
+		= 1 +  \frac{1}{1 + \frac{1}{1 + \frac{1}{1 + \frac{1}{\frac{8}{5}}}}} 
+		= 1 +  \frac{1}{1 + \frac{1}{1 + \frac{1}{1 + \frac{1}{1 + \frac{3}{5}}}}} 
+		= 1 +  \frac{1}{1 + \frac{1}{1 + \frac{1}{1 + \frac{1}{1 + \frac{1}{1 + \frac{2}{3}}}}}} = $\\
+		\fontsize{16}{16}\selectfont
+		$= 1 +  \frac{1}{1 + \frac{1}{1 + \frac{1}{1 + \frac{1}{1 + \frac{1}{1 + \frac{1}{1 + \frac{1}{2}}}}}}} $
+		\fontsize{12}{12}\selectfont
+	\end{center}
+
+
+	\begin{task} 
+		№3
+	\end{task}
+	Представим $\sqrt{5}$ в виде цепной дроби: 
+	\begin{center}
+		\fontsize{14}{14}\selectfont
+		$\sqrt{5} = 2 + (\sqrt{5} - 2) = 2 + \frac{1}{\frac{1}{\sqrt{5} - 2}} = 2 + \frac{1}{\frac{\sqrt{5} + 2}{5 - 4}}
+		= 2 + \frac{1}{2 + \sqrt{5}} 
+		= 2 + \frac{1}{2 + 2 + \frac{1}{2 + \sqrt{5}}} 
+		= 2 + \frac{1}{4 + \frac{1}{2 + \sqrt{5}}} = $ \\ $ 
+		= 2 + \frac{1}{4 + \frac{1}{2 + 2 + \frac{1}{2 + \sqrt{5}} }} 
+		= 2 + \frac{1}{4 + \frac{1}{4 + \frac{1}{2 + \sqrt{5}} }} 
+		= 2 + \frac{1}{4 + \frac{1}{4 + \frac{1}{4 + \frac{1}{4 + \dots}}}} $ \\
+		\fontsize{12}{12}\selectfont
+	\end{center}
+	Если рекурсивно повторять эту процедуру, получится бесконечная цепная дробь $[2, 4, 4, 4, 4, ...]$
+
+	
+	\begin{task} 
+		№4
+	\end{task}
+	Пусть цепная дробь конечна. Тогда она имеет вид $x = a_1 + \frac{1}{a_2 + \frac{1}{
+			a_{n-2} + \frac{\ddots 1}{a_{n-1} + \frac{1}{a_n}}}}$ и её можно <<свернуть>>: \\
+		
+	\begin{center}
+		\fontsize{14}{14}\selectfont
+		$x = a_1 + \frac{1}{a_2 + \frac{1}{
+				a_{n-2} + \frac{\ddots 1}{a_{n-1} + \frac{1}{a_n}}}} 
+		= a_1 + \frac{1}{a_2 + \frac{1}{a_{n-2} + \frac{\ddots 1}{\frac{1 + a_{n-2}a_{n-1}}{a_n}}}}
+		= a_1 + \frac{1}{a_2 + \frac{1}{a_{n-2} + \frac{\ddots a_n}{1 + a_{n-2}a_{n-1}}}} $
+		
+		\fontsize{12}{12}\selectfont
+	\end{center}
+	Каждый такой шаг сворачивания дроби уменьшает её <<глубину>> (количество дробей) на 1, когда-то этот процесс закончится по причине конечности цепной дроби. В результате останется обыкновенная дробь вида $\frac{p}{q}, p \in \Z, q \in \N$. \\
+	
+	Пусть $x = \frac{p}{q}, p \in \Z, q \in \N$. Без ограничения общности можно считать, что $p > q$. (В противном случае можно рассмотреть дробь $\frac{q}{p}$ и получить разложение $x = 0 + \frac{1}{\frac{q}{p}}$) Разложим $x$ в цепную дробь, используя следующий алгоритм (внезапно, это алгоритм Евклида):
+	\begin{center}
+		Если $p = a\cdot q, a\in\Z$, то всё хорошо: $x = a$ \\
+		Иначе $p = a\cdot q + b, \quad a, b \in Z, \quad 0 < b < q$ и тогда: \\
+		\fontsize{14}{14}\selectfont
+		$x = \frac{p}{q} = \frac{a\cdot q + b}{q} = a + \frac{b}{q} = a + \frac{1}{\frac{q}{b}}$
+		
+		\fontsize{12}{12}\selectfont
+	\end{center}
+	Мы получили новую дробь $x_1 = \frac{p_1}{q_1} = \frac{q}{b}$, которую нужно разложить в цепную, причём $0 < p_1 < p$ и $0 < q_1 < q$, т.е. на каждом шаге числитель и знаменатель уменьшаются. Значит, на некотором шаге мы получим числитель $p_i = 1$ или знаменатель $q_i = 1$, что будет означать конец работы алгоритма и конечность цепной дроби.
+	
+	
+	
+	\begin{task} 
+		№5, рубрика <<Доказательства от ФКН>>
+	\end{task}
+	\sout{Напишем простую программу на Python, перебирающую степени двойки:} 
+	\textit{Заметим, что:}
+	\begin{center}
+		\fontsize{8.5}{8.5}\selectfont
+		$2^{393} = $ \\ $=
+		\textbf{2017}3827172553973356686868531273530268200826506478308693989526222973809547006571833044104322501076808092993531037089792$
+	\end{center}
+	Оно существует, десятичная запись степени двойки может начинаться с 2017.
+	
+	
+	
+	
+	
+	
+	
+
+
+\end{document}

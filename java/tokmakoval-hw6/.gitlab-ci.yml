@@ -1,0 +1,27 @@
+image: velkerr/oracle-hse
+
+before_script:
+  - apt-get update
+  - apt-get install -y software-properties-common
+  - add-apt-repository -y ppa:openjdk-r/ppa
+  - apt-get update
+  - apt-get install -y openjdk-8-jdk maven
+
+stages:
+  - build
+
+build_job:
+  stage: build
+  tags:
+    - docker-hse
+  script:
+    - mvn install -B
+    - cat target/site/jacoco/index.html
+  artifacts:
+    reports:
+      junit:
+        - target/surefire-reports/TEST-*.xml
+    paths:
+      - "TokenRing/target/tokmakoval-hw6-*.jar"
+  coverage: '/Total.*ctr2..?([0-9]{1,3})%/'
+

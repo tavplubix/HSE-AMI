@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[a4paper, left=10mm, right=10mm, top=12mm, bottom=15mm]{geometry}
+\usepackage{mathtools,amssymb}
+\usepackage{graphicx}
+
+\linespread{1.4}
+
+\newenvironment{task}{\begin{center}\fontsize{14}{14}\selectfont\bf}{\rm\fontsize{12}{12}\selectfont\end{center}}
+
+
+\begin{document}
+	\begin{center}
+		Токмаков Александр, группа БПМИ165 \\
+		Домашнее задание 5
+	\end{center}
+	
+	\begin{task} 
+		№10
+	\end{task}
+	Будем считать, что вероятность угадать напёрсток в некоторой игре - $p = \frac{1}{3}$, вероятность не угадать - $q = 1 - \frac{1}{3} = \frac{2}{3}$, все игры независимы. \\ Тогда вероятность выиграть $k-1$ раз подряд, а затем на $k$-тый раз проиграть $P(k) = \left(\frac{1}{3}\right)^{k-1}\cdot \frac{2}{3} = 2\left(\frac{1}{3}\right)^k$ \\
+	Найдём вероятность того, что первый проигрыш случится на игре с номером $k \leq n$:
+	\begin{center}
+		$P(k \leq n) = \sum\limits_{k=1}^{n}P(k) = \sum\limits_{k=1}^{n}2\left(\frac{1}{3}\right)^k
+		= \frac{\frac{2}{3}\left(1 - \left(\frac{1}{3}\right)^n\right)}{1 - \frac{1}{3}} 
+		= 1 - \frac{1}{3^n}$
+	\end{center}
+	Таким образом, функция распределения $F(n) = 1 - \frac{1}{3^n}$, построим её график:\\
+	\begin{center}
+		\includegraphics[width=19cm]{plot1m}
+	\end{center}
+	
+
+
+
+	
+	
+	\begin{task} 
+		№11
+	\end{task}
+	Пусть вероятностное пространство - $\Omega = [0, 1]^2$ - множество точек квадрата со стороной 1, $P((x_0, y_0) \in A) = \iint\limits_{A}1dxdy$ - вероятность того, что равновероятно выбранная точка попала в некоторое подмножество $A$. \\
+	Найдём вероятность того, что $min(x, y) \leq a$ при $a \in [0, 1]$:
+	\begin{center}
+		$A = \left\lbrace(x, y) \in \Omega \hspace{4px}|\hspace{4px} min(x, y) \leq a \right\rbrace
+		= \left\lbrace(x, y) \in \mathbb{R}^2 \hspace{4px}|\hspace{4px} 0\leq x \leq a \hspace{4px}\bigwedge\hspace{4px} x \leq y \leq 1 \right\rbrace 
+		\cup 
+		\left\lbrace(x, y) \in \mathbb{R}^2 \hspace{4px}|\hspace{4px} y < x \leq 1 \hspace{4px}\bigwedge\hspace{4px} 0 \leq y \leq a \right\rbrace $ \\
+		
+		$P(min(x, y) \leq a) = P(A) = \iint\limits_A1dxdy 
+		= \int\limits_0^a \left( \int\limits_x^1 1dy \right)dx  + \int\limits_0^a \left( \int\limits_y^1 1dx \right)dy 
+		= \int\limits_0^a \left( 1 - x \right)dx  + \int\limits_0^a \left( 1-y \right)dy 
+		= $\\$= 2 \int\limits_0^a \left( 1 - x \right)dx = 2(a - 0) - 2(\frac{a^2}{2} - 0) 
+		= 2a - a^2$\\
+	\end{center}
+	
+	Найдём вероятность того, что $|x-y| \leq a$ при $a \in [0, 1]$:
+	\begin{center}
+		$B = \left\lbrace(x, y) \in \Omega \hspace{4px}|\hspace{4px} |x-y| \leq a \right\rbrace
+		=$\\$= \left\lbrace(x, y) \in \mathbb{R}^2 \hspace{4px}|\hspace{4px} 0\leq y-x \leq a \hspace{4px}\bigwedge\hspace{4px} 0\leq x \leq y \leq 1 \right\rbrace 
+		\cup 
+		\left\lbrace(x, y) \in \mathbb{R}^2 \hspace{4px}|\hspace{4px} 0 \leq y < x \leq 1 \hspace{4px}\bigwedge\hspace{4px} 0 \leq x-y \leq a \right\rbrace =$ \\ $
+		= \left\lbrace(x, y) \in \mathbb{R}^2 \hspace{4px}|\hspace{4px} x \leq y \leq x+a \hspace{4px}\bigwedge\hspace{4px} 0 \leq x \leq y\leq 1 \right\rbrace 
+		\cup 
+		\left\lbrace(x, y) \in \mathbb{R}^2 \hspace{4px}|\hspace{4px} 0 \leq y < x \leq 1 \hspace{4px}\bigwedge\hspace{4px} y < x \leq y+a \right\rbrace =$ \\ 
+		
+		$= \left\lbrace(x, y) \in \mathbb{R}^2 \hspace{4px}|\hspace{4px} x \leq y \leq x+a \hspace{4px}\bigwedge\hspace{4px} 0 \leq x \leq 1 - a \right\rbrace 
+		\cup \left\lbrace(x, y) \in \mathbb{R}^2 \hspace{4px}|\hspace{4px} x \leq y \leq 1 \hspace{4px}\bigwedge\hspace{4px} 1-a < x \leq 1 \right\rbrace 
+		\cup $\\$ \cup 
+		\left\lbrace(x, y) \in \mathbb{R}^2 \hspace{4px}|\hspace{4px} 0 \leq y \leq 1 - a \hspace{4px}\bigwedge\hspace{4px} y < x \leq y+a \right\rbrace 
+		\cup 
+		\left\lbrace(x, y) \in \mathbb{R}^2 \hspace{4px}|\hspace{4px} 1-a < y \leq 1 \hspace{4px}\bigwedge\hspace{4px} y < x \leq 1 \right\rbrace$
+		\vspace{10px}
+		
+		$P(|x-y| \leq a) = P(B) = \iint\limits_A1dxdy 
+		= \int\limits_0^{1-a} \left( \int\limits_x^{x+a} 1dy \right)dx + \int\limits_{1-a}^{1} \left( \int\limits_x^{1} 1dy \right)dx
+		 + \int\limits_0^{1-a} \left( \int\limits_y^{y+a} 1dx \right)dy + \int\limits_{1-a}^{1} \left( \int\limits_y^{1} 1dx \right)dy = $ \\ \vspace{5px}
+		 $= 2\int\limits_0^{1-a} \left( \int\limits_x^{x+a} 1dy \right)dx + 2\int\limits_{1-a}^{1} \left( \int\limits_x^{1} 1dy \right)dx
+		 = 2\int\limits_0^{1-a} adx + 2\int\limits_{1-a}^{1} \left( 1-x \right)dx =$ \\
+		 $=2a\left((1-a)-0\right) + 2\left(\left(1 - (1-a)\right) - \left(\frac{1}{2} - \frac{(1-a)^2}{2}\right)\right) 
+		 = 2a\left(1-a\right) + \left(2a - 1 + (1-a)^2\right) = $ \\
+		 $= 2a(1-a) + (2a - 1 + 1 - 2a + a^a) = 2a(1-a) + a^2 = 2a - a^2$
+	\end{center}
+	Внезапно, $P(min(x, y) \leq a)= 2a - a^2 = P(|x-y| \leq a)$, т.е. распределения случайных величин $min(x, y)$ и $|x-y|$ совпадают.
+	
+\end{document}

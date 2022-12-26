@@ -1,0 +1,160 @@
+\documentclass{article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[a4paper, left=10mm, right=10mm, top=12mm, bottom=15mm]{geometry}
+\usepackage{mathtools,amssymb}
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+
+\linespread{1.4}
+
+\newenvironment{task}{\begin{center}\fontsize{14}{14}\selectfont\bf}{\rm\fontsize{12}{12}\selectfont\end{center}}
+
+
+\begin{document}
+	\begin{center}
+		Токмаков Александр, ФКН, группа БПМИ165 \\
+		Домашнее задание 3
+	\end{center}
+	
+	\begin{task} 
+		№1
+	\end{task}
+	\begin{center}
+		$0 \cdot 1 + 1\cdot 2 + 2\cdot 3 + 3\cdot4 + \dots + (n-1)n = \frac{(n-1)n(n+1)}{3} \quad \forall n\in \mathbb{N}$\\
+	\end{center}
+	Мне лень придумывать что-то другое, поэтому докажем по индукции. \\
+	База: при $n=1$ получим верное равенство $0\cdot1 =\frac{(1-1)\cdot 1\cdot (1+1)}{3}$\\
+	Пусть равенство верно для $n \in \mathbb{N}$, тогда для $n+1$:
+	\begin{center}
+		$0 \cdot 1 + 1\cdot 2 + 2\cdot 3 + 3\cdot4 + \dots + (n-1)n + n(n+1) = \frac{(n)(n+1)(n+2)}{3}$\\
+		$0 \cdot 1 + 1\cdot 2 + 2\cdot 3 + 3\cdot4 + \dots + (n-1)n = \frac{(n)(n+1)(n+2)}{3} - \frac{3n(n+1)}{3}$\\
+		$0 \cdot 1 + 1\cdot 2 + 2\cdot 3 + 3\cdot4 + \dots + (n-1)n = (n+1)\left( \frac{(n)(n+2)}{3} - \frac{3n}{3} \right)$\\
+		$0 \cdot 1 + 1\cdot 2 + 2\cdot 3 + 3\cdot4 + \dots + (n-1)n = (n+1)\frac{n^2 - n}{3}$\\
+		
+		$0 \cdot 1 + 1\cdot 2 + 2\cdot 3 + 3\cdot4 + \dots + (n-1)n = (n+1)\frac{n(n-1)}{3}$\\
+	\end{center} 
+	Выполнив эти преобразования в обратном порядке (снизу вверх), получим, что из равенства для $n$ следует равенство для $n+1$. Значит, по аксиоме индукции, равенство верно для любого натурально
+	го $n$.
+	
+	\begin{task} 
+		№2
+	\end{task}
+	\begin{center}
+		$2^n > n \quad \forall n \in \mathbb{N}$
+	\end{center}
+	Индукция уже была, использовать её снова не интересно. Докажем более сильное утверждение с помощью матана:
+	\begin{center}
+		$2^x > x  \quad \forall x \in \mathbb{R} \supset \mathbb{N}$
+	\end{center}
+	Рассмотрим функцию $f(x) = 2^x - x$. Найдём её локальный экстремум, и покажем, что это минимум, он единственный и функция в этой точке положительна:
+	\begin{center}
+		$\frac{df(x)}{dx} = \ln(2)\cdot 2^x - 1 = 0$ \\
+		$2^x = \frac{1}{\ln(2)}$ \\
+		$x_{min} = \log_2\left(\frac{1}{\ln(2)}\right) = -\log_2(\ln(2))$ \\
+		$f(x_{min}) = f(-\log_2(\ln(2))) = 2^{-\log_2(\ln(2))} + \log_2(\ln(2)) = \frac{1}{\ln(2)} + \log_2(\ln(2))$ \\
+		\begin{tabular}{r|}
+			$2 < e \Rightarrow \ln(2) < 1 \Rightarrow 1 < \frac{1}{\ln(2)}$ \\
+			$e < 2^2 \Rightarrow \frac{1}{2} < \ln(2) \Rightarrow -1 < \log_2(\ln(2))$ \\
+		\end{tabular} $\quad \Rightarrow \quad f(x_{min}) = \frac{1}{\ln(2)} + \log_2(\ln(2)) > 0$
+		
+		
+	\end{center}
+	Экстремум единственный т.к. точка $x_{min}$ задаётся явной формулой. \\
+	Вторая производная $\frac{d^2f(x)}{dx^2} = \ln^2(2)\cdot 2^x > 0 \Rightarrow$ первая производная монотонно возрастает. Также первая производная непрерывна как сумма непрерывных функций. Следовательно, $\frac{df(x)}{dx} \leq 0 $ при $x \leq x_{min}$ и $0 \leq \frac{df(x)}{dx}$ при $x_{min} \leq x \Rightarrow$ экстремум - минимум. \\
+	Функция $f(x)$ непрерывна, имеет единственный локальный минимум $ 0 < f(x_{min})$, убывает при $x \leq x_{min}$ и возрастает при x $\leq x_{min}$, следовательно, локальный минимум $ 0 < f(x_{min})$ является глобальным, следовательно \\ \begin{center} $0 < f(x) = 2^x-x \quad\Rightarrow\quad 2^x > x$ \end{center}
+	
+
+
+	\begin{task} 
+		№3
+	\end{task}
+	Очевидно, что среди любых четырёх последовательных целых чисел встретиться ровно два чётных числа (ровно одно из которых при этом делится на 4) и как минимум одно число, делящееся на 3. Тогда произведение этих чисел делится на $2\cdot4\cdot3=24$. \\
+
+
+	\begin{task} 
+		№4
+	\end{task}
+	\begin{center}
+		$1 + \frac{1}{2^1} + \frac{1}{2^2} + \dots + \frac{1}{2^n} < 2 \quad \forall n \in \mathbb{N}$
+	\end{center}
+	Заметим, что слева стоит сумма первых $n+1$ членов геометрической прогрессии с первым членом $b = 1$ и знаменателем $q=\frac{1}{2}$:
+	\begin{center}
+		$1 + \frac{1}{2^1} + \frac{1}{2^2} + \dots + \frac{1}{2^n} = \frac{b(1-q)}{1 - q^{n+1}} = \frac{\frac{1}{2}}{1 - \frac{1}{2^{n+1}}}$\\
+		$\frac{\frac{1}{2}}{1 - \frac{1}{2\cdot2^n}} < 2		
+		\quad\Leftrightarrow\quad
+		\frac{1}{\frac{2\cdot2^n - 1}{2\cdot2^n}} < 4
+		\quad\Leftrightarrow\quad
+		\frac{2^n}{2\cdot2^n - 1} < 2$ \\
+		$2^n > n \quad\forall n \in \mathbb{N} \quad\Rightarrow\quad 2^n > n \geq 1 \quad\Rightarrow\quad 2\cdot 2^n > 1 \quad\Rightarrow\quad 2\cdot2^n-1 > 0$\\
+		можно домножить неравенство на $2\cdot2^n-1$\\
+		$2^n < 4\cdot2^n - 2
+		\quad\Leftrightarrow\quad
+		3\cdot 2^n > 2
+		\quad\Leftrightarrow\quad
+		2^n > 1 > \frac{2}{3}$ 
+	\end{center}
+	Равносильными преобразованиями получено верное неравенство, значит исходное неравенство верно.
+
+	\begin{task} 
+		№5
+	\end{task}
+	Пусть $f(n)$ - количество частей, на которые разделят плоскость $n$ окружностей.\\
+	Очевидно, что $f(1) = 2$ (одна окружность делит плоскость на две части). Пусть проведено $n$ окружностей. Проведём ещё одну. Она пересечёт каждую из уже имевшихся окружностей ровно в двух точках, причём ни одна из новых точек пересечения не совпадёт ни с одной из старых т.к. иначе есть 3 окружности, проходящие через одну точку. Таким образом, новая окружность создаст $2n$ новых точек пересечения, которые разделят её на $2n$ дуг. Каждая дуга разобьёт некоторую область на две, т.е. появятся $2n$ новых областей. \\
+	Получаем рекуррентное соотношение $f(n+1) = f(n) + 2n$ \\
+	Заметим, что $f(n) = 2 + 2 + 4 + 6 + 8 + 10 + \dots + 2(n-1) 
+	= 2 + 2(1 + 2 + 3 + \dots + n-1) 
+	= 2 + 2\cdot \frac{(n-1)n}{2} = 2 + (n-1)n$
+	Действительно, $f(n+1) = 2 + n(n+1) = 2 + n^2 - n + 2n = 2 + (n-1)n + 2n = f(n) + 2n$  \\
+	Таким образом, $n$ окружностей разделят плоскость на $2 + (n-1)n$ частей.
+
+	\begin{task} 
+		№6
+	\end{task}
+	Построим поле из четырёх элементов :
+	\begin{center}
+		$p(x) = x^2 + x + 1$ - неприводимый над $\mathbb{Z}_2$ многочлен степени 2\\
+		(т.к. $p(0) \not = 0$ и $p(1) \not = 0$ его нельзя разложить на множители)\\
+		$\mathbb{F}_4 \simeq \bigslant{\mathbb{Z}_2[x]}{(x^2 + x + 1)}$  \\
+		$\phi: \mathbb{Z}_2[x] \rightarrow \mathbb{Z}_2[x]_{<2}$, 
+		$\quad \phi(a) = a \hspace{5px}mod\hspace{5px}p$ \\
+		$\phi(ab) = ab \hspace{5px}mod\hspace{5px}p 
+		= (a \hspace{5px}mod\hspace{5px}p)(b \hspace{5px}mod\hspace{5px}p) \hspace{5px}mod\hspace{5px}p 
+		= \phi(a)\phi(b) \hspace{5px}mod\hspace{5px}p
+		= \phi(a)\phi(b) $\\
+		$\phi(a+b) = (a+b) \hspace{5px}mod\hspace{5px}p 
+		= (a \hspace{5px}mod\hspace{5px}p) + (b\hspace{5px}mod\hspace{5px}p) =
+		\phi(a)+\phi(b)$ \\
+		т.е. $\phi$ - гомоморфизм колец \\
+		$Ker\phi = \left\lbrace a \in \mathbb{Z}_2[x] \hspace{5px} | \hspace{5px} a \hspace{5px}\vdots\hspace{5px} p\right\rbrace = \left\lbrace a \in \mathbb{Z}_2[x] \hspace{5px} | \hspace{5px} \exists b \in \mathbb{Z}_2[x] \hspace{5px} | \hspace{5px}  b\cdot p = a\right\rbrace = (x^2 + x + 1)$ \\ $\quad Im\phi = \mathbb{Z}_2[x]_{<2} $
+	\end{center}
+	По теореме о гомоморфизме колец:
+	\begin{center}
+		$Im\phi = \mathbb{Z}_2[x]_{<2} \simeq \bigslant{\mathbb{Z}_2[x]}{(x^2 + x + 1)}$  \\
+		$\mathbb{F}_4 \simeq \mathbb{Z}_2[x]_{<2}$ \\
+		$\mathbb{F}_4 = \left\lbrace 0, 1, x, x+1 \right\rbrace$
+	\end{center}
+	Операции в $\mathbb{F}_4$ - сложение и умножение многочленов по модулю $x^2+x+1$ \\
+	Докажем, что если $p$ - простое число, то $\mathbb{Z}_p$ - поле:
+	\begin{center}
+		пусть $a \in \mathbb{Z}_p \backslash \lbrace0\rbrace$, найдём $a^{-1}$\\
+		$p$ - простое и $a < p \quad\Rightarrow\quad$ НОД$(a, p) = 1 
+		\quad\Rightarrow\quad 
+		\exists m, n \hspace{5px} | \hspace{5px} ma+np=1$ \\ $
+		\quad\Rightarrow\quad 
+		 ma+np\equiv1 \hspace{5px}mod\hspace{5px}p 
+		 \quad\Rightarrow\quad 
+		 ma\equiv1 \hspace{5px}mod\hspace{5px}p 
+		$ 
+	\end{center}
+	Таким образом, $\mathbb{F}_5 = \mathbb{Z}_5$ с операциями сложения и умножения по модулю 5. \\
+	
+	Поля из $6 = 2\cdot 3$ элементов не бывает, потому что в конечном поле всегда $p^n$ элементов, где $p$ - простое, $n \in \mathbb{N}$
+	 
+	
+
+
+
+
+\end{document}

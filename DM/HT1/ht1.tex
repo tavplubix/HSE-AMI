@@ -1,0 +1,518 @@
+\documentclass{article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[a4paper, left=10mm, right=10mm, top=12mm, bottom=15mm]{geometry}
+\usepackage{mathtools,amssymb}
+\usepackage{graphicx}
+
+\newenvironment{task}{\begin{center}\fontsize{14}{14}\selectfont\bf}{\rm\fontsize{12}{12}\selectfont\end{center}}
+
+
+\begin{document}
+	\begin{center}
+		Токмаков Александр, группа БПМИ165 \\
+		Домашнее задание 1
+	\end{center}
+	
+	\begin{task} 
+		№1
+	\end{task}
+	\begin{center}
+	\begin{tabular}{ccc}
+		$ \begin{cases}
+		y-x\leq 2 \\
+		y \geq 0 \\
+		x+2y \geq 4 \\
+		x+3y \leq 10 \\
+		y-4x \geq 4
+		\end{cases} $
+		& $\quad \Leftrightarrow \quad$ &
+		$ \begin{cases}
+		y \leq x+2 \\
+		y \geq 0 \\
+		y \geq - \frac{x}{2} + 2 \\
+		y \leq - \frac{x}{3} + \frac{10}{3} \\
+		y \geq 4x+4
+		\end{cases} $
+	\end{tabular}
+	\end{center}
+	Построим графики соответствующих функций (цифрами отмечены области, удовлетворяющие неравенству с таким номером):\\
+	\begin{center} \includegraphics[width=15cm]{plot1c} \end{center}
+	Как видно из графиков, область, удовлетворяющая первым четырём неравенствам, лежит ниже графика $y=4x+4$ т.е. не удовлетворяет пятому неравенству. Таким образом, система несовместна.\\
+
+	%=======================================================================================================
+
+	\begin{task} 
+		№2
+	\end{task}
+	\begin{center}
+	\begin{tabular}{ccc}
+		$ \begin{cases}
+		5x+3y \rightarrow max \\
+		5x-2y \geq 0 \\
+		0 \leq x \leq 5 \\
+		x + y \leq 7 \\
+		y \geq 0
+		\end{cases} $
+		& $\quad \Leftrightarrow \quad$ &
+		$ \begin{cases}
+		5x+3y \rightarrow max \\
+		y \leq \frac{5x}{2} \\
+		0 \leq x \leq 5 \\
+		y \leq -x +7 \\
+		y \geq 0
+		\end{cases} $
+	\end{tabular}
+	\end{center}
+	\begin{center} 
+		$f(x, y) = 5x + 3y$, $\nabla f = (5, 3)$, т.е. $f$ возрастает по направлению вектора $(5, 3)$  \\
+	\end{center}
+	Линии уровня имеют вид:
+	\begin{center} 
+		$c = 5x + 3y$, \quad $y = \frac{5x}{3} + \frac{c}{3}$ \\
+	\end{center}
+	\newpage
+	Построим графики соответствующих функций и выделим область, удовлетворяющую неравенствам: \\
+	\begin{center} \includegraphics[width=18cm]{plot2c} \end{center}
+	
+	Найдём максимальное $c$, при котором график $y = \frac{5x}{3} + \frac{c}{3}$ будет иметь общую точку с множеством решений неравенств. Из графиков можно видеть, что этой точкой будет точка пересечения $x=5$ и $y=-x+7$:
+	\begin{center}
+		\begin{tabular}{ccccc}
+			$ \begin{cases}
+			x = 5 \\
+			y = -x +7 \\
+			\end{cases} $
+			& $\quad \Rightarrow \quad$ &
+			$ \begin{cases}
+			x = 5\\
+			y = -5+7=2
+			\end{cases} $
+			& $\quad \Rightarrow \quad$ &
+			$c = 5x + 3y = 5\cdot 5 + 3\cdot 2 = 31$
+		\end{tabular} \\
+	\end{center}
+	Таким образом, максимальное значение целевой функции равно $31$ и достигается в точке $(5,2)$\\
+
+%=======================================================================================================
+
+	\begin{task} 
+		№3
+	\end{task}
+	\begin{center}
+		\begin{tabular}{ccccccc}
+			$ \begin{cases}
+			x-y \rightarrow max \\
+			2x+y+z=4 \\
+			6x+y+2z \leq 4 \\
+			x \geq 0 \\
+			y \geq 0
+			\end{cases} $
+			& $\quad \Leftrightarrow \quad$ &
+			$ \begin{cases}
+			x-y \rightarrow max \\
+			z=4-2x-y \\
+			6x+y+2z \leq 4 \\
+			x \geq 0 \\
+			y \geq 0 
+			\end{cases} $
+			& $\quad \Leftrightarrow \quad$ &
+			$ \begin{cases}
+			x-y \rightarrow max \\
+			6x+y+2(4-2x-y) \leq 4 \\
+			x \geq 0 \\
+			y \geq 0
+			\end{cases} $
+			& $\quad \Leftrightarrow \quad$ &
+			$ \begin{cases}
+			x-y \rightarrow max \\
+			y \geq 2x+4 \\
+			x \geq 0 \\
+			y \geq 0
+			\end{cases} $
+		\end{tabular}
+	\end{center}
+	\begin{center} 
+		$f(x, y) = x - y$, $\nabla f = (1, -1)$, т.е. $f$ возрастает по направлению вектора $(1, -1)$  \\
+	\end{center}
+	Линии уровня имеют вид:
+	\begin{center} 
+		$c = x - y$, \quad $y = x - c$ \\
+	\end{center}
+	\newpage
+	Построим графики соответствующих функций и выделим область, удовлетворяющую неравенствам: \\
+	\begin{center} \includegraphics[width=18cm]{plot3c} \end{center}
+	
+	Найдём максимальное $c$, при котором график $y = x-c$ будет иметь общую точку с множеством решений неравенств. Из графиков можно видеть, что этой точкой будет точка пересечения $x=0$ и $y=2x+4$:
+	\begin{center}
+		\begin{tabular}{ccccc}
+			$ \begin{cases}
+			x = 0 \\
+			y = 2x +4 \\
+			\end{cases} $
+			& $\quad \Rightarrow \quad$ &
+			$ \begin{cases}
+			x = 0\\
+			y = 0+4=4
+			\end{cases} $
+			& $\quad \Rightarrow \quad$ &
+			$c = x - y = -4$
+		\end{tabular} \\
+	\end{center}
+	Таким образом, максимальное значение целевой функции равно $-4$ и достигается в точке $(0,4)$\\
+	
+	%=======================================================================================================
+	
+	\begin{task} 
+		№4
+	\end{task}
+	\begin{center}
+		\begin{tabular}{ccccccc}
+			$ \begin{cases}
+			x-2y+3z=6 \\
+			2x+z \leq 4 \\
+			z+3y \geq 14 \\
+			x \geq 0 \\
+			y \geq 0
+			\end{cases} $
+			& $\quad \Leftrightarrow \quad$ &
+			$ \begin{cases}
+			x=2y-3z+6 \\
+			2x+z \leq 4 \\
+			z+3y \geq 14 \\
+			x \geq 0 \\
+			y \geq 0
+			\end{cases} $
+			& $\quad \Leftrightarrow \quad$ &
+			$ \begin{cases}
+			2(2y-3z+6)+z \leq 4 \\
+			z+3y \geq 14 \\
+			2y-3z+6 \geq 0 \\
+			y \geq 0
+			\end{cases} $
+			& $\quad \Leftrightarrow \quad$  &
+			$ \begin{cases}
+			4y-5z+8 \leq 0 \\
+			z+3y -14 \geq 0 \\
+			2y-3z+6 \geq 0 \\
+			y \geq 0
+			\end{cases} $
+		\end{tabular}
+		Далее символом $\Leftrightarrow$ обозначается равносильность в смысле совместности/несовместности, а не множества решений.
+	    \begin{tabular}{cccccccccc}
+	    	$ \begin{cases}
+	    	4y-5z+8 \leq 0 \\
+	    	z+3y-14 \geq 0 \\
+	    	2y-3z+6 \geq 0 \\
+	    	y \geq 0
+	    	\end{cases} $
+	    	& $\hfill \Leftrightarrow \hfill$ &
+	    	$ \begin{cases}
+	    	y \leq \frac{5z}{4}-2 \\
+	    	y \geq \frac{-z}{3} + \frac{14}{3} \\
+	    	y \geq \frac{3z}{2} - 3 \\
+	    	y \geq 0
+	    	\end{cases} $
+	    	& $\hfill \Leftrightarrow \hfill$ &
+	    	$ \begin{cases}
+	    	\frac{5z}{4}-2 \geq \frac{-z}{3} + \frac{14}{3} \\
+	    	\frac{5z}{4}-2 \geq \frac{3z}{2} - 3 \\
+	    	\frac{5z}{4}-2 \geq 0
+	    	\end{cases} $
+	    	& $\hfill \Leftrightarrow \hfill$ &
+	    	$ \begin{cases}
+	    	z \geq \frac{80}{19} \\
+	    	z \leq 4 \\
+	    	z \geq \frac{8}{5}
+	    	\end{cases} $
+	    	& $\hfill \Leftrightarrow \hfill$ &
+	    	$ \begin{cases}
+	    	4 \leq \frac{80}{19} \\
+	    	4 \leq \frac{8}{5}
+	    	\end{cases} $
+	    \end{tabular}
+	    \vspace{10px}
+	\end{center}
+	Полученные неравенства неверны, следовательно исходная система несовместна.\\
+	
+		
+	%=======================================================================================================
+	
+	\begin{task} 
+		№5
+	\end{task}
+	\begin{center}
+		\begin{tabular}{cccccccc}
+			$ \begin{cases}
+			x+y \rightarrow max \\
+			2x+y-z \geq -5 \\
+			2x-4y+z \geq -3 \\
+			7x+4y-z \leq 12 \\
+			x-5y-z \leq -3
+			\end{cases} $
+			& $\hfill \Leftrightarrow \hfill$ &
+			$ \begin{cases}
+			t \rightarrow max \\
+			x=t-y \\
+			2x+y-z \geq -5 \\
+			2x-4y+z \geq -3 \\
+			7x+4y-z \leq 12 \\
+			x-5y-z \leq -3
+			\end{cases} $
+			& $\hfill \Leftrightarrow \hfill$ &
+			$ \begin{cases}
+			t \rightarrow max \\
+			2(t-y)+y-z \geq -5 \\
+			2(t-y)-4y+z \geq -3 \\
+			7(t-y)+4y-z \leq 12 \\
+			(t-y)-5y-z \leq -3
+			\end{cases} $
+			& $\hfill \Leftrightarrow \hfill$  &
+			$ \begin{cases}
+			t \rightarrow max \\
+			z \leq 2t-4+5 \\
+			z \geq -2t+6y-3 \\
+			z \geq 7t-3y-12 \\
+			z \geq t-6y+3
+			\end{cases} $
+			& $\hfill \Leftrightarrow \hfill$
+		\end{tabular}
+		\begin{tabular}{ccccccc}
+			$ \begin{cases}
+			t \rightarrow max \\
+			2t-4+5 \geq -2t+6y-3 \\
+			2t-4+5 \geq 7t-3y-12 \\
+			2t-4+5 \geq t-6y+3
+			\end{cases} $
+			& $\hfill \Leftrightarrow \hfill$ &
+			$ \begin{cases}
+			t \rightarrow max \\
+			y \leq \frac{2t}{3} + \frac{2}{3} \\
+			y \geq \frac{5t}{3} - \frac{13}{3} \\
+			y \geq -\frac{t}{6} + \frac{1}{3}
+			\end{cases} $
+			& $\hfill \Leftrightarrow \hfill$  &
+			$ \begin{cases}
+			t \rightarrow max \\
+			\frac{2t}{3} + \frac{2}{3} \geq \frac{5t}{3} - \frac{13}{3} \\
+			\frac{2t}{3} + \frac{2}{3} \geq -\frac{t}{6} + \frac{1}{3}
+			\end{cases} $
+			& $\hfill \Leftrightarrow \hfill$  &
+			$ \begin{cases}
+			t \rightarrow max \\
+			t \leq 5 \\
+			t \geq -\frac{2}{5}
+			\end{cases} $
+		\end{tabular}
+	\end{center}
+	Таким образом, $t=5$. Найдём остальные неизвестные: \\
+	\begin{center}
+		$y = \frac{2\cdot 5}{3} + \frac{2}{3} = \frac{12}{3} = 4$ \\
+		\vspace{10px}
+		$x = t - y = 5 - 4 = 1$ \\
+		\vspace{10px}
+		\begin{tabular}{ccc}
+			$ \begin{cases}
+			2\cdot 1+4-z \geq -5 \\
+			2\cdot 1-4\cdot 4+z \geq -3 \\
+			7\cdot 1+4\cdot 4-z \leq 12 \\
+			1-5\cdot 4-z \leq -3
+			\end{cases} $
+			& $\hfill \Leftrightarrow \hfill$ &
+			$ \begin{cases}
+			z \leq 11 \\
+			z \geq 11 \\
+			z \geq 11 \\
+			z \geq -16\
+			\end{cases} $
+		\end{tabular}
+	\end{center}
+	Максимум целевой функции равен 5 и достигается в точке $(1, 4, 11)$.\\
+
+	
+	\begin{task} 
+		№6
+	\end{task}
+	Пусть $a$, $b$, $c$ - объёмы материалов А, Б и В соответственно, тогда: \\
+	\hspace{10px}	$1000a + 1200b + 12000c \rightarrow max$ \quad - максимальный доход \\
+	\hspace{10px}	$0 \leq a \leq 40$, $0 \leq b \leq 30$, $0 \leq c \leq 20$ \quad - ограничения на имеющиеся объёмы \\
+	\hspace{10px}	$a+b+c \leq 60$ \quad - ограничение на вместимость самолёта \\
+	\hspace{10px}	$2a+b+3c \leq 100$ \quad - ограничение на грузоподъёмность самолёта 
+	\begin{center}
+		\begin{tabular}{ccccccc}
+			$ \begin{cases}
+			1000a + 1200b + 12000c \rightarrow max \\
+			0 \leq a  \\
+			a \leq 40 \\
+			0 \leq b \\
+			b \leq 30 \\
+			0 \leq c \\
+			c \leq 20 \\
+			a+b+c \leq 60 \\
+			2a+b+3c \leq 100
+			\end{cases} $
+			
+			& $\hfill \Leftrightarrow \hfill$ &
+			
+			$ \begin{cases}
+			t \rightarrow max \\
+			a = \frac{t}{1000} - \frac{12b}{10} - 12c \\
+			0 \leq a  \\
+			a \leq 40 \\
+			0 \leq b \\
+			b \leq 30 \\
+			0 \leq c \\
+			c \leq 20 \\
+			a+b+c \leq 60 \\
+			2a+b+3c \leq 100
+			\end{cases} $
+			
+			& $\hfill \Leftrightarrow \hfill$ &
+			
+			$ \begin{cases}
+			t \rightarrow max \\
+			0 \leq \frac{t}{1000} - \frac{12b}{10} - 12c  \\
+			\frac{t}{1000} - \frac{12b}{10} - 12c \leq 40 \\
+			0 \leq b \\
+			b \leq 30 \\
+			0 \leq c \\
+			c \leq 20 \\
+			\frac{t}{1000} - \frac{12b}{10} - 12c+b+c \leq 60 \\
+			2(\frac{t}{1000} - \frac{12b}{10} - 12c)+b+3c \leq 100
+			\end{cases} $
+		\end{tabular} \\
+		\begin{tabular}{cccccc}
+			$ \begin{cases}
+			t \rightarrow max \\
+			b \leq \frac{t}{1200} -10c \\
+			b \geq \frac{t}{1200} -10c - \frac{100}{3}  \\
+			b \geq 0 \\
+			b \leq 30 \\
+			0 \leq c \\
+			c \leq 20 \\
+			b \geq -55c + \frac{t}{200} -300 \\
+			b \geq -15c + \frac{t}{700} - \frac{500}{7} \\
+			\end{cases} $
+			
+			& $\hfill \Leftrightarrow \hfill$ &
+			
+			$ \begin{cases}
+			t \rightarrow max \\
+			b \leq \frac{t}{1200} -10c \\
+			b \leq 30 \\
+			b \geq \frac{t}{1200} -10c - \frac{100}{3}  \\
+			b \geq 0 \\
+			b \geq -55c + \frac{t}{200} -300 \\
+			b \geq -15c + \frac{t}{700} - \frac{500}{7} \\
+			0 \leq c \\
+			c \leq 20 \\
+			\end{cases} $
+			
+			& $\hfill \Leftrightarrow \hfill$ &
+			
+			$ \begin{cases}
+			t \rightarrow max \\
+			\frac{t}{1200} -10c - \frac{100}{3} \leq \frac{t}{1200} -10c \\
+			0 \leq \frac{t}{1200} -10c \\
+			-55c + \frac{t}{200} -300 \leq \frac{t}{1200} -10c \\
+			-15c + \frac{t}{700} - \frac{500}{7} \leq \frac{t}{1200} -10c \\
+			
+			30 \geq \frac{t}{1200} -10c - \frac{100}{3}  \\
+			30 \geq 0 \\
+			30 \geq -55c + \frac{t}{200} -300 \\
+			30 \geq -15c + \frac{t}{700} - \frac{500}{7} \\
+			
+			0 \leq c \\
+			c \leq 20 \\
+			\end{cases} $
+			
+			& $\hfill \Leftrightarrow \hfill$
+		\end{tabular} \\
+		
+		\begin{tabular}{ccccccc}
+			$ \begin{cases}
+			t \rightarrow max \\
+			0 \leq \frac{100}{3} \\
+			c \leq \frac{t}{12000} \\
+			c \geq \frac{t}{10800} - \frac{20}{3} \\
+			c \geq \frac{t}{8400} - \frac{100}{7} \\
+			
+			c \geq \frac{t}{12000} - \frac{19}{3}  \\
+			c \geq \frac{t}{11000} - 6 \\
+			c \geq \frac{t}{10500} - \frac{710}{105} \\
+			
+			c \geq 0 \\
+			c \leq 20 \\
+			\end{cases} $
+			
+			& $\hfill \Leftrightarrow \hfill$ &
+			
+			$ \begin{cases}
+			t \rightarrow max \\
+			\frac{t}{10800} - \frac{20}{3} \leq \frac{t}{12000} \\
+			\frac{t}{8400} - \frac{100}{7} \leq \frac{t}{12000} \\
+			\frac{t}{12000} - \frac{19}{3} \leq \frac{t}{12000} \\
+			\frac{t}{11000} - 6 \leq \frac{t}{12000} \\
+			\frac{t}{10500} - \frac{710}{105} \leq \frac{t}{12000} \\
+			0 \leq \frac{t}{12000} \\
+			
+			20 \geq \frac{t}{10800} - \frac{20}{3} \\
+			20 \geq \frac{t}{8400} - \frac{100}{7} \\
+			20 \geq \frac{t}{12000} - \frac{19}{3}  \\
+			20 \geq \frac{t}{11000} - 6 \\
+			20 \geq \frac{t}{10500} - \frac{710}{105} \\
+			20 \geq 0 \\
+			\end{cases} $
+			
+			& $\hfill \Leftrightarrow \hfill$ &
+			
+			$ \begin{cases}
+			t \rightarrow max \\
+			t \leq 720000 \\
+			t \leq 400000 \\
+			\frac{19}{3} \geq 0 \\
+			t \leq 792000 \\
+			t \leq 568000 \\
+			t \geq 0 \\
+			
+			t \leq 288000 \\
+			t \leq 288000 \\
+			t \leq 316000  \\
+			t \leq 286000 \\
+			t \leq 281000
+			\end{cases} $
+			
+			& $\hfill \Leftrightarrow \hfill$ &
+			
+			$ \begin{cases}
+			t \rightarrow max \\
+			0 \leq t \leq 281000
+			\end{cases} $
+			
+		\end{tabular} \\
+	\end{center}
+	Таким образом, $t = 281000$, найдём остальные переменные: \\
+	\begin{center}
+		\begin{tabular}{ccc}
+		$ \begin{cases}
+		c \leq \frac{281000}{12000}
+		c \leq 20
+		\end{cases} $
+		& $\quad \Rightarrow \quad$ &
+		$c = 20$
+		\end{tabular} \\
+		\begin{tabular}{ccc}
+			$ \begin{cases}
+			b \leq \frac{281000}{1200} -10\cdot 20  = \frac{205}{6}\\
+			b \leq 30 \\
+			\end{cases} $
+			& $\quad \Rightarrow \quad$ &
+			$b = 30$
+		\end{tabular}\\
+		$a = \frac{281000}{1000} - \frac{12\cdot 30}{10} - 12\cdot 20 = 5$
+	\end{center}
+	Максимум равен 281000 и достигается при $a = 5$, $b = 30$, $c = 20$.
+
+
+\end{document}

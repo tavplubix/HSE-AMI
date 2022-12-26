@@ -1,0 +1,87 @@
+\documentclass{article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[a4paper, left=10mm, right=10mm, top=12mm, bottom=15mm]{geometry}
+\usepackage{mathtools,amssymb}
+\usepackage{graphicx}
+
+\linespread{1.4}
+
+\newcommand{\impl}{\quad\Leftrightarrow\quad}
+\newcommand{\rimpl}{\quad\Rightarrow\quad}
+
+\newenvironment{task}{\begin{center}\fontsize{14}{14}\selectfont\bf}{\rm\fontsize{12}{12}\selectfont\end{center}}
+
+
+\begin{document}
+	\begin{center}
+		Токмаков Александр, группа БПМИ165 \\
+		Домашнее задание 7
+	\end{center}
+	
+	\begin{task} 
+		№1(c)
+	\end{task}
+	Пусть Боб загадал число $n$, тогда вероятность получить пару $(n, n \pm 1 \mod 5)$ равна $\frac{1}{5}\cdot \frac{1}{2} = \frac{1}{10}$ (загадывание числа Бобом и подбрасывание монеты Алисой независимы). Для всех остальных пар вероятность равна нулю (они не могут получиться указанным способом). Составим таблицу с вероятностями исходов (строка - число, загаданное Бобом, столбец - Алисой):
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline 
+			$\mu$	& 0 & 1 & 2 & 3 & 4 \\
+			\hline
+			0	& 0 & $\frac{1}{10}$ & 0 & 0 & $\frac{1}{10}$ \\
+			\hline
+			1	& $\frac{1}{10}$ & 0 & $\frac{1}{10}$ & 0 & 0 \\
+			\hline
+			2	& 0 & $\frac{1}{10}$ & 0 & $\frac{1}{10}$ & 0 \\
+			\hline
+			3	& 0 & 0 & $\frac{1}{10}$ & 0 & $\frac{1}{10}$ \\
+			\hline
+			4	& $\frac{1}{10}$ & 0 & 0 & $\frac{1}{10}$ & 0 \\
+			\hline
+		\end{tabular}
+	\end{center}
+	По вероятностной мере можно найти функцию распределения, просто просуммировав вероятности:
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline 
+			F & 0 & 1 & 2 & 3 & 4 \\
+			\hline
+			0	& 0 			 & $\frac{1}{10}$ & $\frac{1}{10}$ & $\frac{1}{10}$ & $\frac{2}{10}$ \\
+			\hline
+			1	& $\frac{1}{10}$ & $\frac{2}{10}$ & $\frac{3}{10}$ & $\frac{3}{10}$ & $\frac{4}{10}$ \\
+			\hline
+			2	& $\frac{1}{10}$ & $\frac{3}{10}$ & $\frac{4}{10}$ & $\frac{5}{10}$ & $\frac{6}{10}$ \\
+			\hline
+			3	& $\frac{1}{10}$ & $\frac{3}{10}$ & $\frac{5}{10}$ & $\frac{6}{10}$ & $\frac{8}{10}$ \\
+			\hline
+			4	& $\frac{2}{10}$ & $\frac{4}{10}$ & $\frac{6}{10}$ & $\frac{8}{10}$ & $\frac{10}{10}$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Распределения каждой из случайных величин соответствуют последним строке/столбцу т.к.\\ $F_\xi(a) = P(\xi \leq a) = P(\xi \leq a, \eta \leq 4) = F(a, 4)$, аналогично $F_\eta(b) = F(4, b)$.
+	
+	
+	
+	\begin{task} 
+		№4
+	\end{task}
+	Существуют. Пусть $X = \frac{1}{\sqrt{2}}$ или $X = - \frac{1}{\sqrt{2}}$ с вероятностью $\frac{1}{2}$ (значение $X$ определяется подбрасыванием монетки), аналогично для $Y$ (подбрасывания монеток для $X$ и для $Y$ независимы). Очевидно, что каждая из случайных величин не является константой и всегда выполняется тождество $X^2 + Y^2 \equiv \left(\pm\frac{1}{\sqrt{2}}\right)^2 + \left(\pm\frac{1}{\sqrt{2}}\right)^2 \equiv \frac{1}{2} + \frac{1}{2} \equiv 1$. 
+	
+	
+	
+	\begin{task} 
+		№6
+	\end{task}
+	\begin{center}
+		При $x < 0$ $F_\xi(x) = 0, \rho_\xi(x) = 0$, при $1 < x$ $F_\xi = 1, \rho_\xi(x) = 0$, при $0 \leq x \leq 1$: \\
+		$F_\xi(x \leq a) = \int\limits_{0}^{a} \rho_\xi(x)dx = \int\limits_{0}^{a} 2(1 - x)dx = 2a - a^2 = a(2 - a)$\\
+		Распределение и плотность случайной величины $\eta$ будут такими же в силу симметрии.\\
+		Покажем, что случайные величины не независимы:\\
+		При $0 \leq x, 0 \leq y, x + y \leq 1\quad F_{\xi\eta}(a, b) = 2xy$\\
+		Но $F_\xi(\frac{1}{2})\cdot F_\eta(\frac{1}{2}) = \frac{1}{2}(1 - \frac{1}{2})\cdot \frac{1}{2}(1 - \frac{1}{2}) = \frac{3}{4}\cdot \frac{3}{4} = \frac{9}{16} \not= \frac{1}{2} = 2\cdot\frac{1}{2}\cdot\frac{1}{2} = F_{\xi\eta}(\frac{1}{2}, \frac{1}{2})$
+	\end{center}
+	
+	
+\end{document}

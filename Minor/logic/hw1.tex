@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[a4paper, left=10mm, right=10mm, top=12mm, bottom=15mm]{geometry}
+\usepackage{mathtools,amssymb}
+\usepackage{graphicx}
+\usepackage{setspace}
+
+\usepackage{listings}
+
+\newenvironment{task}{\begin{center}\fontsize{14}{14}\selectfont\bf}{\rm\fontsize{12}{12}\selectfont\end{center}}
+
+\newcommand{\tch}{\hspace{4px}|\hspace{4px}}
+\newcommand{\impl}{\quad \Leftrightarrow \quad}
+\newcommand{\rimpl}{\quad \Rightarrow \quad}
+\newcommand{\res}[3]{\begin{array}{lcr} #1 & & #2 \\ \hline & #3 \end{array}}
+\newcommand{\com}{, \hspace{5px}}
+\newcommand{\N}{\mathbb{N}}
+
+\begin{document}
+	\begin{center}
+		Токмаков Александр, группа БПМИ165 \\
+		Домашняя работа 1
+	\end{center}
+
+%==============================================================================================
+	
+	\begin{task} 
+		№1
+	\end{task}
+
+	Построим таблицу истинности для формулы $(p \vee q) \rightarrow (p \vee \overline{r})$:
+	\begin{center}
+			$\begin{array}{|c|c|c|c|}
+		\hline 
+		p			& q 				& r 				&  			\\ \hline
+		0			& 0 				& 0 				& 1 		\\ \hline
+		0			& 0 				& 1 				& 1 		\\ \hline
+		0			& 1 				& 0 				& 1 		\\ \hline
+		0			& 1 				& 1 				& 0 		\\ \hline
+		1			& 0 				& 0 				& 1 		\\ \hline
+		1			& 0 				& 1 				& 1 		\\ \hline
+		1			& 1 				& 0 				& 1 		\\ \hline
+		1			& 1 				& 1 				& 1 		\\ \hline
+		
+		\end{array}$
+	\end{center}
+	
+	По ней видно, что ДНФ будет содержать все дизъюнкты, кроме $\overline{p} \vee q \vee r$: 
+
+	\begin{center}
+		$ (\overline{p} \wedge \overline{q} \wedge \overline{r}) \vee (\overline{p} \wedge \overline{q} \wedge r) \vee (\overline{p} \wedge q \wedge \overline{r}) \vee 
+		  (p \wedge \overline{q} \wedge \overline{r}) \vee (p \wedge \overline{q} \wedge r) \vee (p \wedge q \wedge \overline{r}) \vee (p \wedge q \wedge r)$
+	\end{center}
+	\fontsize{12}{12}
+	
+%==============================================================================================
+
+		
+	\begin{task} 
+		№2
+	\end{task}
+
+	Если выражение, стоящее слева от импликации ложно, то формула истинна. Если оно истинно, то для любого $i$ истинно $\bigwedge_{j=1}^{n} p_{ij}$, т.е. в каждой строке матрицы $p$ есть хотя бы одна единица. Т.к. в матрице $n$ столбцов $n+1$ строк (строк больше, чем столбцов), по принципу Дирихле найдутся хотя бы 2 строки $i_1, i_2$, в которых единицы стоят в одинаковых столбцах $j$. Таким образом, найдутся такие $j, i_1, i_2$, что $(p_{i_{1}j} \wedge p_{i_{2}j})$ истинно, значит всё выражение, стоящее справа от импликации, истинно. Значит, формула истинна для любых значений переменных т.е. является тавтологией.
+	
+
+	
+\end{document}

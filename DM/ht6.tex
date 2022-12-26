@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[a4paper, left=10mm, right=10mm, top=12mm, bottom=15mm]{geometry}
+\usepackage{mathtools,amssymb}
+\usepackage{graphicx}
+
+\newenvironment{task}{\begin{center}\fontsize{14}{14}\selectfont\bf}{\rm\fontsize{12}{12}\selectfont\end{center}}
+
+\newcommand{\tch}{\hspace{4px}|\hspace{4px}}
+\newcommand{\impl}{\quad \Leftrightarrow \quad}
+\newcommand{\rimpl}{\quad \Rightarrow \quad}
+\newcommand{\res}[3]{\begin{array}{lcr} #1 & & #2 \\ \hline & #3 \end{array}}
+\newcommand{\com}{, \hspace{5px}}
+
+\begin{document}
+	\begin{center}
+		Токмаков Александр, группа БПМИ165 \\
+		Домашнее задание 6
+	\end{center}
+
+%==============================================================================================
+	
+	\begin{task} 
+		№1
+	\end{task}
+	\begin{center}
+	$BS(x, y) \eqcirc \neg(x=y) \wedge \exists z (P(z, x) \wedge P(z, y))$ -- $x$ брат или сестра $y$ \\
+	$B(x, y) \eqcirc M(x) \wedge BS(x, y)$ -- $x$ брат $y$ \\
+	$T(x, y) \eqcirc F(x) \wedge M(y) \wedge \exists z (C(y, z) \wedge P(x, z))$ -- $x$ тёща $y$ \\
+	$N(x, y) \eqcirc M(x) \wedge (\exists z (BS(z, y) \wedge P(z, x)))$ -- $x$ племянник $y$ \\
+	$G(x, y) \eqcirc M(x) \wedge (\exists z (P(y, z) \wedge P(z, x))$ -- $x$ внук $y$ \\
+	\end{center}
+	
+%==============================================================================================
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

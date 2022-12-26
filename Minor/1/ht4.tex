@@ -1,0 +1,200 @@
+\documentclass{article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[a4paper, left=10mm, right=10mm, top=12mm, bottom=15mm]{geometry}
+\usepackage{mathtools,amssymb}
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+
+\linespread{1.4}
+
+\newenvironment{task}{\begin{center}\fontsize{14}{14}\selectfont\bf}{\rm\fontsize{12}{12}\selectfont\end{center}}
+
+\newcommand{\impl}{\quad\Leftrightarrow\quad}
+\newcommand{\rimpl}{\quad\Rightarrow\quad}
+\newcommand{\Z}{\mathbb{Z}}
+
+\begin{document}
+	\begin{center}
+		Токмаков Александр, ФКН, группа БПМИ165 \\
+		Домашнее задание 4
+	\end{center}
+	
+	\begin{task} 
+		№1
+	\end{task}
+	\begin{center}
+		$2^{2017} + 3^{2017} \mod 10$\\
+	\end{center}
+	Посмотрим, какие остатки от деления на 10 дают степени 2 и 3: \\
+	\begin{center}
+	\begin{tabular}{ccc}
+		$\begin{aligned}[t]
+			2^1 & \mod 10 = 2 \\
+			2^2 & \mod 10 = 4 \\
+			2^3 & \mod 10 = 8 \\
+			2^4 & \mod 10 = 6 \\
+			2^5 & \mod 10 = 2 
+		\end{aligned}$
+		& \hspace{5cm} &
+		$\begin{aligned}[t]
+			3^1 & \mod 10 = 3 \\
+			3^2 & \mod 10 = 9 \\
+			3^3 & \mod 10 = 7 \\
+			3^4 & \mod 10 = 1 
+		\end{aligned}$
+	\end{tabular}
+	\end{center}
+	Таким образом, $2^{(5^n)} \equiv 2^{(5^{n-1})}\equiv ... \equiv 2 \mod10$ и $3^{4k} \equiv \left(3^4\right)^k \equiv 1^k \equiv 1 \mod 10$.
+	\begin{center}
+		$2^{2017} + 3^{2017} \equiv 2^{625\cdot 3 + 142} + 3^{4\cdot504 + 1} \equiv \left(2^{(5^4)}\right)^3 \cdot 2^{142} + 3^{4\cdot 504}\cdot3 \equiv 2^3\cdot 2^{142} + 1\cdot 3 \equiv$ \\ 
+		$\equiv 2^{145} + 3 \equiv 2^{(5^3) + 20} + 3 \equiv 2^{21} + 3 \equiv \left(2^{5}\right)^4 \cdot 2 + 3 \equiv 2^5 + 3 \equiv 2 + 3 \equiv 5 \mod10$
+	\end{center}
+	Последняя цифра этого числа 5.
+	
+%===========================================================================================
+
+	\begin{task} 
+		№2
+	\end{task}
+	\begin{center}
+		Разложить $p(x) = x^4 + 4$ над $\mathbb{Q}$\\
+	\end{center}
+	Найдём комплексные корни многочлена $p(x)$:
+	\begin{center}
+		$x^4 + 4 = 0 \quad\Leftrightarrow\quad x^4 = -4 = 4\left(\cos(\pi) + i\sin(\pi)\right)$ \\
+		$x \in M = \left\lbrace \sqrt[4]{4\left(\cos\pi) + i\sin(\pi)\right)} \right\rbrace = \left\lbrace \sqrt{2}\left(\cos\left(\frac{\pi}{4} + \frac{\pi n}{2}\right) + i\sin\left(\frac{\pi}{4} + \frac{\pi n}{2}\right)\right) \hspace{4px}|\hspace{4px} n \in \lbrace0, 1, 2, 3\rbrace \right\rbrace$
+	\end{center}
+	Многочлен раскладывается над  $\mathbb{C}$:
+	\begin{center}
+		$p(x) = \prod\limits_{x_n \in M} (x - x_n)$
+	\end{center}
+	Теперь, если перемножить скобки с сопряжёнными корнями, должно получиться разложение над $\mathbb{Q}$ (вообще-то, над $\mathbb{R}$, но здесь коэффициенты окажутся рациональными):
+	\begin{center}
+		$n=0$ и $n=3$: $\quad\left( x - \sqrt{2}\left(\cos\left(\frac{\pi}{4}\right) + i\sin\left(\frac{\pi}{4}\right)\right)\right) 
+		\cdot 
+		\left(x - \sqrt{2}\left(\cos\left(\frac{\pi}{4} + \frac{3\pi}{2}\right) + i\sin\left(\frac{\pi}{4} + \frac{3\pi}{2}\right)\right) \right) = $\\
+		$= \left( x - \sqrt{2}\left(\frac{\sqrt{2}}{2} + i\frac{\sqrt{2}}{2}\right)\right) 
+		\cdot 
+		\left(x - \sqrt{2}\left(\frac{\sqrt{2}}{2} - i\frac{\sqrt{2}}{2}\right) \right) 
+		= \left( x - (1 + i)\right) 
+		\cdot 
+		\left(x - (1-i) \right) = x^2 -2x + 2 $\\
+		\vspace{5px}
+		$n=1$ и $n=2$: $\quad\left( x - \sqrt{2}\left(\cos\left(\frac{\pi}{4} + \frac{\pi}{2}\right) + i\sin\left(\frac{\pi}{4} + \frac{\pi}{2}\right)\right)\right) 
+		\cdot 
+		\left(x - \sqrt{2}\left(\cos\left(\frac{\pi}{4} + \pi\right) + i\sin\left(\frac{\pi}{4} + \pi\right)\right) \right) = $\\
+		$= \left( x - \sqrt{2}\left(-\frac{\sqrt{2}}{2} + i\frac{\sqrt{2}}{2}\right)\right) 
+		\cdot 
+		\left(x - \sqrt{2}\left(-\frac{\sqrt{2}}{2} - i\frac{\sqrt{2}}{2}\right) \right) 
+		= \left( x - (-1 + i)\right) 
+		\cdot 
+		\left(x - (-1-i) \right) = x^2 + 2x + 2 $
+	\end{center}
+	Действительно, получилось разложение $p(x)$ на неприводимые многочлены над $\mathbb{Q}$:
+	\begin{center}
+		$p(x) = (x^2 - 2x + 2)(x^2 + 2x + 2)$
+	\end{center}
+	 Эти многочлены неприводимы, потому что могут раскладываться только на линейные множители, а корни у них комплексные. 
+	
+%===========================================================================================
+
+	\begin{task} 
+		№3
+	\end{task}
+	\begin{center}
+		$\forall a \in F \quad a\cdot 0 = 0$
+	\end{center}
+	Воспользуемся следующими аксиомами поля:
+	\begin{center}
+		\begin{tabular}{ll}
+		1 Коммутативность сложения: & $\quad \forall a, b \in F \quad a+ b = b+ a$\\
+		2 Существование нейтрального по сложению: & $\quad\exists 0 \in F \mid \forall a \in F \quad a + 0 = a$\\
+		3 Существование обратного по сложению:& $\quad\forall a \in F \quad\exists (-a) \in F \hspace{4px}|\hspace{4px} a + (-a) = 0 $\\ 
+		4 Существование нейтрального по умножению: & $\quad\exists e \in F \mid \forall a \in F \quad a \cdot e = a$\\
+		5 Дистрибутивность сложения относительно умножения: & $\quad\forall a, b, c \in F \quad \cdot a(b+c) = ab + ac$ \\
+		6 Ассоциативность сложения: & $\quad\forall a, b, c \in F \quad (a+b)+c=a+(b+c)$
+		\end{tabular} \\
+	\end{center}
+	Легко видеть, что (цифры возле знака $=$ соответствуют аксиомам из списка выше):
+	\begin{center}
+		$0 =_3 a + (-a) =_4 a\cdot e + (-a) =_2 a\cdot(e + 0) + (-a) =_1 a\cdot(0 + e) + (-a) =_5 (a\cdot 0 + a\cdot e) + (-a) =_6 $ \\ $=_6 a\cdot0 + (a\cdot e + (-a)) =_4 a\cdot 0 + (a + (-a)) =_3 a\cdot 0 + 0 =_2 a\cdot 0$
+	\end{center}
+
+%===========================================================================================
+
+	\begin{task} 
+		№4
+	\end{task}
+	Заметим, что если многочлен второй степени не имеет корней, то он неприводим. Действительно, если многочлен второй степени приводим, то он раскладывается на линейные множители $p(x) = (x-a)(a-b)$, и тогда $a$ и $b$ - его корни. Также заметим, что если многочлен $p(x)$ неприводим, то многочлен $a\cdot p(x), a\not=0$ тоже неприводим, поэтому можно рассматривать только многочлены со старшим коэффициентом 1 (остальные неприводимые получатся домножением на все ненулевые элементы поля). Переберём такие многочлены степени 2 из $\mathbb{Z}_3[x]$ (их $1\cdot3\cdot3 = 9$ штук) и попробуем найти их корни:
+	\begin{center}
+		$p(x) = x^2 + 0x + 0, \quad p(0) = 0^2 + 0 \cdot 0 + 0 = 0$ \\
+		$p(x) = x^2 + 0x + 2, \quad p(1) = 1^2 + 0 \cdot 1 + 2 = 0$ \\
+		$p(x) = x^2 + 1x + 0, \quad p(0) = 0^2 + 1 \cdot 0 + 0 = 0$ \\
+		$p(x) = x^2 + 1x + 1, \quad p(1) = 1^2 + 1 \cdot 1 + 1 = 0$ \\
+		$p(x) = x^2 + 2x + 0, \quad p(0) = 0^2 + 2 \cdot 0 + 0 = 0$ \\
+		$p(x) = x^2 + 2x + 1, \quad p(2) = 2^2 + 2 \cdot 2 + 1 = 0$ \\
+	\end{center}	
+	У шести многочленов нашлись корни, значит осталось 3 неприводимых. Покажем, что у них нет корней:
+	\begin{center}
+	$p(x) = x^2 + 0x + 1, \quad p(0) = 0^2 + 0 \cdot 0 + 1 = 1, \quad p(1) = 1^2 + 0 \cdot 1 + 1 = 2, \quad p(2) = 2^2 + 0 \cdot 2 + 1 = 2$ \\
+	$p(x) = x^2 + 1x + 2, \quad p(0) = 0^2 + 1 \cdot 0 + 2 = 2, \quad p(1) = 1^2 + 1 \cdot 1 + 2 = 1, \quad p(2) = 2^2 + 1 \cdot 2 + 2 = 2$ \\
+	$p(x) = x^2 + 2x + 2, \quad p(0) = 0^2 + 2 \cdot 0 + 2 = 2, \quad p(1) = 1^2 + 2 \cdot 1 + 2 = 2, \quad p(2) = 2^2 + 2 \cdot 2 + 2 = 1$ \\
+	\end{center}
+	Таким образом, в $\mathbb{Z}_3[x]$ есть ровно 6 неприводимых многочленов степени 2:
+	\begin{center}
+	$x^2 + 1, \quad x^2 + x + 2, \quad x^2 + 2x + 2, \quad 2x^2 + 2, \quad 2x^2 + 2x + 1, \quad 2x^2 + x + 1$
+	\end{center}
+	
+%===========================================================================================
+
+	\begin{task} 
+		№5
+	\end{task}
+	\begin{center}
+		$\not\exists x, y \in \mathbb{Z} \mid 15x^2 - 7y^2 = 9$
+	\end{center}
+	Пусть решения существуют. Попробуем их найти:
+	\begin{center}
+		$15x^2 = 9+7y^2, \quad x,y \in\Z \rimpl x^2 = \frac{9 + 7y^2}{15} \in \Z \rimpl 9+7y^2 = 15a, \quad a\in\Z $ \\
+		$9+7y^2 = 15a, \quad x,y \in\Z \rimpl y^2 = \frac{15a-9}{7} = 2a+1 + \frac{a-2}{7} \in\Z \rimpl a-2 = 7b, \quad b\in\Z \rimpl a = 7b+2, \quad b\in\Z$\\
+		$\rimpl y^2 = \frac{15(7b+2)-9}{7} = 15b+3, \quad b\in\Z \rimpl y^2 \equiv 3 \mod 15 $
+	\end{center}
+	Но такого не бывает:
+	\begin{center}
+		$y \equiv 0\mod15 \rimpl y^2 \equiv 0 \mod15$ \\
+		$y \equiv 1\mod15 \rimpl y^2 \equiv 1 \mod15$ \\
+		$y \equiv 2\mod15 \rimpl y^2 \equiv 4 \mod15$ \\
+		$y \equiv 3\mod15 \rimpl y^2 \equiv 9 \mod15$ \\
+		$y \equiv 4\mod15 \rimpl y^2 \equiv 1 \mod15$ \\
+		$y \equiv 5\mod15 \rimpl y^2 \equiv 10 \mod15$ \\
+		$y \equiv 6\mod15 \rimpl y^2 \equiv 6 \mod15$ \\
+		$y \equiv 7\mod15 \rimpl y^2 \equiv 4 \mod15$ \\
+		$y \equiv 8\mod15 \rimpl y^2 \equiv 4 \mod15$ \\
+		$y \equiv 9\mod15 \rimpl y^2 \equiv 6 \mod15$ \\
+		$y \equiv 10\mod15 \rimpl y^2 \equiv 10 \mod15$ \\
+		$y \equiv 11\mod15 \rimpl y^2 \equiv 1 \mod15$ \\
+		$y \equiv 12\mod15 \rimpl y^2 \equiv 9 \mod15$ \\
+		$y \equiv 13\mod15 \rimpl y^2 \equiv 4 \mod15$ \\
+		$y \equiv 14\mod15 \rimpl y^2 \equiv 1 \mod15$ \\
+	\end{center}
+	Значит, у уравнения $15x^2 - 7y^2 = 9$ нет решений в целых числах.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+\end{document}

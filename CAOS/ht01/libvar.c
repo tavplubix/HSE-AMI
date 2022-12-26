@@ -1,0 +1,3 @@
+
+double A, B, C;
+

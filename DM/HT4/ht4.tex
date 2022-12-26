@@ -1,0 +1,240 @@
+\documentclass{article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[a4paper, left=10mm, right=10mm, top=12mm, bottom=15mm]{geometry}
+\usepackage{mathtools,amssymb}
+\usepackage{graphicx}
+
+\newenvironment{task}{\begin{center}\fontsize{14}{14}\selectfont\bf}{\rm\fontsize{12}{12}\selectfont\end{center}}
+
+\newcommand{\tch}{\hspace{4px}|\hspace{4px}}
+\newcommand{\impl}{\quad \Leftrightarrow \quad}
+\newcommand{\rimpl}{\quad \Rightarrow \quad}
+\newcommand{\res}[3]{\begin{array}{lcr} #1 & & #2 \\ \hline & #3 \end{array}}
+\newcommand{\com}{, \hspace{5px}}
+
+\begin{document}
+	\begin{center}
+		Токмаков Александр, группа БПМИ165 \\
+		Домашнее задание 4
+	\end{center}
+
+%==============================================================================================
+	
+	\begin{task} 
+		№1
+	\end{task}
+	Не правильно. Если будет дождь ($A$), то Петя чихает ($B$): $A \rightarrow B$. Петя подумал, что если он чихает, то будет дождь: $B \rightarrow A$. Эти утверждения не эквивалентны. Например, при $A = 0, B = 1$ первое истинно, а второе ложно.
+	
+	
+%==============================================================================================
+
+	
+		
+	\begin{task} 
+		№2
+	\end{task}
+	Есть три способа присвоить истину ровно двум переменным: $(1, 1, 0), \space (1, 0, 1)$ и $(0, 1, 1)$. При таких и только при таких означиваниях формула должна быть истинна, легко записать такую формулу в ДНФ:
+	\begin{center}
+		$(p \wedge q \wedge \overline{r})\vee(p \wedge \overline{q} \wedge r)\vee(\overline{p} \wedge q \wedge r)$
+	\end{center}
+	
+	
+%==============================================================================================
+	
+	
+	
+	\begin{task} 
+		№3
+	\end{task}
+	\begin{center}
+		$(u \rightarrow v) \rightarrow (w \wedge u) \equiv (\overline{u} \vee v) \rightarrow (w \wedge u) \equiv 
+		 \overline{(\overline{u} \vee v)} \vee (w \wedge u) \equiv 
+		 \overline{\overline{u}} \wedge \overline{v} \vee w \wedge u \equiv 
+		 u \wedge \overline{v} \vee w \wedge u \equiv 
+		 u \wedge (\overline{v} \vee w)$
+	\end{center}
+	
+	
+%==============================================================================================	
+	
+	\begin{task} 
+		№4
+	\end{task}
+	\begin{center}
+		$a \vee b \com b \vee c \com c\vee d \com d\vee e \com e\vee a \com \neg a \vee \neg b \com \neg b \vee \neg c \com \neg c \vee \neg d \com \neg d \vee \neg e \com \neg e \vee\neg a$\\ \vspace{5px}
+		$\res{a\vee b}{\neg a \vee \neg e}{b \vee \neg e}\quad$
+		$\res{b \vee \neg e}{\neg b \vee\neg c}{\neg c \vee \neg e}\quad$
+		$\res{\neg c \vee \neg e}{c \vee d}{d \vee \neg e}\quad$
+		$\res{d \vee \neg e}{\neg d \vee \neg e}{\neg e}\quad$ \\ \vspace{5px}
+		
+		$\res{e \vee a}{\neg e}{a}\quad$
+		$\res{\neg a \vee \neg b}{a}{\neg b}\quad$
+		$\res{b \vee c}{\neg b}{c}\quad$
+		$\res{\neg c \vee \neg d}{c}{\neg d}\quad$ \\ \vspace{5px}
+		
+		$\res{d \vee e}{\neg d}{e}\quad$
+		$\res{\neg e}{e}{\bot}\quad$
+	\end{center}
+	
+	
+%==============================================================================================		
+	
+		
+	\begin{task} 
+		№5
+	\end{task}
+	\begin{center}
+		$p \vee q \com \neg p \vee q \vee r \com p \vee \neg q \vee r \com \neg p \vee \neg r \com p \vee\neg q \vee \neg r$
+	\end{center}
+	Попробуем вывести пустой дизъюнкт:
+	\begin{center}
+		$\res{p \vee q}{\neg p \vee q \vee r}{q\vee r}\quad$
+		$\res{q\vee r}{\neg p \vee \neg r}{q \vee \neg p}\quad$
+		$\res{p \vee q}{q \vee \neg p}{q}\quad$
+		$\res{p \vee\neg q \vee \neg r}{q}{p\vee \neg r}\quad$ \\ \vspace{5px}
+		
+		$\res{\neg p \vee \neg r}{p\vee \neg r}{\neg r}\quad$
+		$\res{p \vee \neg q \vee r}{\neg r}{p \vee \neg q}\quad$
+		$\res{p \vee q}{p \vee \neg q}{p}\quad$ \\ \vspace{5px}
+	\end{center}
+	При $p = 1 \com q = 1 \com r = 0$ все дизъюнкты истинны, значит набор дизъюнктов совместен, значит пустой дизъюнкт вывести нельзя.
+	
+	
+%==============================================================================================		
+		
+	
+	\begin{task} 
+		№6
+	\end{task}
+	\begin{center}
+		$((a \rightarrow b) \rightarrow \neg b) \wedge b$
+	\end{center}
+	Построим равновыполнимую формулу:
+	\begin{center}
+		$(x_1 \equiv a \rightarrow b) \bigwedge (x_2 \equiv \neg b) \bigwedge (x_3 \equiv x_1 \rightarrow x_2) \bigwedge (x_4 \equiv x_3 \wedge b) \bigwedge x_4$\\\vspace{5px}
+	\end{center}
+	Заменим каждую скобку на её КНФ:
+	\begin{center}
+		$(y_1 \equiv y_2 \rightarrow y_3) \equiv (y_1 \vee y_2) \wedge (y_1 \vee \neg y_2 \vee \neg y_3) \wedge (\neg y_1 \vee \neg y_2 \vee y_3) $\\\vspace{5px}
+		$(y_1 \equiv \neg y_2) \equiv (y_1 \vee y_2) \wedge (\neg y_1 \vee\neg y_2)$\\\vspace{5px}
+		$(y_1 \equiv y_2 \wedge y_3) \equiv (\neg y_1 \vee y_2) \wedge (y_1 \vee \neg y_2 \vee \neg y_3) \wedge (\neg y_1 \vee \neg y_2 \vee y_3)$
+	\end{center}
+	И получим формулу в КНФ, равновыполнимую с исходной:
+	\begin{center}
+		$(x_1 \vee a) \wedge (x_1 \vee \neg a \vee \neg b) \wedge (\neg x_1 \vee \neg a \vee b) \bigwedge
+		 (x_2 \vee b) \wedge (\neg x_2 \vee\neg b) \bigwedge
+		 (x_3 \vee x_1) \wedge (x_3 \vee \neg x_1 \vee \neg x_2) \wedge (\neg x_3 \vee \neg x_1 \vee x_2) \bigwedge
+		 (\neg x_4 \vee x_3) \wedge (x_4 \vee \neg x_3 \vee \neg b) \wedge (\neg x_4 \vee \neg x_3 \vee b) \bigwedge x_4$\\\vspace{5px}
+	\end{center}
+	Из этого выводится пустой дизъюнкт, значит исходная формула не выполнима:
+	\begin{center}
+		$\res{x_1 \vee a}{x_1 \vee \neg a \vee \neg b}{x_1 \vee \neg b}\quad$
+		$\res{x_1 \vee a}{\neg x_1 \vee \neg a \vee b}{b}\quad$
+		$\res{x_1 \vee \neg b}{b}{x_1}\quad$
+		$\res{\neg x_4 \vee x_3}{x_4}{x_3}\quad$ \\ \vspace{5px}
+		
+		$\res{\neg x_3 \vee \neg x_1 \vee x_2}{x_3}{ \neg x_1 \vee x_2}\quad$
+		$\res{ \neg x_1 \vee x_2}{x_1}{x_2}\quad$
+		$\res{\neg x_2 \vee\neg b}{x_2}{\neg b}\quad$
+		$\res{\neg b}{b}{\bot}\quad$ \\ \vspace{5px}
+		
+		
+	%	$\res{}{}{}\quad$
+	%	$\res{}{}{}\quad$
+	%	$\res{}{}{}\quad$
+	%	$\res{}{}{}\quad$ \\ \vspace{5px}
+		
+	\end{center}
+	
+	
+	
+%==============================================================================================		
+	
+			
+	
+	\begin{task} 
+		№7
+	\end{task}
+	\begin{center}
+		$((a \rightarrow b) \wedge \neg b) \wedge \neg b$
+	\end{center}
+	Чтобы доказать тавтологичность формулы, докажем невыполнимость её отрицания:
+	\begin{center}
+		$\neg (((a \rightarrow b) \wedge \neg b) \rightarrow \neg b)$
+	\end{center}
+	Построим равновыполнимую формулу:
+	\begin{center}
+		$(x_1 \equiv a \rightarrow b) \bigwedge (x_2 \equiv \neg b) \bigwedge (x_3 \equiv x_1 \wedge x_2) \bigwedge (x_4 \equiv x_3 \rightarrow x_2) \bigwedge \neg x_4$\\\vspace{5px}
+	\end{center}
+	Заменим каждую скобку на её КНФ:
+	\begin{center}
+		$(y_1 \equiv y_2 \rightarrow y_3) \equiv (y_1 \vee y_2) \wedge (y_1 \vee \neg y_2 \vee \neg y_3) \wedge (\neg y_1 \vee \neg y_2 \vee y_3) $\\\vspace{5px}
+		$(y_1 \equiv \neg y_2) \equiv (y_1 \vee y_2) \wedge (\neg y_1 \vee\neg y_2)$\\\vspace{5px}
+		$(y_1 \equiv y_2 \wedge y_3) \equiv (\neg y_1 \vee y_2) \wedge (y_1 \vee \neg y_2 \vee \neg y_3) \wedge (\neg y_1 \vee \neg y_2 \vee y_3)$
+	\end{center}
+	И получим формулу в КНФ, равновыполнимую с исходной:
+	\begin{center}
+		$(x_1 \vee a) \wedge (x_1 \vee \neg a \vee \neg b) \wedge (\neg x_1 \vee \neg a \vee b) \bigwedge 
+		(x_2 \vee b) \wedge (\neg x_2 \vee\neg b) \bigwedge 
+		(\neg x_3 \vee x_1) \wedge (x_3 \vee \neg x_1 \vee \neg x_2) \wedge (\neg x_3 \vee \neg x_1 \vee x_2) \bigwedge 
+		(x_4 \vee x_3) \wedge (x_4 \vee \neg x_3 \vee \neg x_2) \wedge (\neg x_4 \vee \neg x_3 \vee x_2) \bigwedge 
+		\neg x_4$\\\vspace{5px}
+	\end{center}
+	Из этого выводится пустой дизъюнкт, значит исходная формула -- тавтология:
+	\begin{center}
+		$\res{x_1 \vee a}{x_1 \vee \neg a \vee \neg b}{x_1 \vee \neg b}\quad$
+		$\res{x_1 \vee a}{\neg x_1 \vee \neg a \vee b}{b}\quad$
+		$\res{x_1 \vee \neg b}{b}{x_1}\quad$
+		$\res{x_3 \vee \neg x_1 \vee \neg x_2}{x_1}{x_3 \vee \neg x_2}\quad$ \\ \vspace{5px}
+		
+		$\res{x_4 \vee \neg x_3 \vee \neg x_2}{x_3 \vee \neg x_2}{x_4}\quad$
+		$\res{\neg x_4}{x_4}{\bot}\quad$
+		
+		
+		%	$\res{}{}{}\quad$
+		%	$\res{}{}{}\quad$
+		%	$\res{}{}{}\quad$
+		%	$\res{}{}{}\quad$ \\ \vspace{5px}
+		
+	\end{center}
+	
+	
+	
+%==============================================================================================		
+	
+	
+	\begin{task} 
+		№8
+	\end{task}
+	Очевидно, что такое расширение корректно (оно не сломает ИР), потому что если $A$ истинно, то $A \vee B$ тоже истинно, т.е. после добавления такого дизъюнкта совместность множества дизъюнктов не изменится. По теореме о полноте ИР если из множества дизъюнктов выводится $\bot$ в ИР, то это множество дизъюнктов не выполнимо. Т.е. для любого множества дизъюнктов если оно не выполнимо, то это можно доказать в ИР (нет таких множеств, для которых этого нельзя сделать). Значит, это можно доказать и в любых корректных корректных расширениях ИР (например, можно просто не использовать дополнительные правила).
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+\end{document}

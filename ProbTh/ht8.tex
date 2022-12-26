@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[a4paper, left=10mm, right=10mm, top=12mm, bottom=15mm]{geometry}
+\usepackage{mathtools,amssymb}
+\usepackage{graphicx}
+
+\linespread{1.4}
+
+\newcommand{\impl}{\quad\Leftrightarrow\quad}
+\newcommand{\rimpl}{\quad\Rightarrow\quad}
+
+\newenvironment{task}{\begin{center}\fontsize{14}{14}\selectfont\bf}{\rm\fontsize{12}{12}\selectfont\end{center}}
+
+
+\begin{document}
+	\begin{center}
+		Токмаков Александр, группа БПМИ165 \\
+		Домашнее задание 8
+	\end{center}
+	
+	\begin{task} 
+		№9 ( $\xi - \eta$ )
+	\end{task}
+	\textbf{a)} $\rho_\xi(x) = \rho_\eta(x) = Ind_{[0, 1]}(x), \quad \rho_{\xi\eta}(x, y) = Ind_{[0, 1]}(x)\cdot Ind_{[0, 1]}(y) = Ind_{[0, 1]^2}(x, y), \quad \varkappa = \xi - \eta$ \\
+	При $t \in [-1, 0]$:
+	\begin{center}
+		$F_\varkappa(t) = P(\varkappa \leq t) = P(\xi - \eta \leq t) = \iint\limits_{x - y \leq t} \rho_{\xi\eta}(x, y)dxdy 
+		= \int\limits_{-\infty}^{+\infty} \left( \int\limits_{-\infty}^{z+y} \rho_{\xi\eta}(x, y) dx\right)dy
+		= \int\limits_{-\infty}^{+\infty} Ind_{[0, 1]}(y) \left( \int\limits_{-\infty}^{z+y} Ind_{[0, 1]}(x) dx\right)dy
+		= \int\limits_{-\infty}^{+\infty} Ind_{[0, 1]}(y) \left( \int\limits_{-\infty}^{z+y} Inddx\right)dy$
+	\end{center}
+	
+	\begin{center}
+		$F_\varkappa(z) = \begin{cases}
+		0, \quad z \leq 1
+		
+		\end{cases}$
+	\end{center}
+	
+	
+	
+	
+
+	
+\end{document}

@@ -1,0 +1,235 @@
+\documentclass{article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[a4paper, left=10mm, right=10mm, top=12mm, bottom=15mm]{geometry}
+\usepackage{mathtools,amssymb}
+
+\newenvironment{task}{\begin{center}\fontsize{14}{14}\selectfont\bf}{\rm\fontsize{12}{12}\selectfont\end{center}}
+
+
+\begin{document}
+	\begin{center}
+		Токмаков Александр, ФКН, группа БПМИ165 \\
+		Домашнее задание 1
+	\end{center}
+	
+	\begin{task} 
+		№1
+	\end{task}
+	\textbf{а)}
+	\begin{eqnarray*}
+	1001_{10} & = & 512_{10} + 256_{10} + 128_{10} + 64_{10} + 32_{10} + 8_{10} + 1_{10} = \\
+	          & = & 2_{10}^9 + 2_{10}^8 + 2_{10}^7 + 2_{10}^6 + 2_{10}^5 + 2_{10}^3 + 2_{10}^0 = \\
+	          & = & 1000000000_2 + 100000000_2 + 10000000_2 + 1000000_2 + 100000_2 + 1000_2 + 1_2 = \\
+	          & = & 1111101001_2
+	\end{eqnarray*}
+	%\newline
+	\textbf{б)}
+	\begin{eqnarray*}
+	2017_{10} & = & 1024_{10} + 512_{10} + 256_{10} + 128_{10} + 64_{10} + 32_{10} + 1_{10} = \\
+	          & = & 2_{10}^{10} + 2_{10}^9 + 2_{10}^8 + 2_{10}^7 + 2_{10}^6 + 2_{10}^5 + 2_{10}^0 = \\
+	          & = & 10000000000_2 + 1000000000_2 + 100000000_2 + 10000000_2 + 1000000_2 + 100000_2 + 1_2 = \\
+	          & = & 11111100001_2
+	\end{eqnarray*}
+	
+	\begin{task} 
+		№2
+	\end{task}
+	\begin{center}
+	\begin{tabular}{ccc}
+		\begin{tabular}{|c||c|c|c|c|c|c|} \hline
+			$+$	& $0$   & $1$	& $2$	& $3$	& $4$	& $5$	 \\ \hline \hline
+			$0$	& $0$	& $1$	& $2$	& $3$	& $4$	& $5$	 \\ \hline
+			$1$	& $1$	& $2$	& $3$	& $4$	& $5$	& $10$	 \\ \hline
+			$2$	& $2$	& $3$	& $4$	& $5$	& $10$	& $11$	 \\ \hline
+			$3$	& $3$	& $4$	& $5$	& $10$	& $11$	& $12$	 \\ \hline
+			$4$	& $4$	& $5$	& $10$	& $11$	& $12$	& $13$	 \\ \hline
+			$5$	& $5$	& $10$	& $11$	& $12$	& $13$	& $14$	 \\ \hline
+		\end{tabular}
+	& \hfill &
+		\begin{tabular}{|c||c|c|c|c|c|c|} \hline
+			$\cdot$	& $0$   & $1$	& $2$	& $3$	& $4$	& $5$	 \\ \hline \hline
+			$0$		& $0$	& $0$	& $0$	& $0$	& $0$	& $0$	 \\ \hline
+			$1$		& $0$	& $1$	& $2$	& $3$	& $4$	& $5$	 \\ \hline
+			$2$		& $0$	& $2$	& $4$	& $10$	& $12$	& $14$	 \\ \hline
+			$3$		& $0$	& $3$	& $10$	& $13$	& $20$	& $23$	 \\ \hline
+			$4$		& $0$	& $4$	& $12$	& $20$	& $24$	& $32$	 \\ \hline
+			$5$		& $0$	& $5$	& $14$	& $23$	& $32$	& $41$	 \\ \hline
+		\end{tabular} \\
+	\end{tabular} \\
+	\end{center}
+	
+	\vspace{10px}
+	\begin{task} 
+		№3
+	\end{task}
+	Ну ладно, Вы сами попросили. Ассоциативность сложения: \\
+	\begin{center}
+		$(0 + 0) + 0 = 0 + 0 = 0 = 0 + 0 = 0 + (0 + 0)$ \\
+		$(0 + 0) + 1 = 0 + 1 = 1 = 0 + 1 = 0 + (0 + 1)$ \\
+		$(0 + 0) + 2 = 0 + 2 = 2 = 0 + 2 = 0 + (0 + 2)$ \\
+		$(0 + 1) + 0 = 1 + 0 = 1 = 0 + 1 = 0 + (1 + 0)$ \\
+		$(0 + 1) + 1 = 1 + 1 = 2 = 0 + 2 = 0 + (1 + 1)$ \\
+		$(0 + 1) + 2 = 1 + 2 = 0 = 0 + 0 = 0 + (1 + 2)$ \\
+		$(0 + 2) + 0 = 2 + 0 = 2 = 0 + 2 = 0 + (2 + 0)$ \\
+		$(0 + 2) + 1 = 2 + 1 = 0 = 0 + 0 = 0 + (2 + 1)$ \\
+		$(0 + 2) + 2 = 2 + 2 = 1 = 0 + 1 = 0 + (2 + 2)$ \\
+		$(1 + 0) + 0 = 1 + 0 = 1 = 1 + 0 = 1 + (0 + 0)$ \\
+		$(1 + 0) + 1 = 1 + 1 = 2 = 1 + 1 = 1 + (0 + 1)$ \\
+		$(1 + 0) + 2 = 1 + 2 = 0 = 1 + 2 = 1 + (0 + 2)$ \\
+		$(1 + 1) + 0 = 2 + 0 = 2 = 1 + 1 = 1 + (1 + 0)$ \\
+		$(1 + 1) + 1 = 2 + 1 = 0 = 1 + 2 = 1 + (1 + 1)$ \\
+		$(1 + 1) + 2 = 2 + 2 = 1 = 1 + 0 = 1 + (1 + 2)$ \\
+		$(1 + 2) + 0 = 0 + 0 = 0 = 1 + 2 = 1 + (2 + 0)$ \\
+		$(1 + 2) + 1 = 0 + 1 = 1 = 1 + 0 = 1 + (2 + 1)$ \\
+		$(1 + 2) + 2 = 0 + 2 = 2 = 1 + 1 = 1 + (2 + 2)$ \\
+		$(2 + 0) + 0 = 2 + 0 = 2 = 2 + 0 = 2 + (0 + 0)$ \\
+		$(2 + 0) + 1 = 2 + 1 = 0 = 2 + 1 = 2 + (0 + 1)$ \\
+		$(2 + 0) + 2 = 2 + 2 = 1 = 2 + 2 = 2 + (0 + 2)$ \\
+		$(2 + 1) + 0 = 0 + 0 = 0 = 2 + 1 = 2 + (1 + 0)$ \\
+		$(2 + 1) + 1 = 0 + 1 = 1 = 2 + 2 = 2 + (1 + 1)$ \\
+		$(2 + 1) + 2 = 0 + 2 = 2 = 2 + 0 = 2 + (1 + 2)$ \\
+		$(2 + 2) + 0 = 1 + 0 = 1 = 2 + 2 = 2 + (2 + 0)$ \\
+		$(2 + 2) + 1 = 1 + 1 = 2 = 2 + 0 = 2 + (2 + 1)$ \\
+		$(2 + 2) + 2 = 1 + 2 = 0 = 2 + 1 = 2 + (2 + 2)$ \\
+	\end{center}
+	\newpage
+	Ассоциативность умножения: \\
+	\begin{center}
+		$(0 \cdot 0) \cdot 0 = 0 \cdot 0 = 0 = 0 \cdot 0 = 0 \cdot (0 \cdot 0)$ \\
+		$(0 \cdot 0) \cdot 1 = 0 \cdot 1 = 0 = 0 \cdot 0 = 0 \cdot (0 \cdot 1)$ \\
+		$(0 \cdot 0) \cdot 2 = 0 \cdot 2 = 0 = 0 \cdot 0 = 0 \cdot (0 \cdot 2)$ \\
+		$(0 \cdot 1) \cdot 0 = 0 \cdot 0 = 0 = 0 \cdot 0 = 0 \cdot (1 \cdot 0)$ \\
+		$(0 \cdot 1) \cdot 1 = 0 \cdot 1 = 0 = 0 \cdot 1 = 0 \cdot (1 \cdot 1)$ \\
+		$(0 \cdot 1) \cdot 2 = 0 \cdot 2 = 0 = 0 \cdot 2 = 0 \cdot (1 \cdot 2)$ \\
+		$(0 \cdot 2) \cdot 0 = 0 \cdot 0 = 0 = 0 \cdot 0 = 0 \cdot (2 \cdot 0)$ \\
+		$(0 \cdot 2) \cdot 1 = 0 \cdot 1 = 0 = 0 \cdot 2 = 0 \cdot (2 \cdot 1)$ \\
+		$(0 \cdot 2) \cdot 2 = 0 \cdot 2 = 0 = 0 \cdot 1 = 0 \cdot (2 \cdot 2)$ \\
+		$(1 \cdot 0) \cdot 0 = 0 \cdot 0 = 0 = 1 \cdot 0 = 1 \cdot (0 \cdot 0)$ \\
+		$(1 \cdot 0) \cdot 1 = 0 \cdot 1 = 0 = 1 \cdot 0 = 1 \cdot (0 \cdot 1)$ \\
+		$(1 \cdot 0) \cdot 2 = 0 \cdot 2 = 0 = 1 \cdot 0 = 1 \cdot (0 \cdot 2)$ \\
+		$(1 \cdot 1) \cdot 0 = 1 \cdot 0 = 0 = 1 \cdot 0 = 1 \cdot (1 \cdot 0)$ \\
+		$(1 \cdot 1) \cdot 1 = 1 \cdot 1 = 1 = 1 \cdot 1 = 1 \cdot (1 \cdot 1)$ \\
+		$(1 \cdot 1) \cdot 2 = 1 \cdot 2 = 2 = 1 \cdot 2 = 1 \cdot (1 \cdot 2)$ \\
+		$(1 \cdot 2) \cdot 0 = 2 \cdot 0 = 0 = 1 \cdot 0 = 1 \cdot (2 \cdot 0)$ \\
+		$(1 \cdot 2) \cdot 1 = 2 \cdot 1 = 2 = 1 \cdot 2 = 1 \cdot (2 \cdot 1)$ \\
+		$(1 \cdot 2) \cdot 2 = 2 \cdot 2 = 1 = 1 \cdot 1 = 1 \cdot (2 \cdot 2)$ \\
+		$(2 \cdot 0) \cdot 0 = 0 \cdot 0 = 0 = 2 \cdot 0 = 2 \cdot (0 \cdot 0)$ \\
+		$(2 \cdot 0) \cdot 1 = 0 \cdot 1 = 0 = 2 \cdot 0 = 2 \cdot (0 \cdot 1)$ \\
+		$(2 \cdot 0) \cdot 2 = 0 \cdot 2 = 0 = 2 \cdot 0 = 2 \cdot (0 \cdot 2)$ \\
+		$(2 \cdot 1) \cdot 0 = 2 \cdot 0 = 0 = 2 \cdot 0 = 2 \cdot (1 \cdot 0)$ \\
+		$(2 \cdot 1) \cdot 1 = 2 \cdot 1 = 2 = 2 \cdot 1 = 2 \cdot (1 \cdot 1)$ \\
+		$(2 \cdot 1) \cdot 2 = 2 \cdot 2 = 1 = 2 \cdot 2 = 2 \cdot (1 \cdot 2)$ \\
+		$(2 \cdot 2) \cdot 0 = 1 \cdot 0 = 0 = 2 \cdot 0 = 2 \cdot (2 \cdot 0)$ \\
+		$(2 \cdot 2) \cdot 1 = 1 \cdot 1 = 1 = 2 \cdot 2 = 2 \cdot (2 \cdot 1)$ \\
+		$(2 \cdot 2) \cdot 2 = 1 \cdot 2 = 2 = 2 \cdot 1 = 2 \cdot (2 \cdot 2)$ \\
+	\end{center}
+	Дистрибутивность сложения относительно умножения: \\
+	\begin{center}
+		$0 \cdot (0 + 0) = 0 \cdot 0 = 0 = 0 + 0 = 0 \cdot 0 + 0 \cdot 0$ \\
+		$0 \cdot (0 + 1) = 0 \cdot 1 = 0 = 0 + 0 = 0 \cdot 0 + 0 \cdot 1$ \\
+		$0 \cdot (0 + 2) = 0 \cdot 2 = 0 = 0 + 0 = 0 \cdot 0 + 0 \cdot 2$ \\
+		$0 \cdot (1 + 0) = 0 \cdot 1 = 0 = 0 + 0 = 0 \cdot 1 + 0 \cdot 0$ \\
+		$0 \cdot (1 + 1) = 0 \cdot 2 = 0 = 0 + 0 = 0 \cdot 1 + 0 \cdot 1$ \\
+		$0 \cdot (1 + 2) = 0 \cdot 0 = 0 = 0 + 0 = 0 \cdot 1 + 0 \cdot 2$ \\
+		$0 \cdot (2 + 0) = 0 \cdot 2 = 0 = 0 + 0 = 0 \cdot 2 + 0 \cdot 0$ \\
+		$0 \cdot (2 + 1) = 0 \cdot 0 = 0 = 0 + 0 = 0 \cdot 2 + 0 \cdot 1$ \\
+		$0 \cdot (2 + 2) = 0 \cdot 1 = 0 = 0 + 0 = 0 \cdot 2 + 0 \cdot 2$ \\
+		$1 \cdot (0 + 0) = 1 \cdot 0 = 0 = 0 + 0 = 1 \cdot 0 + 1 \cdot 0$ \\
+		$1 \cdot (0 + 1) = 1 \cdot 1 = 1 = 0 + 1 = 1 \cdot 0 + 1 \cdot 1$ \\
+		$1 \cdot (0 + 2) = 1 \cdot 2 = 2 = 0 + 2 = 1 \cdot 0 + 1 \cdot 2$ \\
+		$1 \cdot (1 + 0) = 1 \cdot 1 = 1 = 1 + 0 = 1 \cdot 1 + 1 \cdot 0$ \\
+		$1 \cdot (1 + 1) = 1 \cdot 2 = 2 = 1 + 1 = 1 \cdot 1 + 1 \cdot 1$ \\
+		$1 \cdot (1 + 2) = 1 \cdot 0 = 0 = 1 + 2 = 1 \cdot 1 + 1 \cdot 2$ \\
+		$1 \cdot (2 + 0) = 1 \cdot 2 = 2 = 2 + 0 = 1 \cdot 2 + 1 \cdot 0$ \\
+		$1 \cdot (2 + 1) = 1 \cdot 0 = 0 = 2 + 1 = 1 \cdot 2 + 1 \cdot 1$ \\
+		$1 \cdot (2 + 2) = 1 \cdot 1 = 1 = 2 + 2 = 1 \cdot 2 + 1 \cdot 2$ \\
+		$2 \cdot (0 + 0) = 2 \cdot 0 = 0 = 0 + 0 = 2 \cdot 0 + 2 \cdot 0$ \\
+		$2 \cdot (0 + 1) = 2 \cdot 1 = 2 = 0 + 2 = 2 \cdot 0 + 2 \cdot 1$ \\
+		$2 \cdot (0 + 2) = 2 \cdot 2 = 1 = 0 + 1 = 2 \cdot 0 + 2 \cdot 2$ \\
+		$2 \cdot (1 + 0) = 2 \cdot 1 = 2 = 2 + 0 = 2 \cdot 1 + 2 \cdot 0$ \\
+		$2 \cdot (1 + 1) = 2 \cdot 2 = 1 = 2 + 2 = 2 \cdot 1 + 2 \cdot 1$ \\
+		$2 \cdot (1 + 2) = 2 \cdot 0 = 0 = 2 + 1 = 2 \cdot 1 + 2 \cdot 2$ \\
+		$2 \cdot (2 + 0) = 2 \cdot 2 = 1 = 1 + 0 = 2 \cdot 2 + 2 \cdot 0$ \\
+		$2 \cdot (2 + 1) = 2 \cdot 0 = 0 = 1 + 2 = 2 \cdot 2 + 2 \cdot 1$ \\
+		$2 \cdot (2 + 2) = 2 \cdot 1 = 2 = 1 + 1 = 2 \cdot 2 + 2 \cdot 2$ \\
+	\end{center}
+	\newpage
+	Существование обратного по сложению: \\
+	\begin{center}
+		$0 + 0 = 0 \quad \Rightarrow \quad 0 - 0 = 0$ \\
+		$1 + 1 = 0 \quad \Rightarrow \quad 0 - 1 = 1$ \\
+		$2 + 2 = 0 \quad \Rightarrow \quad 0 - 2 = 2$ \\
+		$0 + 1 = 1 \quad \Rightarrow \quad 1 - 0 = 1$ \\
+		$1 + 2 = 1 \quad \Rightarrow \quad 1 - 1 = 2$ \\
+		$2 + 0 = 1 \quad \Rightarrow \quad 1 - 2 = 0$ \\
+		$0 + 2 = 2 \quad \Rightarrow \quad 2 - 0 = 2$ \\
+		$1 + 0 = 2 \quad \Rightarrow \quad 2 - 1 = 0$ \\
+		$2 + 1 = 2 \quad \Rightarrow \quad 2 - 2 = 1$ \\
+	\end{center}
+	Существование обратного по умножению: \\
+	\begin{center}
+		$1 \cdot 0 = 0 \quad \Rightarrow \quad 0 \div 1 = 0$ \\
+		$2 \cdot 0 = 0 \quad \Rightarrow \quad 0 \div 2 = 0$ \\
+		$1 \cdot 1 = 1 \quad \Rightarrow \quad 1 \div 1 = 1$ \\
+		$2 \cdot 2 = 1 \quad \Rightarrow \quad 1 \div 2 = 2$ \\
+		$1 \cdot 2 = 2 \quad \Rightarrow \quad 2 \div 1 = 2$ \\
+		$2 \cdot 1 = 2 \quad \Rightarrow \quad 2 \div 2 = 1$ \\
+	\end{center}
+
+	\vspace{10px}
+
+	\begin{task} 
+		№4
+	\end{task}
+	По малой теореме Ферма:
+	\begin{center}
+		$11$ - простое, $3 \mathop{\not \raisebox{-2pt}{\vdots}} 11 \quad \Rightarrow \quad 3^{10} \equiv 1 \hspace{5px} (mod \hspace{3px} 11)$
+	\end{center}
+	Поделим $n$ на $10$ с остатком: \\
+	\begin{center}
+		$n = 10q + r$, \quad $q \in \mathbb{N}$, $r \in \mathbb{N}$, $0 \leqslant r < 10$
+	\end{center}
+	Тогда:
+	\begin{center}
+		$3^n \equiv 3^{10q+r} \equiv (3^{10})^q \cdot 3^r \equiv 1^q \cdot 3^r \equiv 3^r \hspace{5px} (mod \hspace{3px} 11)$ 
+	\end{center}
+	Ответ в зависимости от $n$:
+	\begin{center}
+		$n = 10q + 0 \quad \Rightarrow \quad 3^n \equiv 3^0 \equiv 1 \hspace{5px} (mod \hspace{3px} 11) $ \\
+		$n = 10q + 1 \quad \Rightarrow \quad 3^n \equiv 3^1 \equiv 3 \hspace{5px} (mod \hspace{3px} 11) $ \\
+		$n = 10q + 2 \quad \Rightarrow \quad 3^n \equiv 3^2 \equiv 9 \hspace{5px} (mod \hspace{3px} 11) $ \\
+		$n = 10q + 3 \quad \Rightarrow \quad 3^n \equiv 3^3 \equiv 5 \hspace{5px} (mod \hspace{3px} 11) $ \\
+		$n = 10q + 4 \quad \Rightarrow \quad 3^n \equiv 3^4 \equiv 4 \hspace{5px} (mod \hspace{3px} 11) $ \\
+		$n = 10q + 5 \quad \Rightarrow \quad 3^n \equiv 3^5 \equiv 1 \hspace{5px} (mod \hspace{3px} 11) $ \\
+		$n = 10q + 6 \quad \Rightarrow \quad 3^n \equiv 3^6 \equiv 3 \hspace{5px} (mod \hspace{3px} 11) $ \\
+		$n = 10q + 7 \quad \Rightarrow \quad 3^n \equiv 3^7 \equiv 9 \hspace{5px} (mod \hspace{3px} 11) $ \\
+		$n = 10q + 8 \quad \Rightarrow \quad 3^n \equiv 3^8 \equiv 5 \hspace{5px} (mod \hspace{3px} 11) $ \\
+		$n = 10q + 9 \quad \Rightarrow \quad 3^n \equiv 3^9 \equiv 4 \hspace{5px} (mod \hspace{3px} 11) $ \\
+	\end{center}
+	\vspace{10px}
+	
+	\begin{task} 
+		№5
+	\end{task}
+	\begin{center}
+		$100_n = 1 \cdot n^2 + 0 \cdot n^1 + 0 \cdot n^0 = n^2$ \hfill
+		$24_n  = 2 \cdot n^1 + 4 \cdot n^0 = 2n + 4$ \hfill
+		$32_n  = 3 \cdot n^1 + 2 \cdot n^0 = 3n + 2$ \\ \vspace{10px}
+		
+		$100_n = 24_n + 32_n \quad \Rightarrow \quad n^2 = 2n+4 + 3n+2 = 5n + 6 \quad \Rightarrow \quad n^2 - 5n - 6 = 0$ \\ \vspace{10px}
+		$n = \frac{--5 \pm \sqrt{(-5)^2 - 4\cdot 1 \cdot (-6) }}{2\cdot 1} = \frac{5 \pm 7}{2} \quad \Rightarrow \quad \left[ \begin{array}{l} n = 6 \\ n = -1 \end{array} \right$
+	\end{center}
+	Но $n \in \mathbb{N}$, $4 < n$ т.к. в числах есть цифра $4$, значит подходит только $n=6$.
+	
+
+
+
+
+
+
+
+	
+\end{document}

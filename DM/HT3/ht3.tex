@@ -1,0 +1,337 @@
+\documentclass{article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[a4paper, left=10mm, right=10mm, top=12mm, bottom=15mm]{geometry}
+\usepackage{mathtools,amssymb}
+\usepackage{graphicx}
+
+\newenvironment{task}{\begin{center}\fontsize{14}{14}\selectfont\bf}{\rm\fontsize{12}{12}\selectfont\end{center}}
+
+\newcommand{\tch}{\hspace{4px}|\hspace{4px}}
+\newcommand{\impl}{\quad \Leftrightarrow \quad}
+\newcommand{\rimpl}{\quad \Rightarrow \quad}
+
+\begin{document}
+	\begin{center}
+		Токмаков Александр, группа БПМИ165 \\
+		Домашнее задание 3
+	\end{center}
+$a \vee b \com b \vee c \com c\vee d \com d\vee a \com e\vee a \com \neg a \vee \neg b \com \neg b \vee \neg c \com \neg c \vee \neg d \com \neg d \vee \neg e \com \neg e \vee\neg a$\\ \vspace{5px}
+$\res{a\vee b}{\neg a \vee \neg e}{b \vee \neg e}\quad$
+$\res{b \vee \neg e}{\neg b \vee\neg c}{\neg c \vee \neg e}\quad$
+$\res{\neg c \vee \neg e}{c \vee d}{d \vee \neg e}\quad$
+$\res{d \vee \neg e}{\neg d \vee \neg e}{\neg e \vee \neg e}\quad$ \\
+
+
+$\res{\neg e \vee \neg e}{e \vee a}{a \vee \neg e}\quad$
+$\res{a \vee \neg e}{e \vee a}{a \vee a}\quad$
+$\res{d \vee \neg e}{\neg d \vee \neg e}{\neg e \vee \neg e}\quad$ \\
+%==============================================================================================
+	
+	\begin{task} 
+		№1
+	\end{task}
+	Может. Например, трёхмерный полиэдр, задающийся одним неравенством $x + y + z \leq 0$ имеет только две грани: одну трёхмерную при $I = \varnothing$ (весь полиэдр) и одну двумерную при $I = \lbrace1\rbrace$ (размерность пространства решений уравнения $x+y+z = 0$ равна двум). Других способов выбрать подмножество неравенств нет, значит нет других граней.
+	
+	
+%==============================================================================================
+	
+	\begin{task} 
+		№2
+	\end{task}
+	\begin{center}
+		$\begin{cases}
+		3y - x \geq 0 \\
+		3x - y \geq 0 \\
+		x +y \geq -1 \\
+		z \geq 0 \\
+		t \geq 0 \\
+		\end{cases}$
+	\end{center}
+	Переменная $z$ встречаются только в четвёртом неравенстве. Значит, если $4 \not\in I$ и множество точек, в которых все неравенства с номерами из $I$ насыщаются не пусто, то 
+	$\dim \lbrace x \tch a_ix = 0, i \in I\cup\lbrace4\rbrace\rbrace + 1= \dim \lbrace x \tch a_ix = 0, i \in \rbrace$, аналогично для пятого неравенства. Т.е. можно найти все одно- и двумерные грани полиэдра, задающегося первыми тремя уравнениями и получить из них все искомые трёхмерные грани:
+	\begin{center}
+		$\begin{cases}
+		3y - x \geq 0 \\
+		3x - y \geq 0 \\
+		x +y \geq -1 \\
+		\end{cases}$
+	\end{center}
+	Эта система неравенств совместна, т.к. $x=0, y=0$ - допустимое решение. При $I = \varnothing$ размерность грани равна двум. При $I =\lbrace1\rbrace, I =\lbrace2\rbrace, I =\lbrace3\rbrace$ размерность грани равна одному, причём это три различные прямые. При остальных $I$ размерность грани не может быть больше нуля.
+	Размерность каждой из трёх одномерных граней можно увеличить до трёх, добавив четвёртое и пятое уравнения (получится $3\cdot1=3$ различных трёхмерных граней). Размерность двумерной грани можно увеличить до трёх, добавив четвёртое или пятое уравнение (получится $1\cdot2=2$ различных трёхмерных граней).
+	Таким образом, у исходного полиэдра $3 + 2 = 5$ различных трёхмерных граней.
+
+
+%==============================================================================================
+	
+	\begin{task} 
+		№3
+	\end{task}
+	Пусть $p = (p_1, p_2)$ - смешанная стратегия первого игрока. Составим и решим задачу ЛП, максимизирующую его выигрыш $u$:
+	\begin{center}
+		\begin{tabular}{ccccccccc}
+			$\begin{cases}
+			u \rightarrow \max \\
+			2p_1 + 0p_2 \geq u \\
+			-1p_1 +1p_2  \geq u \\
+			2p_1 - 1p_2 \geq u \\
+			p_1 \geq 0 \\
+			p_2 \geq 0 \\
+			p_1 + p_2 = 1 \\
+			\end{cases}$ 
+			& $\impl$ &
+			$\begin{cases}
+			u \rightarrow \max \\
+			2p_1 \geq u \\
+			-2p_1 + 1  \geq u \\
+			3p_1 - 1 \geq u \\
+			p_1 \geq 0 \\
+			p_1 \leq 1 \\
+			\end{cases}$ 
+			& $\impl$ &
+			$\begin{cases}
+			u \rightarrow \max \\
+			p_1 \geq \frac{u}{2} \\
+			p_1 \geq \frac{u+1}{3} \\
+			p_1 \geq 0 \\
+			p_1  \leq \frac{1-u}{2} \\
+			p_1 \leq 1 \\
+			\end{cases}$ 
+			& $\rimpl$ &
+			$\begin{cases}
+			u \rightarrow \max \\
+			\frac{1-u}{2} \geq \frac{u}{2} \\
+			\frac{1-u}{2} \geq \frac{u+1}{3} \\
+			\frac{1-u}{2} \geq 0 \\
+			
+			1 \geq \frac{u}{2} \\
+			1 \geq \frac{u+1}{3} \\
+			1 \geq 0 \\
+			\end{cases}$ 
+			& $\rimpl$ &
+			$\begin{cases}
+			u \rightarrow \max \\
+			u \leq \frac{1}{2} \\
+			u \leq \frac{1}{5} \\
+			u \leq 1 \\
+			
+			u \leq 2 \\
+			u \leq 2 \\
+			\end{cases}$ 
+		\end{tabular}
+	\end{center}
+	Таким образом, $u = \frac{1}{5}$, найдём оптимальную смешанную стратегию для первого игрока:
+	\begin{center}
+		\begin{tabular}{ccccc}
+			$\begin{cases}
+			u \rightarrow \max \\
+			p_1 \geq \frac{1}{10} \\
+			p_1 \geq \frac{2}{5} \\
+			p_1 \geq 0 \\
+			p_1  \leq \frac{2}{5} \\
+			p_1 \leq 1 \\
+			\end{cases}$ 
+			& $\rimpl$ &
+			$p_1 = \frac{2}{5}$ 
+			& $\rimpl$ &
+			$p_2 = 1 - p_1 = \frac{3}{5}$
+			
+		\end{tabular}
+	\end{center}
+
+	Минимизация проигрыша второго игрока будет двойственной задачей с таким же оптимумом $u = \frac{1}{5}$, найдём для него оптимальную смешанную $q = (q_1, q_2, q_3)$ стратегию, решив СЛАУ: 
+	\begin{center}
+		$\begin{cases}
+		2q_1 - 1q_2 + 2q_3 = \frac{1}{5} \\
+		0q_1 + 1q_2 - 1q_3 = \frac{1}{5} \\
+		q_1 + q_2 + q_3 = 1	
+		\end{cases}$
+	\end{center}
+	Получим $q = (0, \frac{3}{5}, \frac{2}{5})$\\
+	Пара равновесных смешанных стратегий $p = (\frac{2}{5}, \frac{3}{5})$ и $q = (0, \frac{3}{5}, \frac{2}{5})$, цена игры $u = \frac{1}{5}$ 
+
+
+%==============================================================================================
+	
+	\begin{task} 
+		№4
+	\end{task}
+	Пусть $f_{uv}$ - поток через ребро $(u, v)$, запишем задачу ЛП:
+	\begin{center}
+			$\begin{cases}
+			f_{sa} + f_{sb} \rightarrow \max \\
+			0 \leq f_{sa} \leq 3 \\
+			0 \leq f_{sb} \leq 1 \\
+			0 \leq f_{ab} \leq 1 \\
+			0 \leq f_{ac} \leq 1 \\
+			
+			0 \leq f_{ca} \leq 1 \\
+			0 \leq f_{bc} \leq 1 \\
+			0 \leq f_{bt} \leq 3 \\
+			0 \leq f_{ct} \leq 2 \\
+			
+			f_{sa} + f_{ca} - f_{ab} - f_{ac} = 0 \\
+			f_{sb} + f_{ab} - f_{bc} - f_{bt} = 0 \\
+			f_{ac} + f_{bc} - f_{ca} - f_{ct} = 0 \\
+			\end{cases}$
+	\end{center}
+	Найдём двойственную задачу ($i$-тое (не)равенство домножается на $a_i$):
+	\begin{center}
+		$\begin{cases}
+		3a_1 + a_2 + a_3 + a_4 + a_5 + a_6 + 3a_7 + 2a_8 \rightarrow \min \\
+		a_1 + a_9 \geq 1\\
+		a_2 + a_{10} \geq 1 \\
+		a_3 - a_9 + a_{10} \geq 0 \\
+		a_4 - a_9 + a_{11} \geq 0 \\
+		a_5 + a_9 - a_{11} \geq 0 \\
+		a_6 - a_{10} + a_{11} \geq 0 \\
+		a_7 - a_{10} \geq 0 \\
+		a_8 + a_{11} \geq 0 \\
+		a_i \geq 0 \\
+		\end{cases}$
+	\end{center}
+	Нарисовав граф на листочке и внимательно посмотрев на него, угадаем оптимальный решения исходной и двойственной задач:
+	\begin{center}
+		$f_{sa} = 2, f_{sb} = 1, f_{ab} = 1, f_{ac} = 1, f_{ca} = 0, f_{bc} = 0, f_{bt} = 2, f_{ct} = 1, c = 3$ \\
+		$a_1 = 0, a_2 = 1, a_3 = 1, a_4 = 1, a_5 = 0, a_6 = 0, a_7 = 0, a_8 = 0, a_9 = 1, a_{10} = 0, a_{11} = 0, c = 3$ \\
+	\end{center}
+	Докажем, что эти решения действительно оптимальны, проверив соотношения дополняющей нежёсткости:
+	\begin{center}
+		В исходной задаче на насыщаются неравенства с номерами 1, 5, 6, 7, 8:\\
+		$a_1 = a_5 = a_6 = a_7 = a_8 = 0$ \\
+		В двойственной задаче не насыщаются неравенства, соответствующие переменным $f_{ca}, f_{bc}$:\\
+		$f_{ca} = f_{bc} = 0$
+	\end{center}
+	Значит, угаданное решение оптимально.
+
+%==============================================================================================
+	
+	\begin{task} 
+		№5
+	\end{task}
+	\begin{center}
+			$\begin{cases}
+			x+2y+25z \rightarrow \max \\
+			x-y+z \leq 1 \\
+			x+2y-z \leq 2 \\
+			-2x+y+3z \leq 3 \\
+			\end{cases}$ 
+	\end{center}
+	Найдём и решим двойственную задачу:
+	\begin{center}
+		$x+2y+25z = u(x-y+z) + v(x+2y-z) + w(-2x+y+3z) \leq u + 2v + 3w \rightarrow \min$ \\ 
+		$x+2y+25z = x(u+v-2w) + y(-u+2v+w) + z(u-v+3w) \leq u + 2v + 3w \rightarrow \min$ \\
+		
+		\begin{tabular}{ccccc}
+			$\begin{cases}
+			u + 2v + 3w \rightarrow\min  \\
+			u+v-2w = 1\\
+			-u+2v+w = 2 \\
+			u-v+3w = 25 \\
+			u \geq 0 \\
+			v \geq 0 \\
+			w \geq 0 \\
+			\end{cases}$ 
+			& $\hfill \Leftrightarrow \hfill$ &
+			$\begin{cases}
+			u + 2v + 3w \rightarrow\min  \\
+			u = 10 \\
+			v = 3 \\
+			w = 6 \\
+			u \geq 0 \\
+			v \geq 0 \\
+			w \geq 0 \\
+			\end{cases}$ 
+			& $\hfill \Leftrightarrow \hfill$ &
+			$\begin{cases}
+			u + 2v + 3w \rightarrow\min  \\
+			u = 10 \\
+			v = 3 \\
+			w = 6 \\
+			\end{cases}$ 
+		\end{tabular}
+	\end{center}
+	Таким образом, оптимум в исходной и двойственной задачах равен 
+	$u + 2v + 3w = 10 + 6 + 18 = 34$.
+	
+	
+%==============================================================================================
+	
+	\begin{task} 
+		№6
+	\end{task}
+	\begin{center}
+			$\begin{cases}
+			f = 2x-y-z \rightarrow\max \\
+			x-2y-z \leq 0 \\
+			x+3y \leq 10 \\
+			-x+y+5z \leq 35 \\
+			2x-y+z \leq 18 \\
+			\end{cases}$\\
+			\vspace{4px}
+			$c = \nabla f = (2, -1, -1)$
+	\end{center}
+	\textbf{Шаг 1:} $\quad v_0 = (0, 0, 0),\quad I = \lbrace1\rbrace$\\
+	\begin{center}
+	$c = (2, -1, -1)$ не выражается линейно через $a_1 = (1, -2, 1) \rimpl f \not= const \rimpl \exists u \tch \begin{cases}
+	c\cdot u > 0 \\ a_1\cdot u = 0
+	\end{cases}$ \\
+	$\begin{cases}
+		2u_1 - u_2 - u_3 > 0 \\ u_1 -2u_2 + u_3 = 0
+	\end{cases} \qquad u = (2, 1, 0) \qquad \begin{array}{l}
+	a_2\cdot u = 2 + 3 = 5 > 0 \\
+	a_3\cdot u = -2 + 1 = -1 \leq 0 \\
+	a_4\cdot u = 4 - 1 > 0
+	\end{array}$ \\
+	Т.е. при движении вдоль $u$ могут нарушиться второе и четвёртое неравенства:\\
+	$v_1 = v_0 + ut = (2t, t, 0), \quad t \geq 0$\\
+	$\begin{cases}
+	2t + 3t \leq 10 \\
+	4t - t \leq 18
+	\end{cases} \rimpl \begin{cases}
+		t \leq 2 \\
+		t \leq 6
+	\end{cases} \rimpl t = 2 \rimpl v_1 = (4, 2, 0)$
+	\end{center}
+	\textbf{Шаг 2:} $\quad v_1 = (4, 2, 0),\quad I = \lbrace1, 2\rbrace$
+	\begin{center}
+		$c = (2, -1, -1)$ не выражается линейно через $a_1 = (1, -2, 1)$ и $a_2 = (1, 3, 0) \rimpl f \not= const \rimpl \exists u \tch \begin{cases}
+		c\cdot u > 0 \\ a_1\cdot u = 0 \\ a_2\cdot u = 0
+		\end{cases}$ \\
+		$\begin{cases}
+		2u_1 - u_2 - u_3 > 0 \\ u_1 -2u_2 + u_3 = 0 \\ u_1 + 3u_2 = 0
+		\end{cases} \qquad u = (3, -1, -5) \qquad \begin{array}{l}
+		a_3\cdot u = -3 - 1 - 25 \leq 0 \\
+		a_4\cdot u = 6 + 1 - 5 = 2 > 0
+		\end{array}$ \\
+		Т.е. при движении вдоль $u$ может нарушиться четвёртое неравенство:\\
+		$v_2 = v_1 + ut = (4 + 3t,2 -t, -5t), \quad t \geq 0$\\
+		$2(4+3t) - (2-t) + (-5t) \leq 18 \rimpl
+		8+6t - 2+t -5t \leq 18
+	    \rimpl
+		2t \leq 12
+		\rimpl
+		t \leq 6
+		\rimpl v_2 = (22, -4, -30)$
+	\end{center}
+	\textbf{Шаг 3:} $\quad v_2 = (22, -4, -30),\quad I = \lbrace1, 2, 4\rbrace$
+	\begin{center}
+		$c = \frac{7}{6}a_1 + \frac{3}{6}a_2 + \frac{1}{6}a_4$, все коэффициенты больше нуля
+		$\rimpl v_2$ - точка максимума \\
+		Максимум равен $22\cdot2 + 4 + 30 = 78$
+	\end{center}
+	
+	
+	
+
+	
+%==============================================================================================
+	
+
+	
+
+
+
+\end{document}

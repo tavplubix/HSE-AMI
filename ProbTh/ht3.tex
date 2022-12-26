@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[a4paper, left=10mm, right=10mm, top=12mm, bottom=15mm]{geometry}
+\usepackage{mathtools,amssymb}
+\usepackage{graphicx}
+
+\newenvironment{task}{\begin{center}\fontsize{14}{14}\selectfont\bf}{\rm\fontsize{12}{12}\selectfont\end{center}}
+
+
+\begin{document}
+	\begin{center}
+		Токмаков Александр, группа БПМИ165 \\
+		Домашнее задание 3
+	\end{center}
+	
+	\begin{task} 
+		№9 (листок 2)
+	\end{task}
+	Пусть $\Omega$ - множество всех людей в городе, $A_1$ - множество здоровых, $A_2$ - множество богатых, $A_3$ - множество умных. При случайном равновероятном выборе человека вероятность того, что он окажется здоровым $P(A_1) = \frac{|A_1|}{|\Omega|} \geq \frac{1}{2}$ т.к. по условию $|A_1| \geq \frac{1}{2}\cdot |\Omega|$, аналогично  $P(A_2) = \frac{|A_2|}{|\Omega|} \geq \frac{1}{2}$. Существует хотя бы один умный человек $\Rightarrow P(A_3) > 0$. Выберем случайного умного человека. Поскольку богатство и ум независимы, вероятность того, что он окажется ещё и богатым равна $P(A_2)$. Здоровье и ум тоже независимы, поэтому он здоров с вероятностью $P(A_1)$. Тогда вероятность того, что он богат и здоров: $P(A_1 \cap A_2) = 1 - P(\overline{A_1} \cup \overline{A_2}) > 0$ т.к. $P(\overline{A_1} \cup \overline{A_2}) \leq P(\overline{A_1}) + P(\overline{A_2}) < \frac{1}{2} + \frac{1}{2} = 1$. Вероятность того, что умный человек окажется здоровым и богатым ненулевая, значит такой человек найдётся.
+	
+	\begin{task} 
+		№10 (листок 2)
+	\end{task}
+ 	$\Omega = \left\lbrace 1, 2, ..., n \right\rbrace $, \hfill $A_i = \left\lbrace k \in \Omega \hspace{5px} | \hspace{5px} k \hspace{5px} mod \hspace{5px} i = 0 \right\rbrace $, \hfill $|A_i| = \left\lfloor \frac{|\Omega|}{i} \right\rfloor$, \hfill $P(A_i) = \frac{|A_i|}{|\Omega|} = \frac{\left\lfloor \frac{n}{i} \right\rfloor}{n}$ \\
+ 	$A_2 \cap A_5 = \left\lbrace k \in \Omega \hspace{5px} | \hspace{5px} k \hspace{5px} mod \hspace{5px} 2 = 0 \vee k \hspace{5px} mod \hspace{5px} 5 = 0\right\rbrace = \left\lbrace k \in \Omega \hspace{5px} | \hspace{5px} k \hspace{5px} mod \hspace{5px} 10 = 0 \right\rbrace = A_{10}$ \\
+ 	События $A_2$ и $A_5$ - независимы $\Leftrightarrow P(A_2 \cap A_5) = P(A_2)\cdot P(A_5)$.\\
+ 	\begin{center}
+ 	$\frac{\left\lfloor \frac{n}{10} \right\rfloor}{n} = \frac{\left\lfloor \frac{n}{2} \right\rfloor}{n} \cdot \frac{\left\lfloor \frac{n}{5} \right\rfloor}{n} \quad \Leftrightarrow \quad n\cdot \left\lfloor \frac{n}{10} \right\rfloor = \left\lfloor \frac{n}{2} \right\rfloor \cdot \left\lfloor \frac{n}{5} \right\rfloor $ \\
+ 	\end{center}
+ 	Пусть $n = 10k + t$, где $0 \leq t < 10$, тогда: \\ 
+ 	\begin{center}
+ 	$\left(10k+t\right)\cdot \left\lfloor k + \frac{t}{10} \right\rfloor = \left\lfloor 5k + \frac{t}{2} \right\rfloor \cdot \left\lfloor 2k + \frac{t}{5} \right\rfloor$ \\
+ 	$\left(10k+t\right)\cdot\left(k + \left\lfloor \frac{t}{10} \right\rfloor \right) = \left( 5k + \left\lfloor \frac{t}{2} \right\rfloor \right) \cdot \left( 2k + \left\lfloor\frac{t}{5} \right\rfloor \right) $ \\
+ 	$\left(10k+t\right)\cdot k = \left( 5k + \left\lfloor \frac{t}{2} \right\rfloor \right) \cdot \left( 2k + \left\lfloor\frac{t}{5} \right\rfloor \right) $ \\
+	\end{center}
+ 	Если $t < 5$: \\
+ 	\begin{center}
+ 	$\left(10k+t\right)\cdot k = \left( 5k + \left\lfloor \frac{t}{2} \right\rfloor \right) \cdot 2k $ \\
+ 	$tk = \left\lfloor \frac{t}{2} \right\rfloor \cdot 2k \quad \Leftrightarrow \quad k = 0$ или $t$ - чётное \\
+	\end{center}
+	Если $t \geq 5$: \\
+	\begin{center}
+ 	$\left(10k+t\right)\cdot k = \left( 5k + \left\lfloor \frac{t}{2} \right\rfloor \right) \cdot \left(2k+1\right) $ \\
+	$tk =\left\lfloor \frac{t}{2} \right\rfloor\cdot 2k + 5k + \left\lfloor \frac{t}{2} \right\rfloor $ \\
+	\end{center}
+	Если $t$ - чётное: $tk = tk + 5k + \frac{t}{2} \Leftrightarrow 5k + \frac{t}{2} = 0 \Leftrightarrow k=0$ и $t=0$ - невозможно т.к. $n > 0$\\
+	Если $t$ - нечётное: $2tk = 2(t-1)k + 5k + t-1 \Leftrightarrow 3k + t = 1 \Leftrightarrow t=1$ и $k=0$ - невозможно т.к. $t \geq 5$ \\
+	Таким образом, либо $n \in \lbrace 1, 2, 3, 4\rbrace$, либо $n = 10k + t$, где $t \in \lbrace 0, 2, 4\rbrace$
+	
+	\begin{task} 
+		№2b (листок 3)
+	\end{task}
+	Пусть в пункт I направили $k$ снарядов, в пункт II $n - k$ снарядов: \\
+	$P_k = P($не поражения цели$) = P($не поражения цели | цель в пункте I$)\cdot P($цель в пункте I$) + P($не поражения цели | цель в пункте II$)\cdot P($цель в пункте II$) = (1-q)^k\cdot p + (1-q)^{n-k}\cdot (1-p)$\\
+	\begin{center}
+	$P_k  =  (1-q)^k\cdot p + (1-q)^{n-k}\cdot (1-p) 
+	= \left(1-\frac{4}{5}\right)^k\cdot \frac{5}{6} + \left(1-\frac{4}{5}\right)^{6-k}\cdot \left(1-\frac{5}{6}\right) 
+	= \left(\frac{1}{5}\right)^k\cdot \frac{5}{6} + \left(\frac{1}{5}\right)^{6-k}\cdot \frac{1}{6}$ \\
+	$\frac{dP_k}{dk} = \frac{5}{6} \cdot \left(\frac{1}{5}\right)^k \cdot \ln \left(\frac{1}{5}\right) - \frac{1}{6} \cdot \left(\frac{1}{5}\right)^{6-k}\cdot \ln \left(\frac{1}{5}\right) = 0 $ \\
+	$\frac{5}{6} \cdot \left(\frac{1}{5}\right)^k \cdot \ln \left(\frac{1}{5}\right) = \frac{1}{6} \cdot \left(\frac{1}{5}\right)^{6-k}\cdot \ln \left(\frac{1}{5}\right)  $ \\
+	$\left(\frac{1}{5}\right)^{k-1} = \left(\frac{1}{5}\right)^{6-k} $ \\
+	$k-1 = 6-k \quad \Leftrightarrow \quad k = \frac{7}{2} $ - локальный максимум \\
+	Но нужно, чтобы вероятность непопадания была минимальной, поэтому проверим границы: \\
+	$P_0 = \frac{5}{6} + \left(\frac{1}{5}\right)^6\cdot \frac{1}{6} > \left(\frac{1}{5}\right)^6\cdot \frac{5}{6} + \frac{1}{6} = P_6$ \\
+	\end{center}
+	Т.е. вероятность непопадания в цель минимальна (вероятность попадания максимальна), если $k=6$ т.е. все снаряды нужно направить в пункт I. 
+	
+	\newpage
+	
+	\begin{task} 
+		№11 (листок 3)
+	\end{task}
+	Пусть $A$ - ровно 2 успеха, $B$ - чётное число успехов:\\
+	\begin{center}
+	$P(A|B) = \frac{P(B|A)\cdot P(A)}{P(B)} = \frac{P(A)}{P(B)} 
+	= \frac{C_N^2\cdot \left( \frac{1}{2}\right)^2\cdot \left(1 - \frac{1}{2}\right)^{N-2}}{P(B)} 
+	= \frac{\frac{N(N-1)}{2} \cdot \left( \frac{1}{2}\right)^N}{P(B)} $ \\
+	\end{center}
+	Всего есть $2^N$ последовательностей из $0$ и $1$ длины $N$, из них $2^{N-1}$ последовательностей содержат чётное число единиц ($N-1$ символов могут быть какими угодно, последний определяется однозначно чётностью числа единиц). Таким образом, $P(B) = \frac{2^(N-1)}{2^N} = \frac{1}{2}$.\\
+	\begin{center}
+	$P(A|B) = \frac{\frac{N(N-1)}{2} \cdot \left( \frac{1}{2}\right)^N}{\frac{1}{2}}
+			= N(N-1) \cdot \left( \frac{1}{2}\right)^N$
+	\end{center}
+	
+	
+\end{document}

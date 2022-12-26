@@ -1,0 +1,26 @@
+image: maven
+
+cache:
+  paths:
+   - .m2/
+
+stages:
+  - build
+
+build_job:
+  stage: build
+  tags:
+    - docker-hse
+  script:
+    - mvn install -B -gs settings.xml
+    - cat ReportAggregate/target/site/jacoco-aggregate/index.html
+  artifacts:
+    reports:
+      junit:
+        - TokenRing/target/surefire-reports/TEST-*.xml
+        - Ships/target/surefire-reports/TEST-*.xml
+    paths:
+      - "TokenRing/target/TokenRing-*.jar"
+      - "Ships/target/Ships-*.jar"
+  coverage: '/Total.*ctr2..?([0-9]{1,3})%/'
+

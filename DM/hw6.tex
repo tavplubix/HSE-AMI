@@ -1,0 +1,124 @@
+\documentclass{article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[a4paper, left=10mm, right=10mm, top=12mm, bottom=15mm]{geometry}
+\usepackage{mathtools,amssymb}
+\usepackage{graphicx}
+
+\newenvironment{task}{\begin{center}\fontsize{14}{14}\selectfont\bf}{\rm\fontsize{12}{12}\selectfont\end{center}}
+
+\newcommand{\tch}{\hspace{4px}|\hspace{4px}}
+\newcommand{\impl}{\quad \Leftrightarrow \quad}
+\newcommand{\rimpl}{\quad \Rightarrow \quad}
+\newcommand{\res}[3]{\begin{array}{lcr} #1 & & #2 \\ \hline & #3 \end{array}}
+\newcommand{\resq}[2]{\begin{array}{c} #1 \\ \hline #2 \end{array}}
+\newcommand{\com}{, \hspace{5px}}
+
+\begin{document}
+	\begin{center}
+		Токмаков Александр, группа БПМИ165 \\
+		Домашнее задание 6
+	\end{center}
+
+%==============================================================================================
+	
+	\begin{task} 
+		№1
+	\end{task}
+	\begin{center}
+	\textbf{a)} $\forall x \ P(x)$ из $\lbrace \forall x\ Q(x), \ \forall x\ (Q(x) \rightarrow P(x))\rbrace$  
+	\end{center}
+	Покажем, что при добавлении к формулам теории отрицания формулы $\forall x \ P(x)$ получается несовместное множество формул, это будет означать, что формула $\forall x \ P(x)$ следует из теории:
+	\begin{center}
+		$\overline{\forall x \ P(x)} \sim \exists x\ \neg P(x)$ т.е. $\neg P(x_0)$ истинно для некоторого $x_0$\\
+		$Q(x) \rightarrow P(x) \sim \neg Q(x) \vee P(x)$\\\vspace{3px}
+		$\resq{\forall x\ Q(x)}{Q(x_0)} \quad \resq{\forall x\ (\neg Q(x) \vee P(x))}{\neg Q(x_0) \vee P(x_0)} \quad \res{Q(x_0)}{\neg Q(x_0) \vee P(x_0)}{P(x_0)} \quad \res{P(x_0)}{\neg P(x_0)}{\bot}$  
+	\end{center}
+
+	\begin{center}
+	\textbf{b)} $\exists x \ P(x)$ из $\lbrace \exists x\ Q(x), \ \forall x\ (Q(x) \rightarrow P(x))\rbrace$  
+	\end{center}
+	Покажем, что при добавлении к формулам теории отрицания формулы $\exists x \ P(x)$ получается несовместное множество формул, это будет означать, что формула $\exists x \ P(x)$ следует из теории:
+	\begin{center}
+	$\overline{\exists x \ P(x)} \sim \forall x\ \neg P(x)$\\
+	$\exists x\ Q(x) \sim Q(x_0)$\\
+	$Q(x) \rightarrow P(x) \sim \neg Q(x) \vee P(x)$\\\vspace{3px}
+	$\resq{ \forall x\ (\neg Q(x) \vee P(x))}{\neg Q(x_0) \vee P(x_0)} \quad
+	\res{\neg Q(x_0) \vee P(x_0)}{Q(x_0)}{P(x_0)} \quad
+	\resq{\forall x\ \neg P(x}{ \neg P(x_))} \quad
+	\res{P(x_0)}{\neg P(x_0)}{\bot}$  
+	\end{center}
+
+	\begin{center}
+		\textbf{c)} $\exists x \ P(x)$ из $\lbrace \exists x\ Q(x), \ \forall x\ (P(x) \rightarrow Q(x))\rbrace$
+	\end{center}
+	Если формула следует из теории, то она общезначима, т.е. истинна в любой модели. Выберем модель с носителем $2\mathbb{Z}$ и интерпретацией предикатов $P(x)$ -- быть нечётным числом и $Q(x)$ -- быть чётным числом. В этой модели формула $\exists x\ P(x)$ не верна (все числа чётные), значит она не общезначима, значит она не следует из теории.
+	\begin{center}
+		\textbf{d)} $\forall x \ P(x)$ из $\lbrace \forall x\ Q(x), \ \forall x\ (P(x) \rightarrow Q(x))\rbrace$
+	\end{center}
+	Аналогично пункту \textbf{c} (можно выбрать такую же модель) формула не следует из теории.
+	
+%==============================================================================================
+	
+	\begin{task} 
+		№2
+	\end{task}
+	\begin{center}
+		\textbf{a)} $x < y$ из $(\mathbb{Z}, \ 2x=y)$  
+	\end{center}
+	Не выразим. Рассмотрим автоморфизм $\alpha(x) = -x$ (это биекция, $2x = y \impl -2x = -y$):
+	\begin{center}
+		$x < y \impl -x < -y\quad $, но это не верно\\ 
+	\end{center}
+
+	\begin{center}
+		\textbf{a)} $x + y = $ из $(\mathbb{Q}, \ x < y)$  
+	\end{center}
+	Не выразим. Рассмотрим автоморфизм $\alpha(x) = x + 1$ (это биекция, $x < y \impl x + 1 < y + 1$):
+	\begin{center}
+		$x + y = z \impl (x + 1) + (y+1) = (z+1)\quad $, но это не верно\\ 
+	\end{center}
+
+	
+%==============================================================================================
+	
+	\begin{task} 
+		№3
+	\end{task}
+	\begin{center}
+		\textbf{a)} $(\mathbb{Z}, \ x+y=z)$  
+	\end{center}
+	Пусть $\alpha$ -- автоморфизм модели, тогда $x+y=z \impl \alpha(x) + \alpha(y) = \alpha(z)$ т.е. $\alpha$ должен быть гомоморфизмом группы $(\mathbb{Z}, +)$. Как известно из алгебры, все гомоморфизмы этой группы имеют вид $\alpha(x) = k\cdot x, \ k \in \mathbb{Z}$. Из них только 2 являются биекциями: $\alpha(x) = 1\cdot x$ и $\alpha(x) = -1 \cdot x$ 
+	
+	\begin{center}
+		\textbf{b)} $(\mathbb{Z}, \ x-y=2)$  
+	\end{center}
+	Пусть $\alpha$ -- автоморфизм модели, тогда $x-y=2 \impl \alpha(x) - \alpha(y) = 2$, тогда $\alpha(x) - \alpha(y) = x - y$ при $x - y = 2$, тогда $\alpha(x) - x = \alpha(y) - y$ при $x - y = 2$ (для чисел одинаковой чётности). Это возможно только при $\alpha(x) = x + n$ для чётных $x$ и $\alpha(x) = x + k$ для нечётных $x$, $ \ n, k \in \mathbb{Z}$. Но для того, чтобы отображение было биекцией, $n$ и $k$ должны иметь одинаковую чётность.
+
+	
+%==============================================================================================
+	
+	\begin{task} 
+		№4
+	\end{task}
+	\begin{center}
+		\textbf{a)} $(\mathbb{N}, \cdot, =)$ и $(\mathbb{Z}, \cdot, =)$
+	\end{center}
+	Модели не изоморфны. Выразим в обеих моделях предикат быть единицей: $x = 1 \eqcirc \forall a\ a\cdot x = a$. Заметим, что в первой модели истинна формула $\forall x\ ((x\cdot x) = 1) \rightarrow (x = 1)$ (единица -- единственное натуральное число, квадрат которого равен единице). Во второй модели эта формула не верна, т.к. $(-1)\cdot(-1) = 1$, но $(-1) \not = 1$. 
+	
+	
+	\begin{center}
+		\textbf{b)} $(\mathbb{Z}_5, \ x - y = 2)$ и $(\mathbb{Z}_5, \ x - y = 1)$  
+	\end{center}
+	Модели изоморфны. Рассмотрим последовательность, в которой каждый следующий элемент получается прибавлением двойки к предыдущему: $\dots, 0, 2, 4, 1, 3, 0, 2, \dots$. Предикат $x - y = 2$ истинен тогда и только тогда, когда $x$ следует за $y$ в этой последовательности т.е. $n(x) - n(y) = 1$, где $n(x)$ -- номер $x$ в этой последовательности. Легко видеть, что $n(x) \mod 5$ будет изоморфизмом. 
+	
+	\begin{center}
+		\textbf{с)} $(\mathbb{Z}_6, \ x - y = 2)$ и $(\mathbb{Z}_6, \ x - y = 1)$  
+	\end{center}
+	Модели не изоморфны. Заметим, что элементы в первой модели образуют два цикла длины 3: $\dots, 0, 2, 4, 0, \dots$ и $\dots, 1, 3, 5, 1, \dots$, т.е. $\forall x\forall y\forall z \ (((x - y = 2) \wedge (y - z = 2)) \rightarrow (z - x = 2))$. Если модели изоморфны, то должна существовать биекция $\alpha$, для которой $\forall x\forall y\forall z \ (((\alpha(x) - \alpha(y) = 1) \wedge (\alpha(y) - \alpha(z) = 1)) \rightarrow (\alpha(z) - \alpha(x) = 1))$, но такого в $\mathbb{Z}_6$ не бывает (каким бы ни было $\alpha$).
+	
+
+
+\end{document}

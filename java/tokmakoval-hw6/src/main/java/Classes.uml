@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="399.0" y="709.0">Account</node>
+    <node x="0.0" y="888.0">Account.Type</node>
+    <node x="627.0" y="709.0">User</node>
+    <node x="434.0" y="0.0">Bank</node>
+    <node x="0.0" y="476.0">BankClient</node>
+    <node x="0.0" y="709.0">Checker</node>
+    <node x="394.0" y="476.0">Transaction</node>
+    <node x="0.0" y="0.0">DBConnector</node>
+    <node x="622.0" y="476.0">BankServer</node>
+    <node x="830.0" y="709.0">Session</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="0.8089430894308943" x="677.4999999999999" y="430.49999999999994" />
+  <SelectedNodes>
+    <node>Session</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>packageLocal</VISIBILITY>
+</Diagram>
+

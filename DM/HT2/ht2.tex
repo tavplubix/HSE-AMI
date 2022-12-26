@@ -1,0 +1,795 @@
+\documentclass{article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[a4paper, left=10mm, right=10mm, top=12mm, bottom=15mm]{geometry}
+\usepackage{mathtools,amssymb}
+\usepackage{graphicx}
+
+\newenvironment{task}{\begin{center}\fontsize{14}{14}\selectfont\bf}{\rm\fontsize{12}{12}\selectfont\end{center}}
+
+
+\begin{document}
+	\begin{center}
+		Токмаков Александр, группа БПМИ165 \\
+		Домашнее задание 2
+	\end{center}
+
+%==============================================================================================
+	
+	\begin{task} 
+		№1
+	\end{task}
+	\begin{center}
+	\begin{tabular}{cccccc}
+		$\begin{cases}
+		x-2y+z+6 \geq 0 \\
+		x \geq y \\
+		z+3y \geq -3 \\
+		2z-y \leq 4 \\
+		x+y+z \leq 7
+		\end{cases}$ 
+		& $\hfill \Leftrightarrow \hfill$ &
+		$\begin{cases}
+		z \geq 2y-x-6 \\
+		z \geq -3y-3 \\
+		z \leq \frac{y}{2}+2 \\
+		z \leq -x-y+7 \\
+		x \geq y 
+		\end{cases} $
+		& $\hfill \Leftrightarrow \hfill$ &
+		$\begin{cases}
+		\frac{y}{2}+2 \geq z \geq 2y-x-6 \\
+		\frac{y}{2}+2 \geq z \geq -3y-3 \\
+		-x-y+7        \geq z \geq 2y-x-6 \\
+		-x-y+7        \geq z \geq -3y-3 \\
+		x \geq y 
+		\end{cases} $
+		& $\hfill \Rightarrow \hfill$ 
+	\end{tabular}
+	\end{center}
+	\begin{center}
+		\begin{tabular}{cccc}
+			$\hfill \Rightarrow \hfill$ &
+			$\begin{cases}
+			\frac{y}{2}+2 \geq 2y-x-6 \\
+			\frac{y}{2}+2 \geq -3y-3 \\
+			-x-y+7        \geq 2y-x-6 \\
+			-x-y+7         \geq -3y-3 \\
+			x \geq y 
+			\end{cases} $ 
+			& $\hfill \Leftrightarrow \hfill$ &
+			$\begin{cases}
+			y \leq \frac{2x}{3} + \frac{8}{3} \\
+			y \geq -\frac{10}{7} \\
+			y \leq \frac{13}{3} \\
+			y \geq \frac{x}{2} - 5 \\
+			y \leq x
+			\end{cases} $
+		\end{tabular}
+	\end{center}
+	Для каждой точки $(x, y)$, удовлетворяющей полученной системе, существует точка $z$, такая что $(x, y, z)$ удовлетворяет исходной системе. Таким образом, решение полученной системы - проекция решения исходной.
+
+%==============================================================================================
+
+	\begin{task} 
+		№2
+	\end{task}
+	\begin{center}
+		\begin{tabular}{ccc}
+			$\begin{cases}
+			2x-y \leq 6 \\
+			x+y+5 \leq 0 \\
+			2y-x+3 \leq 0
+			\end{cases}$
+			& $\hfill \Leftrightarrow \hfill$ &
+			$\begin{cases}
+			2x-y-6 \leq 0 \\
+			x+y+5 \leq 0 \\
+			-x+2y+3 \leq 0
+			\end{cases}$
+		\end{tabular}
+	\end{center}
+	Попробуем найти такие коэффициенты, чтобы из этой системы вывелось неравенство $x+2y\leq-7$:\\
+	\begin{center}
+		\begin{tabular}{ccc}
+			$\alpha(2x-y-6) + \beta(x+y+5) + \gamma(-x+2y+3) = x+2y+7$
+			& $\hfill \Leftrightarrow \hfill$ &
+			$\begin{cases}
+			x(2\alpha + \beta -\gamma) = x \\
+			y(-\alpha + \beta + 2\gamma) = 2y \\
+			-6\alpha + 5\beta + 3\gamma = 7
+			\end{cases} $ 
+		\end{tabular}
+		\\
+		\fontsize{8}{8}
+		\begin{tabular}{ccccccccc}
+			$\left(\begin{array}{ccc|c}
+			2 	& 1 	& -1 	& 1	\\
+			-1	& 1		& 2 	& 2	\\
+			-6	& 5		& 3 	& 7	\\
+			\end{array}\right)$
+			& $\hfill \Leftrightarrow \hfill$ &
+			$\left(\begin{array}{ccc|c}
+			2 	& 1 	& -1 	& 1	\\
+			0	& 3		& 3 	& 5	\\
+			0	& 8		& 0 	& 10	\\
+			\end{array}\right)$
+			& $\hfill \Leftrightarrow \hfill$ & 
+			$\left(\begin{array}{ccc|c}
+			2 	& 1 	& -1 	& 1	\\
+			0	& 1		& 1		& \frac{5}{3}	\\
+			0	& 0		& 1 	& \frac{5}{12}	\\
+			\end{array}\right)$
+			& $\hfill \Leftrightarrow \hfill$ & 
+			$\left(\begin{array}{ccc|c}
+			2 	& 1 	& 0 	& \frac{17}{12}	\\
+			0	& 1		& 0		& \frac{15}{12}	\\
+			0	& 0		& 1 	& \frac{5}{12}	\\
+			\end{array}\right)$
+			& $\hfill \Leftrightarrow \hfill$ & 
+			$\left(\begin{array}{ccc|c}
+			1 	& 0		& 0 	& \frac{1}{12}	\\
+			0	& 1		& 0		& \frac{5}{4}	\\
+			0	& 0		& 1 	& \frac{5}{12}	\\
+			\end{array}\right)$
+		\end{tabular}
+		\fontsize{12}{12}
+	\end{center}
+	Таким образом, неравенство $x+2y+7\leq$ выводится из исходной системы: нужно умножить неравенства системы на $\alpha = \frac{1}{12}$, $\beta = \frac{5}{4}$, $\gamma = \frac{5}{12}$ соответственно и сложить их. \\
+	Попробуем найти такие коэффициенты, чтобы из этой системы вывелось неравенство $x+2y\leq-8$:\\
+	\begin{center}
+		\begin{tabular}{ccc}
+			$\alpha(2x-y-6) + \beta(x+y+5) + \gamma(-x+2y+3) = x+2y+8$
+			& $\hfill \Leftrightarrow \hfill$ &
+			$\begin{cases}
+			x(2\alpha + \beta -\gamma) = x \\
+			y(-\alpha + \beta + 2\gamma) = 2y \\
+			-6\alpha + 5\beta + 3\gamma = 8
+			\end{cases} $ 
+		\end{tabular}
+		\\
+		\fontsize{8}{8}
+		\begin{tabular}{ccccccccc}
+			$\left(\begin{array}{ccc|c}
+			2 	& 1 	& -1 	& 1	\\
+			-1	& 1		& 2 	& 2	\\
+			-6	& 5		& 3 	& 8	\\
+			\end{array}\right)$
+			& $\hfill \Leftrightarrow \hfill$ &
+			$\left(\begin{array}{ccc|c}
+			2 	& 1 	& -1 	& 1	\\
+			0	& 3		& 3 	& 5	\\
+			0	& 8		& 0 	& 11\\
+			\end{array}\right)$
+			& $\hfill \Leftrightarrow \hfill$ & 
+			$\left(\begin{array}{ccc|c}
+			2 	& 1 	& -1 	& 1	\\
+			0	& 1		& 1		& \frac{5}{3}	\\
+			0	& 0		& 1 	& \frac{7}{24}\\
+			\end{array}\right)$
+			& $\hfill \Leftrightarrow \hfill$ & 
+			$\left(\begin{array}{ccc|c}
+			2 	& 1 	& 0 	& \frac{31}{24}	\\
+			0	& 1		& 0		& \frac{33}{24}	\\
+			0	& 0		& 1 	& \frac{7}{24}\\
+			\end{array}\right)$
+			& $\hfill \Leftrightarrow \hfill$ & 
+			$\left(\begin{array}{ccc|c}
+			1 	& 0 	& 0 	& -\frac{1}{24}	\\
+			0	& 1		& 0		& \frac{33}{24}	\\
+			0	& 0		& 1 	& \frac{7}{24}\\
+			\end{array}\right)$
+		\end{tabular}
+		\fontsize{12}{12}
+	\end{center}
+	Коэффициент $\alpha$ получился отрицательным, значит неравенство $x+2y+8\leq 0$ не выводится из системы (после умножения на $\alpha$ измениться знак первого неравенства и его нельзя будет сложить с остальными). 
+
+%==============================================================================================
+
+	\begin{task} 
+	№3
+	\end{task}
+	\begin{center}
+	\begin{tabular}{ccc}
+		$\begin{cases}
+		5x+3y-2z \leq 2 \\
+		3x-2y \leq 0 \\
+		x+y-2z \leq 1 \\
+		-3x+z \leq -1
+		\end{cases}$
+		& $\hfill \Leftrightarrow \hfill$ &
+		$\begin{cases}
+		5x+3y-2z \leq 2 \\
+		6x-4y \leq 0 \\
+		x+y-2z \leq 1 \\
+		-12x+4z \leq -4
+		\end{cases}$
+	\end{tabular}
+	\end{center}
+	Сложим неравенства:
+	\begin{center}
+		$(5+6+1-12)\cdot x + (3-4+1)\cdot y + (-1-1+4)\cdot z \leq 2+1-4$ \\
+		$0\cdot x + 0\cdot y + 0\cdot z \leq -1$ \\
+		$0 \leq -1$
+	\end{center}
+
+%==============================================================================================
+
+
+	\begin{task} 
+		№4
+	\end{task}
+	\begin{center}
+		\begin{tabular}{c}
+			$\begin{cases}
+			x-4y+z \rightarrow max \\
+			2x+3y-6z \leq 5 \\
+			x-y+4z \geq -1 \\
+			x \leq 0 \\
+			y \geq 0
+			\end{cases}$
+		\end{tabular}\\
+	\end{center}
+	Подберём такие коэффициенты, чтобы сложив домноженные на них неравенства, мы получили целевую функцию в левой части. При этом этом справа должна получиться наилучшая оценка на максимум целевой функции:
+	\begin{center}
+		$x-4y+z = u(2x+3y-6z) + v(x-y+4z) + w_1 x + w_2 (-y) \leq 5u-v \rightarrow min$ \\
+		$x-4y+z = x(2u+v+w_1) + y(3u-v-w_2) + z(-6u+4v) \leq 5u-v \rightarrow min$ \\
+	\end{center}
+	Получим двойственную задачу:
+	\begin{center}
+		\begin{tabular}{ccc}
+			$\begin{cases}
+			5u-v \rightarrow min \\
+			2u+v+w_1 = 1, \quad w_1 \geq 0 \\
+			3u-v-w_2 = -4, \quad w_2 \leq 0 \\
+			-6u+4v = 1 \\
+			u \geq 0 \\
+			v \leq 0
+			\end{cases}$
+			& $\hfill \Leftrightarrow \hfill$ &
+			$\begin{cases}
+			5u-v \rightarrow min \\
+			2u+v \leq 1 \\
+			3u-v \leq -4 \\
+			-6u+4v = 1 \\
+			u \geq 0 \\
+			v \leq 0
+			\end{cases}$
+		\end{tabular}\\
+	\end{center}
+
+
+
+%==============================================================================================
+
+
+	\begin{task} 
+		№5
+	\end{task}
+	\begin{center}
+		\begin{tabular}{c}
+			$\begin{cases}
+			x-y+4z \rightarrow min \\
+			2x-3y+z \leq 7 \\
+			3x+y-z \geq 2 \\
+			z \geq 0
+			\end{cases}$
+		\end{tabular}\\
+	\end{center}
+	Подберём такие коэффициенты, чтобы сложив домноженные на них неравенства, мы получили целевую функцию в левой части. При этом этом справа должна получиться наилучшая оценка на минимум целевой функции:
+	\begin{center}
+		$x-y+4z = u(2x-3y+z) + v(3x+y-z ) + wz \geq 7u+2v \rightarrow max$ \\
+		$x-y+4z = x(2u+3v) + y(-3u+v) + z(u-v+w) \geq 7u+2v \rightarrow max$ \\
+	\end{center}
+	Получим двойственную задачу:
+	\begin{center}
+		\begin{tabular}{ccc}
+			$\begin{cases}
+			7u+2v \rightarrow max \\
+			2u+3v = 1 \\
+			-3u+v = -1 \\
+			u-v+w = 4, \quad w \geq 0  \\
+			u \leq 0 \\
+			v \geq 0
+			\end{cases}$
+			& $\hfill \Leftrightarrow \hfill$ &
+			$\begin{cases}
+			7u+2v \rightarrow max \\
+			2u+3v = 1 \\
+			-3u+v = -1 \\
+			u-v \leq 4 \\
+			u \leq 0 \\
+			v \geq 0
+			\end{cases}$
+		\end{tabular}\\
+	\end{center}
+
+%==============================================================================================
+
+
+	\begin{task} 
+		№6
+	\end{task}
+	Пусть $x_{ij}$ - количество единиц продукции, доставляемой от $i$-того производителя к $j$-тому потребителю, составим задачу ЛП:
+	\begin{center}
+		\begin{tabular}{c}
+			$\begin{cases}
+			7x_{ac} + 3x_{ad} + 5x_{ae} + 4x_{bc} + 2x_{bd} + 3x_{be} \rightarrow min \\
+			x_{ac} + x_{ad} + x_{ae} \leq 9 \\
+			x_{bc} + x_{bd} + x_{be} \leq 5 \\
+			x_{ac} + x_{bc} = 3 \\
+			x_{ad} + x_{bd} = 4 \\
+			x_{ae} + x_{be} = 5 \\
+			x_{ij} \geq 0
+			\end{cases}$
+		\end{tabular}\\
+	\end{center}
+	Найдём двойственную задачу:
+	\begin{center}
+		$7x_{ac} + 3x_{ad} + 5x_{ae} + 4x_{bc} + 2x_{bd} + 3x_{be} 
+		=$\\$= y_1(x_{ac} + x_{ad} + x_{ae}) + y_2(x_{bc} + x_{bd} + x_{be}) + y_3(x_{ac} + x_{bc}) + y_4(x_{ad} + x_{bd}) + y_5(x_{ae} + x_{be}) + \Sigma w_{ij}x_{ij} \geq$\\$\geq 9y_1+5y_2+3y_3+4y_4+5y_5 \rightarrow max$ \\
+		\begin{tabular}{ccc}
+		$\begin{cases}
+		9y_1+5y_2+3y_3+4y_4+5y_5 \rightarrow max \\
+		y_1+y_3 + w_{ac} = 7, \quad w_{ac} \geq 0 \\
+		y_1+y_4 + w_{ad} = 3, \quad w_{ad} \geq 0 \\
+		y_1+y_5 + w_{ae} = 5, \quad w_{ae} \geq 0 \\
+		y_2+y_3 + w_{bc} = 4, \quad w_{bc} \geq 0 \\
+		y_2+y_4 + w_{bd} = 2, \quad w_{bd} \geq 0 \\
+		y_2+y_5 + w_{be} = 3, \quad w_{be} \geq 0 \\
+		y_1 \leq 0 \\
+		y_2 \leq 0 
+		\end{cases}$
+		& $\hfill \Leftrightarrow \hfill$ &
+			$\begin{cases}
+		9y_1+5y_2+3y_3+4y_4+5y_5 \rightarrow max \\
+		y_1+y_3 \leq 7 \\
+		y_1+y_4 \leq 3 \\
+		y_1+y_5 \leq 5 \\
+		y_2+y_3 \leq 4 \\
+		y_2+y_4 \leq 2 \\
+		y_2+y_5 \leq 3 \\
+		y_1 \leq 0 \\
+		y_2 \leq 0 
+		\end{cases}$
+		\end{tabular}\\
+	\end{center}
+	Найдём решение, при котором значение целевой функции равно 45:
+	\begin{center}
+	\begin{tabular}{cccc}
+		$\begin{cases}
+		7x_{ac} + 3x_{ad} + 5x_{ae} + 4x_{bc} + 2x_{bd} + 3x_{be} = 45 \\
+		x_{ac} = 3 - x_{bc}\\
+		x_{ad} = 4 - x_{bd}\\
+		x_{ae} = 5 - x_{be}\\
+		x_{ac} + x_{ad} + x_{ae} \leq 9 \\
+		x_{bc} + x_{bd} + x_{be} \leq 5 \\
+		x_{ij} \geq 0
+		\end{cases}$
+		& $\hfill \Rightarrow \hfill$ &
+		$\begin{cases}
+		7(3 - x_{bc}) + 3(4 - x_{bd}) + 5(5 - x_{be}) + 4x_{bc} + 2x_{bd} + 3x_{be} = 45 \\
+		3 - x_{bc} + 4 - x_{bd} + 5 - x_{be} \leq 9 \\
+		x_{bc} + x_{bd} + x_{be} \leq 5 \\
+		3 \geq x_{bc} \geq 0\\
+		4 \geq x_{bd} \geq 0\\
+		5 \geq x_{be} \geq 0
+		\end{cases}$
+		& $\hfill \Rightarrow \hfill$
+	\end{tabular}\\
+		\begin{tabular}{ccccc}
+			$\hfill \Rightarrow \hfill$ &
+			$\begin{cases}
+			7(3 - x_{bc}) + 3(4 - x_{bd}) + 5(5 - x_{be}) + 4x_{bc} + 2x_{bd} + 3x_{be} = 45 \\
+			3 - x_{bc} + 4 - x_{bd} + 5 - x_{be} \leq 9 \\
+			x_{bc} + x_{bd} + x_{be} \leq 5 \\
+			3 \geq x_{bc} \geq 0 \\
+			4 \geq x_{bd} \geq 0 \\
+			5 \geq x_{be} \geq 0 
+			\end{cases}$
+			& $\hfill \Rightarrow \hfill$ &
+			$\begin{cases}
+			x_{bd} = 13 - 3x_{bc} - 2x_{be}  \\
+			x_{bc} + x_{bd} + x_{be} \geq 3 \\
+			x_{bc} + x_{bd} + x_{be} \leq 5 \\
+			3 \geq x_{bc} \geq 0 \\
+			4 \geq x_{bd} \geq 0 \\
+			5 \geq x_{be} \geq 0 
+			\end{cases}$
+			& $\hfill \Rightarrow \hfill$ 
+		\end{tabular}\\
+	\begin{tabular}{cccc}
+		$\hfill \Rightarrow \hfill$ &
+		$\begin{cases}
+		x_{bc} + 13 - 3x_{bc} - 2x_{be} + x_{be} \geq 3 \\
+		x_{bc} + 13 - 3x_{bc} - 2x_{be} + x_{be} \leq 5 \\
+		3 \geq x_{bc} \geq 0 \\
+		4 \geq 13 - 3x_{bc} - 2x_{be} \geq 0 \\
+		5 \geq x_{be} \geq 0 
+		\end{cases}$
+		& $\hfill \Rightarrow \hfill$ &
+		$\begin{cases}
+		2x_{bc} + x_{be} \leq 10 \\
+		2x_{bc} + x_{be} \geq 8 \\
+		3 \geq x_{bc} \geq 0 \\
+		9 \leq 3x_{bc} + 2x_{be} \leq 13 \\
+		5 \geq x_{be} \geq 0 
+		\end{cases}$
+	\end{tabular}\\
+	\end{center}
+	Можно заметить, что подходит $x_{bc}=3, x_{be}=2$. Тогда:
+	\begin{center}
+		$x_{bd} = 13 - 3x_{bc} - 2x_{be} = 13 - 9 - 4 = 0$  \\
+		$x_{ac} = 3 - x_{bc} = 3 - 3 = 0$ \\
+		$x_{ad} = 4 - x_{bd} = 4 - 0 = 4$ \\
+		$x_{ae} = 5 - x_{be} = 5 - 2 = 3$ \\
+		$7x_{ac} + 3x_{ad} + 5x_{ae} + 4x_{bc} + 2x_{bd} + 3x_{be} = 0 + 12 + 15 + 12 + 0 + 6 = 45$
+	\end{center}
+	%С помощью двойственной задачи покажем, что найденное решение оптимально:
+	%\begin{center}
+	%	\begin{tabular}{cccccc}
+	%		$\begin{cases}
+	%		9y_1+5y_2+3y_3+4y_4+5y_5 = 45 \\
+	%		y_1+y_3 \leq 7 \\
+	%		y_1+y_4 \leq 3 \\
+	%		y_1+y_5 \leq 5 \\
+	%		y_2+y_3 \leq 4 \\
+	%		y_2+y_4 \leq 2 \\
+	%		y_2+y_5 \leq 3 \\
+	%		y_1 \leq 0 \\
+	%		y_2 \leq 0 
+	%		\end{cases}$
+	%		& $\hfill \Rightarrow \hfill$ &
+	%		$\begin{cases}
+	%		y_5 = 9 - \frac{9y_1}{5} - y_2 - \frac{3y_3}{5} - \frac{4y_4}{5}\\
+	%		y_1+y_3 \leq 7 \\
+	%		y_1+y_4 \leq 3 \\
+	%		y_1+y_5 \leq 5 \\
+	%		y_2+y_3 \leq 4 \\
+	%		y_2+y_4 \leq 2 \\
+	%		y_2+y_5 \leq 3 \\
+	%		y_1 \leq 0 \\
+	%		y_2 \leq 0 
+	%		\end{cases}$
+	%		& $\hfill \Rightarrow \hfill$ &
+	%		$\begin{cases}
+	%		y_1+y_3 \leq 7 \\
+	%		y_1+y_4 \leq 3 \\
+	%		4 y_1 + 5 y_2 + 3 y_3 + 4 y_4 \geq 20 \\
+	%		y_2+y_3 \leq 4 \\
+	%		y_2+y_4 \leq 2 \\
+	%		9 y_1 + 3 y_3 + 4 y_4\geq30 \\
+	%		y_1 \leq 0 \\
+	%		y_2 \leq 0 
+	%		\end{cases}$
+	%		& $\hfill \Rightarrow \hfill$
+	%	\end{tabular} \\
+	%\begin{tabular}{ccccccc}
+	%	$\hfill \Rightarrow \hfill$ &
+	%	$\begin{cases}
+	%	y_1 \leq 7-y_3 \\
+	%	y_1 \leq 3-y_4 \\
+	%	y_1 \leq 0 \\
+	%	y_1  \geq 5 - \frac{5 y_2}{4} - \frac{3 y_3}{4} - y_4\\
+	%	y_1 \geq \frac{10}{3} - \frac{y_3}{3} - \frac{4 y_4}{9}\\
+	%	y_2+y_3 \leq 4 \\
+	%	y_2+y_4 \leq 2 \\
+	%	y_2 \leq 0 
+	%	\end{cases}$
+	%	& $\hfill \Rightarrow \hfill$ &
+	%	$\begin{cases}
+	%	5 - \frac{5 y_2}{4} - \frac{3 y_3}{4} - y_4 \leq 7-y_3 \\
+	%	5 - \frac{5 y_2}{4} - \frac{3 y_3}{4} - y_4 \leq 3-y_4 \\
+	%	5 - \frac{5 y_2}{4} - \frac{3 y_3}{4} - y_4 \leq 0 \\
+	%	
+	%	\frac{10}{3} - \frac{y_3}{3} - \frac{4 y_4}{9} \leq 7-y_3 \\
+	%	\frac{10}{3} - \frac{y_3}{3} - \frac{4 y_4}{9} \leq 3-y_4 \\
+	%	\frac{10}{3} - \frac{y_3}{3} - \frac{4 y_4}{9} \leq 0 \\
+	%	
+	%	y_2+y_3 \leq 4 \\
+	%	y_2+y_4 \leq 2 \\
+	%	y_2 \leq 0 
+	%	\end{cases}$
+	%	& $\hfill \Rightarrow \hfill$ &
+	%	$\begin{cases}
+	%	y_3 \leq 5y_2+4y_4+8 \\
+	%	y_3 \geq - \frac{5y_2}{2} + \frac{8}{3} \\
+	%	y_3 \geq - \frac{5y_2}{3} - \frac{4y_4}{3} + \frac{20}{3}\\
+	%	
+	%	y_3 \leq \frac{2y_4}{3} + \frac{11}{2} \\
+	%	y_3 \geq \frac{5y_4}{3} + 1 \\
+	%	y_3 \geq -\frac{4y_4}{3}+ 10 \\
+	%	
+	%	y_3 \leq 4 - y_2 \\
+	%	y_2+y_4 \leq 2 \\
+	%	y_2 \leq 0 
+	%	\end{cases}$
+	%	& $\hfill \Rightarrow \hfill$
+	%\end{tabular}
+ %
+	%	\begin{tabular}{ccccccc}
+	%		$\hfill \Rightarrow \hfill$ &
+	%		$\begin{cases}
+	%		y_3 \leq 5y_2+4y_4+8 \\
+	%		y_3 \leq \frac{2y_4}{3} + \frac{11}{2} \\
+	%		y_3 \leq 4 - y_2 \\
+	%		
+	%		y_3 \geq - \frac{5y_2}{2} + \frac{8}{3} \\
+	%		y_3 \geq - \frac{5y_2}{3} - \frac{4y_4}{3} + \frac{20}{3}\\
+	%		y_3 \geq \frac{5y_4}{3} + 1 \\
+	%		y_3 \geq -\frac{4y_4}{3}+ 10 \\
+	%		
+	%		y_2+y_4 \leq 2 \\
+	%		y_2 \leq 0 
+	%		\end{cases}$
+	%		& $\hfill \Rightarrow \hfill$ &
+	%		$\begin{cases}
+	%		- \frac{5y_2}{2} + \frac{8}{3} \leq 5y_2+4y_4+8 \\
+	%		- \frac{5y_2}{2} + \frac{8}{3} \leq \frac{2y_4}{3} + \frac{11}{2} \\
+	%		- \frac{5y_2}{2} + \frac{8}{3} \leq 4 - y_2 \\
+	%		
+	%		- \frac{5y_2}{3} - \frac{4y_4}{3} + \frac{20}{3} \leq 5y_2+4y_4+8 \\
+	%		- \frac{5y_2}{3} - \frac{4y_4}{3} + \frac{20}{3} \leq \frac{2y_4}{3} + \frac{11}{2} \\
+	%		- \frac{5y_2}{3} - \frac{4y_4}{3} + \frac{20}{3} \leq 4 - y_2 \\
+	%		
+	%		\frac{5y_4}{3} + 1 \leq 5y_2+4y_4+8 \\
+	%		\frac{5y_4}{3} + 1 \leq \frac{2y_4}{3} + \frac{11}{2} \\
+	%		\frac{5y_4}{3} + 1 \leq 4 - y_2 \\
+	%		
+	%		-\frac{4y_4}{3}+ 10 \leq 5y_2+4y_4+8 \\
+	%		-\frac{4y_4}{3}+ 10 \leq \frac{2y_4}{3} + \frac{11}{2} \\
+	%		-\frac{4y_4}{3}+ 10 \leq 4 - y_2 \\
+	%		
+	%		y_2+y_4 \leq 2 \\
+	%		y_2 \leq 0 
+	%		\end{cases}$
+	%		& $\hfill \Rightarrow \hfill$ &
+	%		$\begin{cases}
+	%		y_2 \geq -\frac{8y_4}{15} - \frac{32}{45} \\
+	%		y_2 \geq -\frac{4y_4}{15} - \frac{17}{15} \\
+	%		y_2 \geq -\frac{8}{9} \\
+	%		
+	%		y_2 \geq -\frac{4y_4}{5} - \frac{1}{5} \\
+	%		y_2 \geq -\frac{6y_2}{5} + \frac{7}{10} \\
+	%		y_2 \geq -2y_4 + 4 \\
+	%		
+	%		y_2 \geq -\frac{7y_4}{15} - \frac{7}{5}\\
+	%		y_4 \leq \frac{9}{2} \\
+	%		y_2 \leq -\frac{5y_4}{3} + 3 \\
+	%		
+	%		y_2 \geq -\frac{16y_4}{15} + \frac{2}{5} \\
+	%		y_4 \geq \frac{9}{4} \\
+	%		y_2 \leq \frac{4y_4}{3} - 6 \\
+	%		
+	%		y_2 \leq 2 - y_4 \\
+	%		y_2 \leq 0 
+	%		\end{cases}$
+	%		& $\hfill \Rightarrow \hfill$
+	%	\end{tabular}\\
+	%	
+	%	\begin{tabular}{ccccccc}
+	%		$\hfill \Rightarrow \hfill$ &
+	%			$\begin{cases}
+	%		y_2 \geq -\frac{8y_4}{15} - \frac{32}{45} \\
+	%		y_2 \geq -\frac{4y_4}{15} - \frac{17}{15} \\
+	%		y_2 \geq -\frac{8}{9} \\
+	%		y_2 \geq -\frac{4y_4}{5} - \frac{1}{5} \\
+	%		y_2 \geq -\frac{6y_2}{5} + \frac{7}{10} \\
+	%		y_2 \geq -2y_4 + 4 \\
+	%		y_2 \geq -\frac{7y_4}{15} - \frac{7}{5}\\
+	%		y_2 \geq -\frac{16y_4}{15} + \frac{2}{5} \\
+	%		
+	%		y_2 \leq -\frac{5y_4}{3} + 3 \\
+	%		y_2 \leq \frac{4y_4}{3} - 6 \\
+	%		y_2 \leq 2 - y_4 \\
+	%		y_2 \leq 0 \\
+	%		
+	%		y_4 \geq \frac{9}{4} \\
+	%		y_4 \leq \frac{9}{2} \\
+	%		\end{cases}$
+	%		& $\hfill \Rightarrow \hfill$ &
+	%			$\begin{cases}
+	%		y_2 \geq -\frac{8y_4}{15} - \frac{32}{45} \\
+	%		y_2 \geq -\frac{4y_4}{15} - \frac{17}{15} \\
+	%		y_2 \geq -\frac{8}{9} \\
+	%		y_2 \geq -\frac{4y_4}{5} - \frac{1}{5} \\
+	%		y_2 \geq -\frac{6y_2}{5} + \frac{7}{10} \\
+	%		y_2 \geq -2y_4 + 4 \\
+	%		y_2 \geq -\frac{7y_4}{15} - \frac{7}{5}\\
+	%		y_2 \geq -\frac{16y_4}{15} + \frac{2}{5} \\
+	%		
+	%		y_2 \leq -\frac{5y_4}{3} + 3 \\
+	%		y_2 \leq \frac{4y_4}{3} - 6 \\
+	%		y_2 \leq 2 - y_4 \\
+	%		y_2 \leq 0 \\
+	%		
+	%		y_4 \geq \frac{9}{4} \\
+	%		y_4 \leq \frac{9}{2} \\
+	%		\end{cases}$
+	%		& $\hfill \Rightarrow \hfill$ &
+	%		$\begin{cases}
+	%		tmp
+	%		\end{cases}$
+	%		& $\hfill \Rightarrow \hfill$
+	%	\end{tabular}
+		
+		%\fontsize{10}{10}
+		%\begin{tabular}{ccc}
+		%	$\begin{cases}
+		%	9y_1+5y_2+3y_3+4y_4+5y_5 = 45 \\
+		%	y_1+y_3 + w_{ac} = 7 \\
+		%	y_1+y_4 + w_{ad} = 3 \\
+		%	y_1+y_5 + w_{ae} = 5 \\
+		%	y_2+y_3 + w_{bc} = 4 \\
+		%	y_2+y_4 + w_{bd} = 2 \\
+		%	y_2+y_5 + w_{be} = 3 \\
+		%	\end{cases}$
+		%	& $\hfill \Leftrightarrow \hfill$ &
+		%	$\left(\begin{array}{ccccccccccc|c}
+		%	9 & 5 & 3 & 4 & 5	 & 0 & 0 & 0 & 0 & 0 & 0 & 45 \\
+		%	1 & 0 & 1 & 0 & 0	 & 1 & 0 & 0 & 0 & 0 & 0 & 7 \\
+		%	1 & 0 & 0 & 1 & 0	 & 0 & 1 & 0 & 0 & 0 & 0 & 3 \\
+		%	1 & 0 & 0 & 0 & 1	 & 0 & 0 & 1 & 0 & 0 & 0 & 5 \\
+		%	0 & 1 & 1 & 0 & 0	 & 0 & 0 & 0 & 1 & 0 & 0 & 4 \\
+		%	0 & 1 & 0 & 1 & 0	 & 0 & 0 & 0 & 0 & 1 & 0 & 3 \\
+		%	0 & 1 & 0 & 0 & 1	 & 0 & 0 & 0 & 0 & 0 & 1 & 2 
+		%	\end{array}\right)$
+		%	
+		%\end{tabular}\\
+	%\fontsize{12}{12}
+	%\end{center} 
+	%Оно как-то решается. Например, так (решение \textit{угадано}, можно проверить, что оно подходит): 
+	%\begin{center}
+	%	$w_{ac} = 1, \quad w_{ad} = 1, \quad w_{ae}=1, \quad w_{bc}=2, \quad w_{bd}=3, \quad w_{be}=1$\\
+	%	$y_1 = -5+7+3+6-1, \quad y_2 = -8, \quad y_3 = 12, \quad y_4=11, \quad y_5=10$
+	%\end{center}
+	%Домножим неравенства исходной системы на найденные коэффициенты
+
+
+
+	%==============================================================================================
+	
+	
+	\begin{task} 
+		№7
+	\end{task}
+	\begin{center}
+		\begin{tabular}{c}
+			$\begin{cases}
+			-3x+4y+z \rightarrow max \\
+			3x-2y+z \geq 5 \\
+			x+2y-2z \leq 2 \\
+			-x-y+3z \leq 1 \\
+			\end{cases}$
+		\end{tabular}\\
+	\end{center}
+	Найдём двойственную задачу:
+	\begin{center}
+		$-3x+4y+z = u(3x-2y+z) + v(x+2y-2z) + w(-x-y+3z) \leq 5u+2v+w \rightarrow min$ \\
+		$-3x+4y+z = x(3u+v-w) + y(-2u+2v-w) + z(u-2v+3w) \leq 5u+2v+w \rightarrow min$ \\
+		\begin{tabular}{c}
+			$\begin{cases}
+			5u+2v+w \rightarrow min \\
+			3u+v-w = -3 \\
+			-2u+2v-w = 4 \\
+			u-2v+3w = 1 \\
+			u \leq 0 \\
+			v \geq 0 \\ 
+			w \geq 0
+			\end{cases}$
+		\end{tabular}\\
+	\end{center}
+	Решим систему из трёх уравнений двойственной задачи:\\
+	\fontsize{6}{6}
+	\begin{tabular}{ccccccccc}
+		$\left(\begin{array}{ccc|c}
+		3 	& 1 	& -1 	& -3	\\
+		-2	& 2		& -1 	& 4	\\
+		1	& -1	& 3 	& 1	\\
+		\end{array}\right)$
+		& $\hfill \Leftrightarrow \hfill$ &
+		$\left(\begin{array}{ccc|c}
+		0 	& 4 	& -10 	& -6	\\
+		0	& 0		& 5 	& 6	\\
+		1	& -1	& 3 	& 1	\\
+		\end{array}\right)$
+		& $\hfill \Leftrightarrow \hfill$ & 
+		$\left(\begin{array}{ccc|c}
+		1	& -1	& 3 	& 1	\\
+		0 	& 2 	& -5 	& -3	\\
+		0	& 0		& 5 	& 6	\\
+		\end{array}\right)$
+		& $\hfill \Leftrightarrow \hfill$ & 
+		$\left(\begin{array}{ccc|c}
+		1	& -1	& 0 	& \frac{-13}{5}	\\
+		0 	& 1 	& 0 	& \frac{3}{2}	\\
+		0	& 0		& 1 	& \frac{6}{5}	\\
+		\end{array}\right)$
+		& $\hfill \Leftrightarrow \hfill$ & 
+		$\left(\begin{array}{ccc|c}
+		1	& 0 	& 0 	& -\frac{11}{10}	\\
+		0 	& 1 	& 0 	& \frac{3}{2}	\\
+		0	& 0		& 1 	& \frac{6}{5}	\\
+		\end{array}\right)$
+	\end{tabular}\\
+	\fontsize{12}{12}
+	Эта система уравнений имеет единственное решение $u = -\frac{11}{10}, v = \frac{3}{2}, w = \frac{6}{5}$. Оно удовлетворяет ограничениям двойственной задачи $u \leq 0 ,	v \geq 0,	w \geq 0$, следовательно является оптимальным (потому что других нет) решением двойственной задачи. 
+	\begin{center}
+		$-3x+4y+z \leq 5u+2v+w = -\frac{55}{10} + 3 + \frac{6}{5} = -\frac{13}{10}$
+	\end{center}
+	Таким образом, оптимальное значение целевой функции в исходной задаче равно  $-\frac{13}{10}$.
+
+
+%==============================================================================================
+	
+	
+	\begin{task} 
+		№8
+	\end{task}
+	\begin{center}
+		\begin{tabular}{c}
+			$\begin{cases}
+			x-y+z \rightarrow max \\
+			2x-y+z \geq 5 \\
+			x+2y-z \leq 2 \\
+			-2x-2y+z \leq 1 \\
+			\end{cases}$
+		\end{tabular}\\
+	\end{center}
+	Найдём двойственную задачу:
+	\begin{center}
+		$x-y+z = u(2x-y+z) + v(x+2y-z) + w(-2x-2y+z) \leq 5u+2v+w \rightarrow min$ \\
+		$x-y+z = x(2u+v-2w) + y(-u+2v-2w) + z(u-v+w) \leq 5u+2v+w \rightarrow min$ \\
+		\begin{tabular}{c}
+			$\begin{cases}
+			5u+2v+w \rightarrow min \\
+			2u+v-2w = 1 \\
+			-u+2v-2w = -1 \\
+			u-v+w = 1 \\
+			u \leq 0 \\
+			v \geq 0 \\ 
+			w \geq 0
+			\end{cases}$
+		\end{tabular}\\
+	\end{center}
+	Решим систему из трёх уравнений двойственной задачи:\\
+	\fontsize{6}{6}
+	\begin{tabular}{ccccccccc}
+		$\left(\begin{array}{ccc|c}
+		2 	& 1 	& -2 	& 1	\\
+		-1	& 2		& -2 	& -1	\\
+		1	& -1	& 1 	& 1	\\
+		\end{array}\right)$
+		& $\hfill \Leftrightarrow \hfill$ &
+		$\left(\begin{array}{ccc|c}
+		0 	& 3 	& -4 	& -1	\\
+		0	& 1		& -1 	& 0	\\
+		1	& -1	& 1 	& 1	\\
+		\end{array}\right)$
+		& $\hfill \Leftrightarrow \hfill$ & 
+		$\left(\begin{array}{ccc|c}
+		0 	& 0 	& 1 	& 1	\\
+		0	& 1		& -1 	& 0	\\
+		1	& -1	& 1 	& 1	\\
+		\end{array}\right)$
+		& $\hfill \Leftrightarrow \hfill$ & 
+		$\left(\begin{array}{ccc|c}
+		0 	& 0 	& 1 	& 1	\\
+		0	& 1		& 0 	& 1	\\
+		1	& -1	& 0 	& 0	\\
+		\end{array}\right)$
+		& $\hfill \Leftrightarrow \hfill$ & 
+		$\left(\begin{array}{ccc|c}
+		0 	& 0 	& 1 	& 1	\\
+		0	& 1		& 0 	& 1	\\
+		1	& 0 	& 0 	& 1	\\
+		\end{array}\right)$
+	\end{tabular}\\
+	\fontsize{12}{12}
+	Эта система уравнений имеет единственное решение $u = v = w = 1$. Но оно не удовлетворяет ограничению двойственной задачи $u \leq 0$, следовательно двойственная задача несовместна, следовательно невозможно подобрать коэффициенты, чтобы вывести из исходной задачи неравенство $x-y+z \leq d$, следовательно не существует $d$, ограничивающего сверху целевую функцию, следовательно она неограничена. 
+
+
+
+\end{document}

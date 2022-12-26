@@ -1,0 +1,121 @@
+\documentclass{article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[a4paper, left=10mm, right=10mm, top=12mm, bottom=15mm]{geometry}
+\usepackage{mathtools,amssymb}
+\usepackage{ulem}
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+
+
+\linespread{1.4}
+
+\newenvironment{task}{\begin{center}\fontsize{14}{14}\selectfont\bf}{\rm\fontsize{12}{12}\selectfont\end{center}}
+
+\newcommand{\cvec}[1]{\left(\begin{array}{c} #1 \end{array}\right)}
+
+\newcommand{\impl}{\quad\Leftrightarrow\quad}
+\newcommand{\rimpl}{\quad\Rightarrow\quad}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+\begin{document}
+	\begin{center}
+		Токмаков Александр, ФКН, группа БПМИ165 \\
+		Домашнее задание 6
+	\end{center}
+	
+	\begin{task} 
+		№1
+	\end{task}
+	\begin{center}
+		$z = a + ib$ - некоторое комплексное число \\
+		$f(z) = (a + ib) \cdot (1 - i\sqrt{3}) = a - ia\sqrt{3} + ib + b\sqrt{3}$
+	\end{center}
+	Посмотрим на $\mathbb{C}$ как на векторное пространство с базисом $(\vec{1}, \vec{i})$ (легко заметить, что он ортонормированный), а на $f$ как на линейный оператор:
+	\begin{center}
+		$\vec{z} = a\cdot\vec{1} + b\cdot \vec{i} =  \cvec{a \\ b}$\\
+		$f(\vec{z}) = (a\cdot 1 + b\cdot\sqrt{3})\cdot \vec{1} + (a \cdot (-\sqrt{3}) + b\cdot 1)\cdot\vec{i} 
+		= \left(\begin{array}{cc} 1 & \sqrt{3} \\ -\sqrt{3} & 1 \end{array}\right) \cdot \cvec{a\\b} = Az$ \\
+		$A =  \left(\begin{array}{cc} 1 & \sqrt{3} \\ -\sqrt{3} & 1 \end{array}\right) = 2\cdot\left(\begin{array}{cc} \frac{1}{2} & \frac{\sqrt{3}}{2} \\ -\frac{\sqrt{3}}{2} & \frac{1}{2} \end{array}\right)
+		 = 2\cdot\left(\begin{array}{lr} \cos\left(-\frac{\pi}{2}\right) & -\sin\left(-\frac{\pi}{2}\right) \\ \sin\left(-\frac{\pi}{2}\right) & \cos\left(-\frac{\pi}{2}\right) \end{array}\right) = 2\cdot B$
+	\end{center}
+	Т.е. $f$ - это композиция поворота на $-\frac{\pi}{2}$ (поворот не меняет расстояния) и умножения на 2 (все расстояния увеличиваются в 2 раза):
+	\begin{center}
+		$\vec{u}, \vec{v} \in \mathbb{C}$ - некоторые вектора, $|\vec{u} - \vec{v}|$ - расстояние между ними \\
+		$|f(\vec{u}) - f(\vec{v})| = |2Bu - 2Bv| = 2 |B(u - v)| = 2|u - v|$\\ (последнее равенство верно т.к. $B$ - ортогональная матрица)
+	\end{center}
+	
+	\begin{task} 
+		№2
+	\end{task}
+
+	Пусть угол образуется исходящими из точки $O$ лучами $a$ и $b$.
+	
+	Если угол развёрнутый, то нужно построить перпендикуляр к прямой $c$ ($a, b, O \in c$), проходящий через точку $O$. Для этого выберем некоторый раствор циркуля $r$ и построим окружность с центром в точке $O$. Она пересечёт прямую в двух различных точках $A$ и $B$ по разные стороны от $O$. Выберем раствор циркуля $R > r$ и построим две окружности равного радиуса с центрами в $A$ и в $B$. Эти окружности пересекутся в двух различных точках $C$ и $D$ по разные стороны от прямой $c$ (т.к. $R > r$). Проведём прямую $d$ через эти точки, она будет перпендикулярна $c$ т.к. $ACBD$ - ромб (его стороны равны $R$), а его диагонали лежат на прямых $c$ и $d$. Очевидно, что треугольники $ACO$ и $BCO$ равны, значит $AO=OB$, значит $c\cap d = O$ (точка пересечения диагоналей ромба делит их пополам). Т.е. $d$ - перпендикуляр к прямой $c$, проходящий через точку $O$.
+	
+	Если угол в ноль градусов, то ничего строить не надо, биссектриса совпадает с его сторонами.
+	
+	В остальных случаях выберем некоторый раствор циркуля $r$ и построим окружность с центром в точке $O$. Она пересечёт лучи в точках $A\in a$ и $B\in b$. Описанным выше способом построим прямую $c$, проходящую через точку $A$ и перпендикулярную лучу $a$. Построим прямую $d$, проходящую через точку $B$ и перпендикулярную лучу $b$. Прямые $c$ и $d$ пересекутся в единственной точке $C$ т.к. они не параллельны и не совпадают т.к. угол не вырожденный. Проведём прямую $OC$, она и будет биссектрисой. Действительно, треугольники $BOC$ и $AOC$ равны т.к. они прямоугольные, $OC$ общая и $OA=OB=r$. Значит, углы $BOC$ и $AOC$ тоже равны.
+	 
+	
+	\begin{task} 
+		№3
+	\end{task}
+	\fontsize{14}{14}\selectfont
+	\begin{center}
+		$\frac{(1 + i\sqrt{3})^{2017}}{(1 + i)^{4024}} 
+		= \frac{2^{2017}\cdot\left( \cos\left(\frac{\pi}{3}\right)  + i\sin\left(\frac{\pi}{3}\right)\right) ^{2017}}
+		{(\sqrt{2})^{4024}\cdot\left( \cos\left(\frac{\pi}{4}\right) + i\sin\left(\frac{\pi}{4}\right)\right) ^{4024}} 
+		= 2^{5}\cdot\frac{\left( \cos\left(\frac{\pi}{3}\right)  + i\sin\left(\frac{\pi}{3}\right)\right) ^{2017}}
+		{\left( \cos\left(\frac{\pi}{4}\right) + i\sin\left(\frac{\pi}{4}\right)\right) ^{4024}} 
+		= 32\cdot\frac{ \cos\left(\frac{2017\pi}{3}\right)  + i\sin\left(\frac{2017\pi}{3}\right)}
+		{\cos\left(\frac{4024\pi}{4}\right) + i\sin\left(\frac{4024\pi}{4}\right)} =$\\$
+		= 32\cdot\frac{\cos\left(672\pi + \frac{\pi}{3}\right)  + i\sin\left(672\pi + \frac{\pi}{3}\right)}
+		{\cos\left(1006\pi\right) + i\sin\left(1006\pi\right)} 
+		= 32\cdot\frac{\cos\left(\frac{\pi}{3}\right)  + i\sin\left(\frac{\pi}{3}\right)}
+		{\cos\left(0\right) + i\sin\left(0\right)} 
+		= 32\left( \frac{1}{2} + i\frac{\sqrt{3}}{2} \right) = 16(1 + i\sqrt{3})$
+	\end{center}
+	\fontsize{12}{12}\selectfont
+	 \newpage
+	
+	\begin{task} 
+		№4
+	\end{task}
+
+	Сначала опишем, как "удвоить" угол, т.е. по заданному углу построить равный так, чтобы у них была общая сторона. 
+	Пусть дан невырожденный угол: лучи $a$ и $b$ - его стороны, $a\cap b = O$. 
+	Выберем некоторый раствор циркуля $r$ и построим окружность $O_1$ с центром в точке $O$. Она пересечёт лучи в точках $A\in a$ и $B\in b$. Выберем раствор циркуля $r=AB$ и проведём окружность $O_2$ с центром в точке $B$. Она пересечёт окружность $O_1$ в точке $A$ (т.к. $r=AB$) и некоторой точке $C$. Проведём луч $OC$. Теперь углы $AOB$ и $BOC$ равны т.к. равны соответствующие треугольники т.к. $OA=OB=OC=r$, $AB=BC$.
+	
+	Теперь проведём через точку $O$ перпендикуляр к одной из сторон данного нам угла в 27 градусов (как это сделать описано в задаче 2). Теперь дважды удвоим данный угол, как описано выше, чтобы получился угол в $3\cdot27=81$ градусов, разделённый на три равных угла по 27 градусов. Так мы получим угол в $90 - 81 = 9$ градусов, который можно так же продублировать и получить угол в 27 градусов, разделённый на 3 равных.   
+	
+
+	\begin{task} 
+		№5
+	\end{task}
+	\begin{center}
+		$x^5 - 1 = 0 \impl x^5 = 1 \impl x = \sqrt[5]{1} = \sqrt[5]{\cos(2\pi n) + i\sin(2 \pi n)} = $\\$
+		= \left\lbrace  \cos\left(\frac{2\pi n}{5}\right) + i\sin\left(\frac{2 \pi n}{5}\right) \left|\right. n\in\Z \right\rbrace
+		= \left\lbrace  \cos\left(\frac{2\pi n}{5}\right) + i\sin\left(\frac{2 \pi n}{5}\right) \left|\right. n\in \lbrace0, 1, 2, 3, 4\rbrace \right\rbrace$
+	\end{center}
+
+
+	\begin{task} 
+		№6
+	\end{task}
+	\begin{center}
+		$x^2 + y^2 = z^2, \quad x, y, z \in\N$ \\
+		Если $y=z$, то $x=0$. Будем считать, что 0 - не натуральное и $y<z$.
+		$x^2 = z^2 - y^2 = (z - y)(z + y) \impl \frac{x}{z-y}=\frac{z+y}{x} = \frac{p}{q}, \quad p, q\in\N$ \\
+		$\frac{p}{q} = \frac{z + y}{x} = \frac{z}{x} + \frac{y}{x}, \quad \frac{q}{p} = \frac{z-y}{x} = \frac{z}{x} - \frac{y}{x} \impl \frac{z}{x} = \frac{p}{q} + \frac{q}{p} = \frac{p^2 + q^2}{2pq}\cdot\frac{n}{n}, \quad \frac{y}{x}=\frac{p}{q} - \frac{q}{p} = \frac{p^2 - q^2}{2pq}\cdot\frac{n}{n}, \quad n\in\N$
+	\end{center}
+	Таким образом, любая пифагорова тройка представима в виде 
+		\begin{center}$x = 2npq, y = np^2 - nq^2, z = np^2 + nq^2, n,p, q\in\N$\\\end{center}
+	Пусть $x = 2npq, y = np^2 - nq^2, z = np^2 + nq^2, n, p, q\in\N$, тогда:
+	\begin{center}
+		$x^2 + y^2 = n^2(4p^2q^2 + p^4 - 2p^2q^2 + q^4) = n^2(p^4 +2p^2q^2 +q^4) = z^2 \rimpl x, y, z$ - пифагорова тройка
+	\end{center}
+	
+\end{document}

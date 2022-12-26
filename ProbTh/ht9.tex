@@ -1,0 +1,97 @@
+\documentclass{article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[a4paper, left=10mm, right=10mm, top=12mm, bottom=15mm]{geometry}
+\usepackage{mathtools,amssymb}
+\usepackage{graphicx}
+
+\linespread{1.4}
+
+\newcommand{\impl}{\quad\Leftrightarrow\quad}
+\newcommand{\rimpl}{\quad\Rightarrow\quad}
+\newcommand{\E}[1]{\mathbb{E}[ #1 ]}
+\newcommand{\D}[1]{\mathbb{D}[ #1 ]}
+
+\newenvironment{task}{\begin{center}\fontsize{14}{14}\selectfont\bf}{\rm\fontsize{12}{12}\selectfont\end{center}}
+
+
+\begin{document}
+	\begin{center}
+		Токмаков Александр, группа БПМИ165 \\
+		Домашнее задание 9
+	\end{center}
+	
+	\begin{task} 
+		№1б
+	\end{task}
+	\begin{center}
+		$\xi$ -- количество красных шаров\\
+		%$P(\xi = 0) = \frac{5}{5+7}\cdot \frac{5}{5+7} = \frac{25}{144}$\\
+		$P(\xi = 1) = \frac{7}{5+7}\cdot\frac{5}{5+7} + \frac{5}{5+7}\cdot\frac{7}{5+7} = \frac{35}{72}$\\
+		$P(\xi = 2) = \frac{7}{5+7}\cdot\frac{7}{5+7} = \frac{49}{144}$\\
+		$\E{\xi} = 0\cdot P(\xi=0) + 1\cdot P(\xi=1) + 2\cdot P(\xi=2) = \frac{35}{72} + \frac{49}{72} = \frac{21}{18} = \frac{7}{6}$
+	\end{center}
+	
+%======================================================================================================
+	
+		\begin{task} 
+		№3
+	\end{task}
+	Можно считать, что каждая цифра $a, b, c$ выбирается независимо с вероятностью $\frac{1}{10}$. Тогда:
+	\begin{center}
+		$\E{a + b + c} = \E{a} + \E{b} + \E{c} = 3\E{a} = 3\sum\limits_{a = 0}^{9} a\cdot P(a) = \frac{3}{10}\sum\limits_{a = 0}^{9} = \frac{3\cdot 45}{10} = \frac{27}{2}$\\
+	\end{center}
+	
+	
+%======================================================================================================
+		
+	\begin{task} 
+		№6а
+	\end{task}
+	Вероятность того, что процесс завершится на $k$-том шаге ($k\not=N$) равна $(1 - p)^{k-1}p = q^{k-1}p$ (выпало $k-1$ решек и один орёл), на последнем шаге -- $q^{N-1}$ (выпало $N-1$ решек и что-то).
+	\begin{center}
+		$\E{k} = \sum\limits_{k = 1}^{N-1}k\cdot q^{k-1}p  + N\cdot q^{N-1} = p\sum\limits_{k = 1}^{N-1}k\cdot q^{k-1}  + N\cdot q^{N-1} = pS_{N-1} + Nq^{N-1}$\\\vspace{5px}
+		$(1 - q)S_{N-1} = \sum\limits_{k = 1}^{N-1}kq^{k-1} - \sum\limits_{k = 1}^{N-1}kq^{k} 
+		 = \sum\limits_{k = 0}^{N-2}(k+1)q^{k} - \sum\limits_{k = 1}^{N-1}kq^{k} = 
+		 = q^0 + \sum\limits_{k = 1}^{N-2}kq^{k} + \sum\limits_{k = 1}^{N-2}q^{k} - \sum\limits_{k = 1}^{N-2}kq^{k} - (N-1)q^{N-1} =$\\\vspace{5px}$
+		 = 1 + \frac{1 - q^{N-2}}{1 - q} - (N-1)q^{N-1} = \frac{2 - q - q^{N-2} - (1-q)(N-1)q^{N-1}}{1 - q}$ \\ \vspace{5px}
+		 $\E{k} = p\cdot \frac{2 - q - q^{N-2} - (1-q)(N-1)q^{N-1}}{(1 - q)^2} + Nq^{N-1} 
+				= \frac{2 - q - q^{N-2} - p(N-1)q^{N-1}}{p} + Nq^{N-1} 
+				= \frac{2 - q - q^{N-2} - pNq^{N-1} + pq^{N-1} + pNq^{N-1}}{p} = $\\\vspace{5px}$
+				= \frac{2 - q - q^{N-2}(1 + pq)}{p}$
+	\end{center}
+	
+	
+%======================================================================================================
+	
+		
+	\begin{task} 
+		№10
+	\end{task}
+	\begin{center}
+		$f(a) = \E{(\xi - a)^2} = \E{\xi^2 - 2\xi a + a^2} = \E{\xi^2} - 2a\E{\xi} + a^2$\\
+	\end{center}
+	Можно заметить, что $\E{\xi^2}$ и $\E{\xi}$ -- некоторые константы, а $f(a)$ -- парабола, ветви которой направлены вверх. Значит, минимум $\min_a f(a)$ достигается в вершине параболы т.е. при $a = - \frac{-2\E{\xi}}{2} = \E{\xi}$ и $\min_a f(a) = \E{(\xi - \E{\xi})^2} = \D{\xi}$
+	
+%======================================================================================================
+			
+	\begin{task} 
+		№11
+	\end{task}
+	\begin{center}
+		$\E{\xi} = \sum\limits_{n = 0}^{6}n\cdot C_6^n\cdot\left(\frac{1}{6}\right)^n\cdot\left(\frac{5}{6}\right)^{6-n} = 1$\\
+		$\D{\xi} = \E{\xi^2} - (\E{\xi})^2 = \sum\limits_{n = 0}^{6}n^2\cdot C_6^n\cdot\left(\frac{1}{6}\right)^n\cdot\left(\frac{5}{6}\right)^{6-n} - 1 = \frac{11}{6} - 1 = \frac{5}{6}$ \\
+		$P(\xi = 0) = \left(\frac{5}{6}\right)^6 < \frac{1}{2} \rimpl P(\xi \geq 1) = 1 - P(\xi = 0) > \frac{1}{2} \rimpl$ вероятность выпадения хотя бы одной шестёрки больше.
+	\end{center}
+	
+%======================================================================================================	
+	
+	
+	
+	
+	
+
+	
+\end{document}

@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[a4paper, left=10mm, right=10mm, top=12mm, bottom=15mm]{geometry}
+\usepackage{mathtools,amssymb}
+\usepackage{graphicx}
+
+\linespread{1.4}
+
+\newcommand{\impl}{\quad\Leftrightarrow\quad}
+\newcommand{\rimpl}{\quad\Rightarrow\quad}
+\newcommand{\E}[1]{\mathbb{E}[ #1 ]}
+\newcommand{\D}[1]{\mathbb{D}[ #1 ]}
+
+\newcommand{\pih}{\frac{\pi}{2}}
+
+\newenvironment{task}{\begin{center}\fontsize{14}{14}\selectfont\bf}{\rm\fontsize{12}{12}\selectfont\end{center}}
+
+
+\begin{document}
+	\begin{center}
+		Токмаков Александр, группа БПМИ165 \\
+		Домашнее задание 10
+	\end{center}
+	
+	\begin{task} 
+		№2b
+	\end{task}
+	\begin{center}
+		$\rho(x) = \frac{1}{2}e^{-|x|}$ \\\vspace{5px}
+		$\E{x} = \int\limits_{-\infty}^{+\infty}x\rho(x)dx 
+		 = \int\limits_{-\infty}^{0}xe^{x}dx + \int\limits_{0}^{+\infty}xe^{-x}dx
+		 = \int\limits_{-\infty}^{0}xe^{x}dx - \int\limits_{0}^{-\infty}xe^{-x}d(-x) 
+		 = \int\limits_{-\infty}^{0}xe^{x}dx - \int\limits_{-\infty}^{0}(-x)e^{-x}d(-x)
+		 = 0$ \\\vspace{5px}
+		$\E{x^2}
+		= \int\limits_{-\infty}^{0}x^2e^{x}dx + \int\limits_{0}^{+\infty}x^2e^{-x}dx
+		= \int\limits_{-\infty}^{0}x^2e^{x}dx - \int\limits_{0}^{-\infty}x^2e^{-x}d(-x) 
+		= \int\limits_{-\infty}^{0}x^2e^{x}dx + \int\limits_{-\infty}^{0}(-x)^2e^{-x}d(-x)
+		= 2\int\limits_{-\infty}^{0}x^2e^{x}dx =$\\\vspace{3px}$
+		= 2x^2e^x \Big|_{-\infty}^{0} - 2\int\limits_{-\infty}^{0}2xe^{x}dx
+		= 2x^2e^x \Big|_{-\infty}^{0} - 4xe^x \Big|_{-\infty}^{0} + 4\int\limits_{-\infty}^{0}e^{x}dx
+		= (2x^2e^x - 4xe^x + 4e^x) \Big|_{-\infty}^{0} = (0 - 0 + 4) - (0 - 0 + 0) = 4$ \\\vspace{5px}
+		$\D{x} = \E{x^2} - (\E{x})^2 = 4$
+	\end{center}
+	
+%======================================================================================================
+	
+		\begin{task} 
+		№2c
+	\end{task}
+	\begin{center}
+		$\rho(x) = \begin{cases}
+		\sin(x)\quad $if$\hspace{3px}  x \in [0; \frac{\pi}{2}] \\
+		0 \quad $else$
+		\end{cases}$ \\\vspace{3px}
+		$\E{x} = \int\limits_{-\infty}^{+\infty}x\rho(x)dx 
+		= \int\limits_{0}^{\pih}x\sin(x)dx
+		= -\int\limits_{1}^{0}xd\cos(x)
+		= -x\cos(x) \Big|_{0}^{\pih} + \int\limits_{0}^{\pih}\cos(x)dx
+		= (-x\cos(x) + \sin(x)) \Big|_{0}^{\pih} = (0 + 1) - (0 + 0) = 1$\\\vspace{3px}
+		$\E{x} = \int\limits_{-\infty}^{+\infty}x^2\rho(x)dx 
+		= \int\limits_{0}^{\pih}x^2\sin(x)dx
+		= -\int\limits_{1}^{0}x^2d\cos(x)
+		= -x^2\cos(x) \Big|_{0}^{\pih} + \int\limits_{0}^{\pih}2x\cos(x)dx
+		= -x^2\cos(x) \Big|_{0}^{\pih} + 2\int\limits_{0}^{1}xd\sin(x)=$\\\vspace{5px}$
+		= -x^2\cos(x) \Big|_{0}^{\pih} + 2x\sin(x)\Big|_{0}^{\pih} - 2\int\limits_{0}^{\pih}\sin(x)dx
+		= (-x^2\cos(x) + 2x\sin(x) + 2\cos(x)) \Big|_{0}^{\pih} = (0 + \pi + 0) - (0 + 0 + 2) = \pi - 2$ \\\vspace{5px}
+		$\D{x} = \E{x^2} - (\E{x})^2 = (\pi - 2) - 1 = \pi - 3$
+	\end{center}
+	
+	
+	
+	
+
+	
+\end{document}

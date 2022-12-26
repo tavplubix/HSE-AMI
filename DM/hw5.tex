@@ -1,0 +1,132 @@
+\documentclass{article}
+\usepackage{cmap}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[a4paper, left=10mm, right=10mm, top=12mm, bottom=15mm]{geometry}
+\usepackage{mathtools,amssymb}
+\usepackage{graphicx}
+
+\newenvironment{task}{\begin{center}\fontsize{14}{14}\selectfont\bf}{\rm\fontsize{12}{12}\selectfont\end{center}}
+
+\newcommand{\tch}{\hspace{4px}|\hspace{4px}}
+\newcommand{\impl}{\quad \Leftrightarrow \quad}
+\newcommand{\rimpl}{\quad \Rightarrow \quad}
+\newcommand{\res}[3]{\begin{array}{lcr} #1 & & #2 \\ \hline & #3 \end{array}}
+\newcommand{\com}{, \hspace{5px}}
+
+\begin{document}
+	\begin{center}
+		Токмаков Александр, группа БПМИ165 \\
+		Домашнее задание 5
+	\end{center}
+
+%==============================================================================================
+	
+	\begin{task} 
+		№1
+	\end{task}
+	\begin{center}
+	$BS(x, y) \eqcirc \neg(x=y) \wedge \exists z (P(z, x) \wedge P(z, y))$ -- $x$ брат или сестра $y$ \\
+	$B(x, y) \eqcirc M(x) \wedge BS(x, y)$ -- $x$ брат $y$ \\
+	$T(x, y) \eqcirc F(x) \wedge M(y) \wedge \exists z (C(y, z) \wedge P(x, z))$ -- $x$ тёща $y$ \\
+	$N(x, y) \eqcirc M(x) \wedge (\exists z (BS(z, y) \wedge P(z, x)))$ -- $x$ племянник $y$ \\
+	$G(x, y) \eqcirc M(x) \wedge (\exists z (P(y, z) \wedge P(z, x))$ -- $x$ внук $y$ \\
+	\end{center}
+	
+%==============================================================================================
+
+		
+	\begin{task} 
+		№2
+	\end{task}
+	\begin{center}
+		$(\forall a\ \exists b \ C(a, b))\wedge(\forall c\ \exists d\ C(d, c)) \wedge (\neg\exists e\ (\forall f\ C(e, f)))$
+	\end{center}
+	
+%==============================================================================================
+	
+	\begin{task} 
+		№3
+	\end{task}
+	\begin{center}
+		$\forall a\ \forall b\ \forall c\ \forall d\ \exists x\ (\neg (a = 0)\ \rightarrow\ (a\cdot x\cdot x\cdot x + b\cdot x\cdot x + c\cdot x + d = 0))$
+	\end{center}
+	
+%==============================================================================================
+		
+		
+	\begin{task} 
+		№4
+	\end{task}
+	\begin{center}
+		$a < b \eqcirc \exists c\ (a + c = b)$ \\
+		$D(a, b) \eqcirc \exists c\ (a = b\cdot c)$ \\
+		$CD(x, y, z) \eqcirc D(y, x) \wedge D(y, z)$ \\
+		$GCD(x, y, z) \eqcirc CD(x, y, z) \wedge \neg \exists t\ (CD(t, y, z) \wedge (t < x))$
+	\end{center}
+	
+%==============================================================================================
+	
+			
+	\begin{task} 
+		№6
+	\end{task}
+	\begin{center}
+		$\left[ \forall x\ (P(x) \rightarrow Q(f(x))) \wedge \forall x\ (Q(x) \rightarrow P(f(x))) \wedge \forall x\ f(f(x)) = f(x) \right] \quad \rightarrow \quad \left[ \exists x\ (P(x) \vee Q(x)) \rightarrow \exists x\ (P(x) \wedge Q(x)) \right]$
+	\end{center}
+
+	Если выражение, стоящее слева от импликации ложно, то формула истинна. Покажем, что если выражение, стоящее слева от импликации, истинно, то выражение, стоящее справа, тоже истинно (т.е. не может быть такого, что слева истина, а справа ложь). Это будет значить, что формула всегда истинна.
+	
+	Пусть выражение слева истинно. Тогда истинны все три конъюнкта, из которых оно состоит. Возьмём некоторый $x_1$. Выражения, стоящие под кванторами всеобщности должны быть истинны для любого $x$, в том числе для $x_1$ и $x_2 = f(x_1)$. Подставим $x_1$ в третий конъюнкт: $f(f(x_1)) = f(x_1)$ т.е. $f(x_2) = f(x_1)$. Подставим $x_2$ в первый и второй конъюнкты:
+	$(P(x_2) \rightarrow Q(f(x_2))) \wedge (Q(x_2) \rightarrow P(f(x_2)))$ т.е. $(P(f(x_1)) \rightarrow Q(f(x_2))) \wedge (Q(f(x_1)) \rightarrow P(f(x_2)))$, но т.к. $f(x_2) = f(x_1)$, получим $(P(f(x_1)) \rightarrow Q(f(x_1))) \wedge (Q(f(x_1)) \rightarrow P(f(x_1)))$ т.е. $(P(x_2) \rightarrow Q(x_2)) \wedge (Q(x_2) \rightarrow P(x_2)))$ т.е. $P(x_2) \equiv Q(x_2)$.
+	
+	Таким образом, если для некоторого $x_2$ из множества значений $f$ верно $(P(x) \vee Q(x))$, то для него же верно $(P(x) \wedge Q(x))$, и тогда правое выражение истинно и формула тоже. Если в множестве значений значений $f$ нет таких $x_2$, то $\forall x\ \neg (P(f(x)) \vee Q(f(x)))$ т.е. $P(f(x))$ и $Q(f(x))$ ложны для любого $x$, но тогда $P(x)$ и $Q(x)$ тоже ложны для любого $x$ т.к. $\forall x\ (P(x) \rightarrow Q(f(x))) \wedge \forall x\ (Q(x) \rightarrow P(f(x)))$, и тогда $(P(x) \vee Q(x))$ тоже ложно для любого $x$, значит импликация $\exists x\ (P(x) \vee Q(x)) \rightarrow \exists x\ (P(x) \wedge Q(x))$ истинна, значит вся формула истинна.
+	
+%==============================================================================================
+
+
+	\begin{task} 
+		№7
+	\end{task}
+	\begin{center}
+		$\forall x\ g(f(x)) = x\ \wedge \ \exists y\ \forall x\ \neg(f(x) = y)$
+	\end{center}
+	Внимательно посмотрим на конъюнкты. Первый конъюнкт означает, что для отображения $f$ есть левое обратное отображение, т.е. $f$ - инъекция. Второй конъюнкт означает, что отображение $f$ - не сюръекция. Выберем\ $f(x) = e^x$ (носитель -- $\mathbb{R}$), тогда $g(x) = \ln(x)$. Действительно, $\forall x\ \ln(e^x) = x$ и при $y = 0$ верно $\forall x\ e^x \not= 0$. 
+	
+%==============================================================================================
+	
+	\begin{task} 
+		№8
+	\end{task}
+	\begin{center}
+		a) $\lbrace \exists x\ \forall y\ \neg P(x, y), \quad \exists y\ \forall x\ P(x, y)\rbrace$
+	\end{center}
+	Возьмём $x_1$, для которого $\forall y\ \neg P(x, y)$, и подставим его в формулы: $\lbrace \forall y\ \neg P(x_1, y), \quad \exists y\ P(x_1, y)\rbrace$. Возьмём $y_1$, для которого $P(x_1, y)$, получим $\lbrace \neg P(x_1, y_1), \quad \exists y\ P(x_1, y_1)\rbrace$, значит теория несовместна.
+	
+	\begin{center}
+		б) $\lbrace \forall x\ \neg P(x, x), \quad \forall x\forall y\forall z\ (P(x, y)\wedge P(y, z) \rightarrow P(x, z)), \quad \exists x\exists y\ (P(x, y) \wedge P(y, x))\rbrace$
+	\end{center}
+	Возьмём $x_1$ и $y_1$, для которых $(P(x, y) \wedge P(y, x))$, и подставим его в формулы: $\lbrace \neg P(x_1, x_1), \quad \forall z\ (P(x_1, y_1)\wedge P(y_1, z) \rightarrow P(x_1, z)), \quad (P(x_1, y_1) \wedge P(y_1, x_1))\rbrace$. Выберем $z = x_1$, получим $\lbrace \neg P(x_1, x_1), \quad (P(x_1, y_1)\wedge P(y_1, x_1) \rightarrow P(x_1, x_1)), \quad (P(x_1, y_1) \wedge P(y_1, x_1))\rbrace$. Т.е. $(P(x_1, y_1) \wedge P(y_1, x_1))$ истинно, значит истинно $P(x_1, x_1)$, но также должно быть истинно $\neg P(x_1, x_1)$ -- противоречие, теория несовместна.
+	
+	\begin{center}
+		в) $\lbrace 
+		\forall x\ P(x, x), \quad
+		\forall x\forall y\forall z\ (P(x, y)\wedge P(y, z) \rightarrow P(x, z)), \quad
+		\forall x\exists y\ P(x, y), \quad
+		\exists x\exists y\ \neg(P(x, y) \wedge P(y, x))
+		\rbrace$
+	\end{center}
+	Приведём пример, который показывает, что эта теория совместна: $P(x, y)$ -- отношение <<$x$ делит $y$>> на натуральных числах (без нуля). Оно рефлексивно (любое число делит себя), транзитивно, единица делит любое число, есть два числа для которых $\neg(P(x, y) \wedge P(y, x))$.
+		
+	
+%==============================================================================================
+		
+
+
+
+
+
+
+
+\end{document}

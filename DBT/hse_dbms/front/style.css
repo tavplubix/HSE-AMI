@@ -1,0 +1,241 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, dl, dt, dd, ol, ul, li,
+fieldset, form {
+    margin-left: 0px;
+    margin-bottom: 20px;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    font-family: 'Montserrat', sans-serif;
+    color: #a35d5d;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin-left: 120px;
+    font-size: 150%;
+}
+
+button:focus {outline:0;}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    background: #61744e;
+    border-radius: 60%;
+    border-color: white;
+    margin-left: 50px;
+    color: white;
+    font-size: 200%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.circle:active {
+
+}
+
+.add_deadline_cicle {
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.buttons {
+    text-align: center;
+    margin-bottom: 5px;
+    position: relative;
+    width: 1500px;
+}
+
+.buttons span {
+    margin-right: 50%;
+}
+
+.triangle-right {
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-left: 50px solid #a35d5d;
+    border-bottom: 20px solid transparent;
+    border-right: white;
+    background-color: white;
+    margin-left: 10px;
+}
+
+.triangle-left {
+    width: 0;
+    height: 0;
+    border-top: 20px solid white;
+    border-right: 50px solid #a35d5d;
+    border-bottom: 20px solid transparent;
+    border-left: white;
+    background-color: white;
+    margin-right: 10px;
+}
+
+.button {
+    height: 30px;
+    background-color: #a35d5d;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 2px 2px;
+    cursor: pointer;
+    font-size: 90%;
+    vertical-align: baseline;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.deadline {
+    margin-left: 100px;
+    margin-bottom: 20px;
+    padding: 0;
+    border: 1px;
+    font-size: 80%;
+    font-family: 'Montserrat', sans-serif;
+    width: 1400px;
+    height: 700px;
+    display: inline-block;
+    position: relative;
+}
+
+#new_dead_table {
+    height: 100px;
+}
+
+.dead_header {
+    text-transform: uppercase;
+    font-size: 110%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    margin: 10px;
+    height: 60px;
+}
+
+.dead_header th {
+    color: #61744e;
+}
+
+
+.deadline th {
+    margin-left: 20px;
+    width: 200px;
+    height: 60px;
+    border-color: #D1D1D1;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+}
+
+body, div, span, applet, object, iframe, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, section, summary,
+time, audio {
+    margin: 0px;
+    padding: 0;
+    border: 0;
+    font-size: 150%;
+    font: inherit;
+    vertical-align: baseline;
+    font-family: 'Montserrat', sans-serif;
+    color: #a35d5d;
+}
+
+.container {
+    margin: auto;
+    height: 520px;
+    width: 2000px;
+    display: inline-flex;
+    position: relative;
+}
+
+.date th {
+    width: 200px;
+    height: 50px;
+    border-color: #a35d5d;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: center;
+    padding-right: 10px;
+    color: #815e5f;
+    padding-top: 3px;
+}
+
+.date {
+    margin-left: 99px;
+    display: inline-flex;
+    position: relative;
+    width: 2000px;
+}
+
+.timings {
+    text-align: right;
+    padding-right: 10px;
+    width: 100px;
+    height: 520px;
+    display: inline-block;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    font-size: 0.7em;
+    box-sizing: border-box
+}
+
+.timings span {
+    font-size: 170%;
+    color: #815e5f;
+}
+
+.days {
+    height: 520px;
+    width: 200px;
+    padding: 0px 10px;
+    background-color: #F0F0F0;
+    border-color: #D1D1D1;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+}
+
+.event {
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-left-width: 5px;
+    border-color: #D1D1D1;
+    border-left-color: #815e5f;
+    padding-left: 4px;
+    padding-top: 5px;
+    position: absolute;
+    font-size: 0.4em;
+    box-sizing: border-box;
+}
+
+.event .title {
+    color: #815e5f;
+    font-size: 150%;
+}
